@@ -51,6 +51,11 @@ function App() {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
+        <Nav>
+            <LinkContainer to="/secrets/new">
+            <NavItem>Create Sharing Link (Login 1st)</NavItem>
+            </LinkContainer>
+        </Nav>
           <Nav pullRight>
             {isAuthenticated
               ? <NavItem onClick={handleLogout}>Logout</NavItem>
