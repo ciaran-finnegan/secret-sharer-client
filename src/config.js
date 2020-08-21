@@ -2,6 +2,8 @@
 // arn:aws:cognito-idp:ap-southeast-2:108061361141:userpool/ap-southeast-2_YLCDSpHtp
 
 export default {
+  MAX_ATTACHMENT_SIZE: 5000000,
+  DEFAULT_EXPIRY: 72,
     s3: {
       REGION: "ap-southeast-2",
       BUCKET: "secret-sharer-uploads"

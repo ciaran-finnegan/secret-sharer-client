@@ -10,7 +10,7 @@ import config from './config';
 
 Amplify.configure({
   Auth: {
-    mandatorySignIn: false,
+    mandatorySignIn: false, // we will allow unauthenticated users to put/get secrets
     region: config.cognito.REGION,
     userPoolId: config.cognito.USER_POOL_ID,
     identityPoolId: config.cognito.IDENTITY_POOL_ID,
@@ -19,12 +19,12 @@ Amplify.configure({
   Storage: {
     region: config.s3.REGION,
     bucket: config.s3.BUCKET,
-    identityPoolId: config.cognito.IDENTITY_POOL_ID
+    identityPoolId: config.cognito.IDENTITY_POOL_ID // unauthenticated users IAM role cannot access S3
   },
   API: {
     endpoints: [
       {
-        name: "notes",
+        name: "secret-sharer",
         endpoint: config.apiGateway.URL,
         region: config.apiGateway.REGION
       },
