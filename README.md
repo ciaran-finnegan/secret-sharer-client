@@ -1,5 +1,7 @@
 # Secret Sharing Web Client
 
+INCOMPLETE PROTOTYPE
+
 Secure secret sharing with expiring links
 
 Encrypts a message with a passphrase and stores a hash of the passphrase and the encrypted cipher and generates a unique URL to retrieve them.
