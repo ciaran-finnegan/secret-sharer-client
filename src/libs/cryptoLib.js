@@ -23,7 +23,7 @@ export function GeneratePassPhrase() {
     return hashString
    }
 
-   export function EncryptString(plaintext, passphrase) {
+   export function Encrypt(plaintext, passphrase) {
     // Accepts plaintext and passphrase as strings and returns cipher as string
     const cipher = cryptoAES.encrypt(plaintext, passphrase);
     const cipherString = cipher.toString();

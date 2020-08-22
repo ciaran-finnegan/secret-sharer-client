@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import { onError } from "../libs/errorLib";
-import { GeneratePassPhrase, EncryptString, CreateHash } from "../libs/cryptoLib";
+import { GeneratePassPhrase, Encrypt, CreateHash } from "../libs/cryptoLib";
 import config from "../config";
 import "./NewSecret.css";
 import { API } from "aws-amplify";
@@ -44,6 +44,10 @@ export default function NewSecret() {
     setIsLoading(true);
 
     try {
+      // todo, encrypt attaachment before uploading
+      // const encryptedFile = Encrypt(file.current, passphrase);
+      // const attachment = encryptedFile ? await s3Upload(file.current) : null;
+
       const attachment = file.current ? await s3Upload(file.current) : null;
       
       // attachment handling not yet implemented on backend
@@ -74,7 +78,7 @@ export default function NewSecret() {
     
     body.expiry = expiry;
     body.hash = CreateHash(passphrase);
-    body.cipher = EncryptString(secret, passphrase);
+    body.cipher = Encrypt(secret, passphrase);
 
     // Debug only
     // Find a way to set a debug switch which turns these on/off
