@@ -49,7 +49,7 @@ export default function NewSecret() {
       // const attachment = encryptedFile ? await s3Upload(file.current) : null;
 
       const attachment = file.current ? await s3Upload(file.current) : null;
-      
+
       // attachment handling not yet implemented on backend
       await createSecret({ secret, attachment });
       history.push("/"); // display URL & Passphrase not yet implemented
@@ -59,7 +59,8 @@ export default function NewSecret() {
     }
   }
   
-  function createSecret(body, attachmentName) {
+  // Todo, check if this is poor practice, passing secret & attachment into body
+  function createSecret(body) {
    // If no passphrase entered generate one
    // Todo, render this value in the form
     if (passphrase === "" ) {
