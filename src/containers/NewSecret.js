@@ -6,20 +6,27 @@ import { onError } from "../libs/errorLib";
 import { GeneratePassPhrase, EncryptString, CreateHash } from "../libs/cryptoLib";
 import config from "../config";
 import "./NewSecret.css";
-import { API } from "aws-amplify";
+import { API, a } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
+import Modal from './Modal';
 
 
 export default function NewSecret() {
   const file = useRef(null);
   const history = useHistory();
   let [secret, setSecret] = useState("");
-  let [passphrase, setPassphrase] = useState("");
+  let [passphrase, setPassphrase] = useState(GeneratePassPhrase());
   let [expiry, setExpiry] = useState("");
+  let [secretLink, setSecretLink] = useState('');
+  let [showModal, setShowModal] = useState(false);
   const suggestedPassphrase =  GeneratePassPhrase();
   const defaultExpiry = config.DEFAULT_EXPIRY;
 
   const [isLoading, setIsLoading] = useState(false);
+
+  function closeModal() {
+    setShowModal(false);
+  }
 
   function validateForm() {
     return secret.length > 0;
@@ -47,8 +54,11 @@ export default function NewSecret() {
       const attachment = file.current ? await s3Upload(file.current) : null;
       
       // attachment handling not yet implemented on backend
-      await createSecret({ secret, attachment });
-      history.push("/"); // display URL & Passphrase not yet implemented
+      const response = await createSecret({ secret, attachment });
+      const { url } = response;
+      setSecretLink(url);
+      setShowModal(true);
+      // history.push("/"); // display URL & Passphrase not yet implemented
     } catch (e) {
       onError(e);
       setIsLoading(false);
@@ -91,6 +101,12 @@ export default function NewSecret() {
 
   return (  
     <div className="NewSecret">
+      <Modal
+        show={showModal}
+        passphrase={passphrase}
+        secretLink={secretLink}
+        onCloseHandler={closeModal}
+      />
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="secret">
         <ControlLabel>Secret</ControlLabel>
@@ -105,7 +121,7 @@ export default function NewSecret() {
         <ControlLabel>Passphrase</ControlLabel>
           <FormControl
             value={passphrase}
-            type="password"
+            type="text"
             placeholder="Enter a complex passphrase with at least 10 characters"
             onChange={e => setPassphrase(e.target.value)}
           />
