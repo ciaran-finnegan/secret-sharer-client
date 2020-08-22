@@ -6,14 +6,14 @@ import { onError } from "../libs/errorLib";
 import { GeneratePassPhrase, Encrypt, CreateHash } from "../libs/cryptoLib";
 import config from "../config";
 import "./NewSecret.css";
-import { API, a } from "aws-amplify";
+import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
 import Modal from './Modal';
 
 
 export default function NewSecret() {
   const file = useRef(null);
-  const history = useHistory();
+  // const history = useHistory();
   let [secret, setSecret] = useState("");
   let [passphrase, setPassphrase] = useState(GeneratePassPhrase());
   let [expiry, setExpiry] = useState("");

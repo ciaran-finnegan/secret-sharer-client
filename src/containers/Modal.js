@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, Modal, FormControl, InputGroup, Button } from "react-bootstrap";
+import { FormGroup, Modal, FormControl, Button } from "react-bootstrap";
 
 export default class Example extends React.Component {
   
