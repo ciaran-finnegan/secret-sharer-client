@@ -7,12 +7,13 @@ import { GeneratePassPhrase, EncryptString, CreateHash } from "../libs/cryptoLib
 import config from "../config";
 import "./NewSecret.css";
 import { API } from "aws-amplify";
+import { s3Upload } from "../libs/awsLib";
 
 
 export default function NewSecret() {
   const file = useRef(null);
   const history = useHistory();
-  const [secret, setSecret] = useState("");
+  let [secret, setSecret] = useState("");
   let [passphrase, setPassphrase] = useState("");
   let [expiry, setExpiry] = useState("");
   const suggestedPassphrase =  GeneratePassPhrase();
@@ -41,18 +42,21 @@ export default function NewSecret() {
     }
   
     setIsLoading(true);
-  
+
     try {
-      await createSecret({ secret });
-      history.push("/");
+      const attachment = file.current ? await s3Upload(file.current) : null;
+      
+      // attachment handling not yet implemented on backend
+      await createSecret({ secret, attachment });
+      history.push("/"); // display URL & Passphrase not yet implemented
     } catch (e) {
       onError(e);
       setIsLoading(false);
     }
   }
   
-  function createSecret(body) {
-   // If not passphrase entered generate one
+  function createSecret(body, attachmentName) {
+   // If no passphrase entered generate one
    // Todo, render this value in the form
     if (passphrase === "" ) {
         passphrase = suggestedPassphrase;
@@ -67,12 +71,14 @@ export default function NewSecret() {
     delete body.secret;
 
     // Add items to body object to send to putSecret RESTful API 
+    
     body.expiry = expiry;
     body.hash = CreateHash(passphrase);
     body.cipher = EncryptString(secret, passphrase);
 
     // Debug only
     // Find a way to set a debug switch which turns these on/off
+    console.log(`debug: attachment : ${body.attachment}`);
     console.log(`debug: passphrase : ${passphrase}`);
     console.log(`debug: suggestedPassphrase : ${suggestedPassphrase}`);
     console.log(`debug: expiry : ${expiry}`);

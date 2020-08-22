@@ -40,8 +40,11 @@ It is recommended that the link and passphrase are communicated to the recipient
 ### Additional Features
 
 -   Functional
-    -   Add a passphrase hint feature (means passphrase may not need to be sent if the sender and  receiver share some knowlege, e.g. 'that cafe where we had the nice fish')
     -   Implement Web Share API for link, passphrase or hint (require separate channels)
+    -   Package as a personal web app so it appears in sharing menu (Google Android only, https://web.dev/customize-install/#criteria)
+    -   Add a passphrase hint feature (means passphrase may not need to be sent if the sender and receiver share some knowlege, e.g. 'that cafe where we had the nice fish')
+    -   
+   
 -   Security and Compliance
     -   Rate limit / require captcha for more than 100 requests per day from unique IPs
     -   Block requests from known malicious networks
