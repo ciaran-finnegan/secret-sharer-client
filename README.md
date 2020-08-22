@@ -35,8 +35,18 @@ It is recommended that the link and passphrase are communicated to the recipient
         -   If rate limit is in place send message to requester
     - Backend features
     -   Delete expired items in DynamoDB every 30 days
+    -   A copy button should allow link and passphrase to be copied to clipboard
+
+### Additional Features
+
+-   Functional
+    -   Add a passphrase hint feature (means passphrase may not need to be sent if the sender and  receiver share some knowlege, e.g. 'that cafe where we had the nice fish')
+    -   Implement Web Share API for link, passphrase or hint (require separate channels)
+-   Security and Compliance
     -   Rate limit / require captcha for more than 100 requests per day from unique IPs
-    -   Block requests from known malicious netowrks
+    -   Block requests from known malicious networks
+    -   Add a blog article that explains the security, risk and compliance posture
+    -   Add a blog article that explains the risks and how to share secrets securely
 
 ## Dependencies
 
@@ -53,6 +63,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+### Continuous Deployment
+
+Commits to the master branch are deployed to https://secret-sharer.netlify.app/, refer to netlify.toml
 
 
 ### `npm run build`
