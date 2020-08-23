@@ -7,8 +7,8 @@
       BUCKET: "secret-sharer-uploads"
     },
     apiGateway: {
-      REGION: "us-east-1",
-      URL: "https://w331frxwn6.execute-api.us-east-1.amazonaws.com/dev"
+      REGION: "ap-southeast-2",
+      URL: "https://ryqb0azfd7.execute-api.ap-southeast-2.amazonaws.com/dev"
     },
     cognito: {
       REGION: "ap-southeast-2",
@@ -26,8 +26,8 @@
       BUCKET: "secret-sharer-uploads"
     },
     apiGateway: {
-      REGION: "us-east-1",
-      URL: "https://w331frxwn6.execute-api.us-east-1.amazonaws.com/dev"
+      REGION: "ap-southeast-2",
+      URL: "https://ryqb0azfd7.execute-api.ap-southeast-2.amazonaws.com/dev"
     },
     cognito: {
       REGION: "ap-southeast-2",

@@ -45,6 +45,7 @@ function getSecret(body) {
     event.preventDefault();
   
     setIsLoading(true);
+    setSecret("");
 
     try {
       
@@ -52,6 +53,7 @@ function getSecret(body) {
       const response = await getSecret({ id, hash });
       const { cipher } = response;
       setSecret(Decrypt(cipher,passphrase));
+      setIsLoading(false);
 
       console.log(`debug: id : ${id}`);
       console.log(`debug: passphrase : ${passphrase}`);

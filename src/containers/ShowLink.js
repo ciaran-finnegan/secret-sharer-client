@@ -10,17 +10,17 @@ import "./ShowLink.css";
 export default function ShowLink(props) {
     // console.log(`debug: ShowLink: Props: ${}, ${props.passphrase}`);
     let location = useLocation();
-    console.log(`debug: ShowLink: Props:  ${location.state.secretLink}, ${location.state.passphrase}`);
+    console.log(`debug: ShowLink: Props:  ${location.state.id}, ${location.state.passphrase}`);
 
   return (  
     <div className="ShowLink">
       
       <form>
-        <LinkContainer key={1} to={`/secret/${location.state.secretLink}`}>
+        <LinkContainer key={1} to={`/secret/${location.state.id}`}>
           <FormGroup controlId="secretLink">
           <ControlLabel>Link</ControlLabel>
             <FormControl
-              value={`${config.BASE_URL}/secret/${location.state.secretLink}`}
+              value={`${config.BASE_URL}/secret/${location.state.id}`}
               type="text"
             />
           </FormGroup>
