@@ -1,6 +1,7 @@
 
   const dev = {
     STRIPE_KEY: "YOUR_STRIPE_DEV_PUBLIC_KEY",
+    BASE_URL: "https://secret-sharer.netlify.app",
     s3: {
       REGION: "ap-southeast-2",
       BUCKET: "secret-sharer-uploads"
@@ -19,6 +20,7 @@
   
   const prod = {
     STRIPE_KEY: "YOUR_STRIPE_DEV_PUBLIC_KEY",
+    BASE_URL: "https://secret-sharer.netlify.app",
     s3: {
       REGION: "ap-southeast-2",
       BUCKET: "secret-sharer-uploads"

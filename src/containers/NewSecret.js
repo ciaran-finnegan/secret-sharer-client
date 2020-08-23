@@ -57,12 +57,12 @@ export default function NewSecret() {
 
       // attachment handling not yet implemented on backend
       const response = await createSecret({ secret, attachment });
-      const { id, url } = response;
+      const { url } = response;
       setSecretLink(url);
       setShowModal(true);
       history.push({
         pathname: '/showlink',
-        state: { id: id, secretLink: url, passphrase: passphrase }     
+        state: { secretLink: url, passphrase: passphrase }     
     });
 
     } catch (e) {
