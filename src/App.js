@@ -51,11 +51,6 @@ function App() {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-        <Nav>
-            <LinkContainer to="/new">
-            <NavItem>Create Link (Login 1st)</NavItem>
-            </LinkContainer>
-        </Nav>
           <Nav pullRight>
             {isAuthenticated
               ? <NavItem onClick={handleLogout}>Logout</NavItem>
