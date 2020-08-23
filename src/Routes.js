@@ -5,6 +5,7 @@ import NotFound from "./containers/NotFound";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import NewSecret from "./containers/NewSecret";
+import ShowLink from "./containers/ShowLink";
 
 export default function Routes() {
   return (
@@ -18,8 +19,11 @@ export default function Routes() {
       <Route exact path="/signup">
         <Signup />
       </Route>
-      <Route exact path="/secrets/new">
+      <Route exact path="/new">
         <NewSecret />
+      </Route>
+      <Route exact path="/showlink">
+        <ShowLink />
       </Route>
       {/* Finally, catch all unmatched routes */}
       <Route>

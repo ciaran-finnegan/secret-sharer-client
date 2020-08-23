@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import { onError } from "../libs/errorLib";
@@ -13,14 +13,12 @@ import Modal from './Modal';
 
 export default function NewSecret() {
   const file = useRef(null);
-  // const history = useHistory();
+  const history = useHistory();
   let [secret, setSecret] = useState("");
-  let [passphrase, setPassphrase] = useState(GeneratePassPhrase());
-  let [expiry, setExpiry] = useState("");
+  const [passphrase, setPassphrase] = useState(GeneratePassPhrase());
+  const [expiry, setExpiry] = useState(config.DEFAULT_EXPIRY);
   let [secretLink, setSecretLink] = useState('');
   let [showModal, setShowModal] = useState(false);
-  const suggestedPassphrase =  GeneratePassPhrase();
-  const defaultExpiry = config.DEFAULT_EXPIRY;
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -62,7 +60,11 @@ export default function NewSecret() {
       const { url } = response;
       setSecretLink(url);
       setShowModal(true);
-      // history.push("/"); // display URL & Passphrase not yet implemented
+      history.push({
+        pathname: '/showlink',
+        state: { secretLink: url, passphrase: passphrase }     
+    });
+
     } catch (e) {
       onError(e);
       setIsLoading(false);
@@ -70,18 +72,7 @@ export default function NewSecret() {
   }
   
   // Todo, check if this is poor practice, passing secret & attachment into body
-  function createSecret(body) {
-   // If no passphrase entered generate one
-   // Todo, render this value in the form
-    if (passphrase === "" ) {
-        passphrase = suggestedPassphrase;
-    }
-    // Todo, set this default value in the form
-    // right now, it only sets if the onChange event fires
-    if (expiry === "" ) {
-        expiry = defaultExpiry;
-    }
-    
+  function createSecret(body) {    
     // Remove the secret from the body object before we send to the putSecret RESTful API
     delete body.secret;
 
@@ -95,7 +86,6 @@ export default function NewSecret() {
     // Find a way to set a debug switch which turns these on/off
     console.log(`debug: attachment : ${body.attachment}`);
     console.log(`debug: passphrase : ${passphrase}`);
-    console.log(`debug: suggestedPassphrase : ${suggestedPassphrase}`);
     console.log(`debug: expiry : ${expiry}`);
     console.log(`debug: body : ${JSON.stringify(body)}`);
 
@@ -139,9 +129,11 @@ export default function NewSecret() {
             componentClass="select"
             onChange={e => setExpiry(e.target.value)}
                 >
-                <option value="72">3 days</option>
-                <option value="48">2 days</option>
+                <option value="1">1 hour</option>
+                <option value="1">12 hours</option>
                 <option value="24">1 day</option>
+                <option value="48">2 days</option>
+                <option value="72">3 days</option>
             </FormControl>
         </FormGroup>
 

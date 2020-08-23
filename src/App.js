@@ -52,8 +52,8 @@ function App() {
         </Navbar.Header>
         <Navbar.Collapse>
         <Nav>
-            <LinkContainer to="/secrets/new">
-            <NavItem>Create Sharing Link (Login 1st)</NavItem>
+            <LinkContainer to="/new">
+            <NavItem>Create Link (Login 1st)</NavItem>
             </LinkContainer>
         </Nav>
           <Nav pullRight>
