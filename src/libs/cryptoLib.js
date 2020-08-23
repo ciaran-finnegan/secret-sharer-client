@@ -1,6 +1,8 @@
 import cryptoSha256 from 'crypto-js/sha256';
 import cryptoBase64 from 'crypto-js/enc-base64';
 import cryptoAES from 'crypto-js/aes';
+//import cryptoUtf8 from 'crypto-js/enc-utf8';
+import crypto from 'crypto-js'; // temp for debugging
 
 export function GeneratePassPhrase() {
    // Dev only, implement a more truly random password generator
@@ -33,10 +35,11 @@ export function GeneratePassPhrase() {
     return cipherString
    }
 
-   export function decryptString(cipher, passphrase) {
+   export function Decrypt(cipher, passphrase) {
     // Accepts cipher and passphrase as strings and returns unencrypted plaintext as string
     const decrypted = cryptoAES.decrypt(cipher, passphrase);
-    const decryptedString = decrypted.toString(cryptoBase64.Utf8);
+    //const decryptedStringHex = decrypted.toString(cryptoBase64.Utf8);
+    const decryptedString = decrypted.toString(crypto.enc.Utf8);
     console.log(`debug: cipher : ${cipher}`);
     console.log(`debug: passphrase : ${passphrase}`);
     console.log(`debug: plaintext : ${decryptedString}`);
