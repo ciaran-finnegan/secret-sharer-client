@@ -92,10 +92,10 @@ export default function NewSecret() {
 
     // Debug only
     // Find a way to set a debug switch which turns these on/off
-    console.log(`debug: attachment : ${body.attachment}`);
-    console.log(`debug: passphrase : ${passphrase}`);
-    console.log(`debug: expiry : ${expiry}`);
-    console.log(`debug: body : ${JSON.stringify(body)}`);
+    // console.log(`debug: attachment : ${body.attachment}`);
+    // console.log(`debug: passphrase : ${passphrase}`);
+    // console.log(`debug: expiry : ${expiry}`);
+    // console.log(`debug: body : ${JSON.stringify(body)}`);
 
     return API.post("secret-sharer", "/putSecret", {
       body: body

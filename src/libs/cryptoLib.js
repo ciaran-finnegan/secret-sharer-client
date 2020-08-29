@@ -20,8 +20,8 @@ export function GeneratePassPhrase() {
     // Accepts passphrase as string and returns hash as string
     const hash = cryptoSha256(passphrase);
     const hashString = hash.toString(cryptoBase64)
-    console.log(`debug: passphrase : ${passphrase}`);
-    console.log(`debug: hashString : ${hashString}`);
+    // console.log(`debug: passphrase : ${passphrase}`);
+    // console.log(`debug: hashString : ${hashString}`);
     return hashString
    }
 
@@ -29,9 +29,9 @@ export function GeneratePassPhrase() {
     // Accepts plaintext and passphrase as strings and returns cipher as string
     const cipher = cryptoAES.encrypt(plaintext, passphrase);
     const cipherString = cipher.toString();
-    console.log(`debug: plaintext : ${plaintext}`);
-    console.log(`debug: passphrase : ${passphrase}`);
-    console.log(`debug: cipher : ${cipherString}`);
+    // console.log(`debug: plaintext : ${plaintext}`);
+    // console.log(`debug: passphrase : ${passphrase}`);
+    // console.log(`debug: cipher : ${cipherString}`);
     return cipherString
    }
 
@@ -40,8 +40,8 @@ export function GeneratePassPhrase() {
     const decrypted = cryptoAES.decrypt(cipher, passphrase);
     //const decryptedStringHex = decrypted.toString(cryptoBase64.Utf8);
     const decryptedString = decrypted.toString(crypto.enc.Utf8);
-    console.log(`debug: cipher : ${cipher}`);
-    console.log(`debug: passphrase : ${passphrase}`);
-    console.log(`debug: plaintext : ${decryptedString}`);
+    // console.log(`debug: cipher : ${cipher}`);
+    // console.log(`debug: passphrase : ${passphrase}`);
+    // console.log(`debug: plaintext : ${decryptedString}`);
     return decryptedString
    }

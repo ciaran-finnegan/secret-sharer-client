@@ -6,7 +6,7 @@ export default class Example extends React.Component {
   
 render() {
     const { secretLink, passphrase, show, onCloseHandler } = this.props; 
-    console.log('props: ', secretLink, passphrase, show, onCloseHandler)
+    // console.log('props: ', secretLink, passphrase, show, onCloseHandler)
     return (
     <Modal
         show={show}

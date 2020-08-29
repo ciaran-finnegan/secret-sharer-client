@@ -54,12 +54,12 @@ function getSecret(body) {
       setSecret(Decrypt(cipher,passphrase));
       setIsLoading(false);
 
-      console.log(`debug: id : ${id}`);
-      console.log(`debug: passphrase : ${passphrase}`);
-      console.log(`debug: hash : ${hash}`);
-      console.log(`debug: cipher : ${cipher}`);
-      console.log(`debug: secret : ${secret}`);
-      console.log (`debug: secret : ${Decrypt(cipher,passphrase)}`);
+      // console.log(`debug: id : ${id}`);
+      // console.log(`debug: passphrase : ${passphrase}`);
+      // console.log(`debug: hash : ${hash}`);
+      // console.log(`debug: cipher : ${cipher}`);
+      // console.log(`debug: secret : ${secret}`);
+      // console.log (`debug: secret : ${Decrypt(cipher,passphrase)}`);
     
     } catch (e) {
       onError(e);

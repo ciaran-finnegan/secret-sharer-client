@@ -25,7 +25,7 @@ import "./ShowLink.css";
 export default function ShowLink(props) {
     // console.log(`debug: ShowLink: Props: ${}, ${props.passphrase}`);
     let location = useLocation();
-    console.log(`debug: ShowLink: Props:  ${location.state.id}, ${location.state.passphrase}`);
+    // console.log(`debug: ShowLink: Props:  ${location.state.id}, ${location.state.passphrase}`);
 
   return (  
     <div className="ShowLink">
