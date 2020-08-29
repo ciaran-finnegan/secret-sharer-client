@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aaf671da-069e-4dc8-bc29-8b1650e7fbee/deploy-status)](https://app.netlify.com/sites/secret-sharer/deploys)
+
 # Secret Sharing Web Client
 
 INCOMPLETE PROTOTYPE

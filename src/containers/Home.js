@@ -169,7 +169,7 @@ export default function NewSecret() {
         </Col>
         <Col md={6} mdPull={6}>
           <div className="lander">
-          <h1>Marvin</h1>
+          <h1>Shhh</h1>
           <p>Self Destructing Secrets for Paranoid Androids</p>
         </div>
         </Col>
