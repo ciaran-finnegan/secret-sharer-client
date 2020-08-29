@@ -165,6 +165,9 @@ export default function NewSecret() {
           Create
         </LoaderButton>
       </form>
+      <div eula>
+      <p>By using Shhh, you agree to our <a href='terms'>Terms</a> and <a href='privacy'>Privacy Policy</a>.</p>
+      </div>
     </div>
         </Col>
         <Col md={6} mdPull={6}>

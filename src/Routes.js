@@ -7,6 +7,8 @@ import Signup from "./containers/Signup";
 import NewSecret from "./containers/Home";
 import ShowLink from "./containers/ShowLink";
 import ShowSecret from "./containers/ShowSecret";
+import Privacy from "./containers/Privacy";
+import Terms from "./containers/Terms";
 
 export default function Routes() {
   return (
@@ -25,6 +27,12 @@ export default function Routes() {
       </Route>
       <Route exact path="/secret/:id">
         <ShowSecret />
+      </Route>
+      <Route exact path="/privacy">
+        <Privacy />
+      </Route>
+      <Route exact path="/terms">
+        <Terms />
       </Route>
       {/* Finally, catch all unmatched routes */}
       <Route>
