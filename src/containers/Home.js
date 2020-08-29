@@ -37,9 +37,9 @@ export default function NewSecret() {
     return secret.length > 0;
   }
 
-  function handleFileChange(event) {
-    file.current = event.target.files[0];
-  }
+  // function handleFileChange(event) {
+  //   file.current = event.target.files[0];
+  // }
 
 
   async function handleSubmit(event) {
@@ -150,10 +150,10 @@ export default function NewSecret() {
             </FormControl>
         </FormGroup>
 
-        <FormGroup controlId="file">
+        {/* <FormGroup controlId="file">
           <ControlLabel>Attachment</ControlLabel>
           <FormControl onChange={handleFileChange} type="file" />
-        </FormGroup>
+        </FormGroup> */}
         <LoaderButton
           block
           type="submit"

@@ -87,7 +87,7 @@ function getSecret(body) {
           bsStyle="primary"
           isLoading={isLoading}
         >
-          Get Secret
+          Retrieve
         </LoaderButton>
         <FormGroup controlId="secret">
         <ControlLabel>Secret</ControlLabel>
