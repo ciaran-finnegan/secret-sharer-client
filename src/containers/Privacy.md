@@ -1,6 +1,6 @@
 **Cloud People LLC Privacy Policy**
 
-Cloud People LLC is part of the Cloud People LLC Group which includes Cloud People LLC International and Cloud People LLC Direct. This privacy policy will explain how our organization uses the personal data we collect from you when you use our website.
+Shhh is owned by Cloud People LLC. This privacy policy will explain how our organization uses the personal data we collect from you when you use our website.
 
 Topics:
 
