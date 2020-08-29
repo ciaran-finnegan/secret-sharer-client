@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+// import ReactDOM from 'react-dom';
 import "./Home.css";
 import { useHistory } from "react-router-dom";
 import { Grid, Row, Col, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
@@ -9,7 +10,12 @@ import config from "../config";
 import "./NewSecret.css";
 import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
-import Modal from './Modal';
+// import Modal from './Modal';
+
+
+
+
+
 
 
 export default function NewSecret() {
@@ -18,14 +24,14 @@ export default function NewSecret() {
   let [secret, setSecret] = useState("");
   const [passphrase, setPassphrase] = useState(GeneratePassPhrase());
   const [expiry, setExpiry] = useState(config.DEFAULT_EXPIRY);
-  let [secretLink, setSecretLink] = useState('');
-  let [showModal, setShowModal] = useState(false);
+  // let [secretLink, setSecretLink] = useState('');
+  // let [showModal, setShowModal] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
 
-  function closeModal() {
-    setShowModal(false);
-  }
+  // function closeModal() {
+  //   setShowModal(false);
+  // }
 
   function validateForm() {
     return secret.length > 0;
@@ -59,8 +65,8 @@ export default function NewSecret() {
       // attachment handling not yet implemented on backend
       const response = await createSecret({ secret, attachment });
       const { id } = response;
-      setSecretLink(id);
-      setShowModal(true);
+    // setSecretLink(id);
+     // setShowModal(true);
       setIsLoading(false);
       history.push({
         pathname: '/showlink',
@@ -97,17 +103,18 @@ export default function NewSecret() {
   }
 
   return (
+    
     <Grid>
       <div className="Home"> 
       <Row className="show-grid">
         <Col md={6} mdPush={6}>
         <div className="NewSecret">
-      <Modal
+      {/* <Modal
         show={showModal}
         passphrase={passphrase}
         secretLink={secretLink}
         onCloseHandler={closeModal}
-      />
+      /> */}
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="secret">
         <ControlLabel>Secret</ControlLabel>

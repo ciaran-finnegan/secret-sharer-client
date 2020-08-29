@@ -7,7 +7,6 @@ import { API } from "aws-amplify";
 import { onError } from "../libs/errorLib";
 import "./ShowSecret.css";
 
-
 export default function ShowSecret() {
   const { id } = useParams();
   // const history = useHistory();
@@ -72,15 +71,6 @@ function getSecret(body) {
     <div className="ShowLink">
       
       <form onSubmit={handleSubmit}>
-        
-          <FormGroup controlId="secretLink">
-          <ControlLabel>You are attempting to retrieve this secret</ControlLabel>
-            <FormControl
-              value={id}
-              type="text"
-            />
-          </FormGroup>
-        
         <FormGroup controlId="passphrase">
         <ControlLabel>Passphrase</ControlLabel>
           <FormControl
