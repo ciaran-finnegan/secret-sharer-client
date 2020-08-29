@@ -1,0 +1,135 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+      box-sizing: inherit;
+      padding: 0;
+      margin: 0;
+  }
+  .Share {
+      font-family: 'Jost', sans-serif;
+      background: #eee;
+      color: #888;
+  }
+  
+  button {
+      border: 0;
+      padding: 0 20px;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  .close-button {
+      align-self: center;
+      padding: 0;
+      background: transparent;
+      font-size: 1.6rem;
+      color: #666;
+  }
+  
+  .sharer-button {
+      padding: 10px 20px;
+    background: #ddd;
+    color: #888;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+  }
+  
+  .share-modal {
+      position: absolute;
+      z-index: 9999;
+      /* display: none; */
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 0 5px #eee;
+      transform: translateY(-200%) ;
+      transition: .2s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  }
+  
+  .share-modal.opened {
+      background: #fff;
+      transform: translateY(0%);
+  }
+  
+  /* modals sections*/
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+      display: flex;
+      padding: 20px;
+  }
+  
+  .modal-header {
+      justify-content: space-between;
+      padding: 15px 20px;
+  }
+  
+  .modal-title {
+      align-self: center;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      font-size: .9rem;
+      color: #666;
+  }
+  
+  .modal-body {
+      flex: 1;
+      display: grid;
+      grid-gap: 20px;
+  }
+  
+  .modal-body > .row {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+  }
+  
+  .modal-body > .row > div {
+      align-self: center;
+      justify-self: center;
+      width: 100%;
+  }
+  
+  .modal-body > .row > div > button {
+      height: 35px;
+      width: 100%;
+      padding: 0 25px;
+      background: transparent;
+      color: #888;
+      border: 1px solid #eee;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      cursor: pointer;
+  }
+  
+  /* .modal-footer {
+  } */
+  
+  .modal-footer-link {
+      align-self: center;
+      background: #eee;
+      padding: 10px 15px;
+      margin-right: 10px;
+      border-radius: 4px;
+      text-transform: lowercase;
+      letter-spacing: 2px;
+      font-size: .8rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+  
+  .modal-footer-button {
+      flex: 1 0 auto;
+      text-transform: uppercase;
+      color: #fff;
+      background: #ff008d;
+      font-weight: 600;
+  }

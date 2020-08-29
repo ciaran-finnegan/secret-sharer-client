@@ -2,11 +2,13 @@ import React from "react";
 import Clipboard from 'react-clipboard.js';
 import { useLocation } from "react-router-dom";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import Sharer from "./Share";
 // import { LinkContainer } from "react-router-bootstrap";
 import config from "../config";
 // import LoaderButton from "../components/LoaderButton";
 // import { onError } from "../libs/errorLib";
 import "./ShowLink.css";
+import "./Share.css";
 
 // class MyView extends Component {
 //   render() {
@@ -29,13 +31,8 @@ export default function ShowLink(props) {
 
   return (  
     <div className="ShowLink">
-      
       <form>
         {/* <LinkContainer key={1} to={`/secret/${location.state.id}`}> */}
-
-
-       
-       
           <FormGroup controlId="secretLink">
           <ControlLabel>Link</ControlLabel>
             <FormControl
@@ -53,9 +50,10 @@ export default function ShowLink(props) {
           />
           <Clipboard className="CopyButton" data-clipboard-target="#passphrase">Copy</Clipboard>
         </FormGroup>
-       
-
       </form>
+      <div className="Share">
+        <Sharer label="Share" />
+      </div>
     </div>
   );
 }
