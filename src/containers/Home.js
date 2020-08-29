@@ -117,11 +117,11 @@ export default function NewSecret() {
       /> */}
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="secret">
-        <ControlLabel>Secret</ControlLabel>
+        {/* <ControlLabel>Secret</ControlLabel> */}
           <FormControl
             value={secret}
             componentClass="textarea"
-            placeholder="Message to be encrypted"
+            placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
             onChange={e => setSecret(e.target.value)}
           />
         </FormGroup>
@@ -170,7 +170,7 @@ export default function NewSecret() {
         <Col md={6} mdPull={6}>
           <div className="lander">
           <h1>Shhh</h1>
-          <p>Self Destructing Secrets for Paranoid Androids</p>
+          <p>Share confidential information securely with expiring links</p>
         </div>
         </Col>
       </Row> 
