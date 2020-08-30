@@ -2,18 +2,24 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
+import StatusAlert from "../components/StatusAlert";
 import { CreateHash, Decrypt } from "../libs/cryptoLib";
 import { API } from "aws-amplify";
 import { onError } from "../libs/errorLib";
+
 import "./ShowSecret.css";
 
 export default function ShowSecret() {
   const { id } = useParams();
   // const history = useHistory();
   // const [response, setResponse] = useState(null);
-  const [passphrase, setPassphrase] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showStatusAlert, setShowStatusAlert] = useState(false);
+  const [passphrase, setPassphrase] = useState("");
   const [secret, setSecret] = useState("");
+  const [responseStatus, setResponseStatus] = useState();
+  const [statusMessage, setStatusMessage] = useState("");
+  
 
   // useEffect(() => {
   //   function loadSecret() {
@@ -33,6 +39,18 @@ export default function ShowSecret() {
   //   onLoad();
   // }, [id]);
 
+// function StatusAlert(props) {
+//   const showStatusAlert = props.showStatusAlert;
+//   console.log(`debug: StatusAlert, showStatusAlert: ${showStatusAlert}`);
+//   if (showStatusAlert & responseStatus) {
+//     return <Alert bsStyle="success">{statusMessage}</Alert>;
+//   }
+//   if (showStatusAlert & !responseStatus) {
+//     return <Alert bsStyle="danger">{statusMessage}</Alert>;
+//   }
+//   return null;
+// }  
+
 function getSecret(body) {
   return API.post("secret-sharer", "/getsecret", {
   body: body
@@ -47,19 +65,28 @@ function getSecret(body) {
     setSecret("");
 
     try {
-      
+      console.log(`debug: showStatusAlert : ${showStatusAlert}`);
       const hash = CreateHash(passphrase);
       const response = await getSecret({ id, hash });
-      const { cipher } = response;
+      const { cipher, status, message } = response;
       setSecret(Decrypt(cipher,passphrase));
       setIsLoading(false);
+      setShowStatusAlert(true);
+      setResponseStatus(status);
+      setStatusMessage(message);
+
+
 
       // console.log(`debug: id : ${id}`);
+      // console.log(`debug: status : ${status}`);
+      // console.log(`debug: message : ${message}`);
+      // console.log(`debug: showStatusAlert : ${showStatusAlert}`);
       // console.log(`debug: passphrase : ${passphrase}`);
       // console.log(`debug: hash : ${hash}`);
       // console.log(`debug: cipher : ${cipher}`);
       // console.log(`debug: secret : ${secret}`);
       // console.log (`debug: secret : ${Decrypt(cipher,passphrase)}`);
+      
     
     } catch (e) {
       onError(e);
@@ -98,8 +125,9 @@ function getSecret(body) {
             onChange={e => setSecret(e.target.value)}
           />
         </FormGroup>
-
+        <StatusAlert showStatusAlert={showStatusAlert} responseStatus={responseStatus} statusMessage={statusMessage}/>
       </form>
     </div>
+    
   );
 }
