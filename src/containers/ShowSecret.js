@@ -69,7 +69,9 @@ function getSecret(body) {
       const hash = CreateHash(passphrase);
       const response = await getSecret({ id, hash });
       const { cipher, status, message } = response;
-      setSecret(Decrypt(cipher,passphrase));
+      if (status) {
+        setSecret(Decrypt(cipher,passphrase));
+      }
       setIsLoading(false);
       setShowStatusAlert(true);
       setResponseStatus(status);
