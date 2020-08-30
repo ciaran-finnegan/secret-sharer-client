@@ -6,6 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Amplify } from 'aws-amplify';
 import config from './config';
+import { initSentry } from './libs/errorLib';
+
+initSentry();
 
 
 Amplify.configure({
