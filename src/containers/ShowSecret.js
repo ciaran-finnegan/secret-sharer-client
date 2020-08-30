@@ -125,7 +125,11 @@ function getSecret(body) {
             onChange={e => setSecret(e.target.value)}
           />
         </FormGroup>
-        <StatusAlert showStatusAlert={showStatusAlert} responseStatus={responseStatus} statusMessage={statusMessage}/>
+        <StatusAlert
+         showStatusAlert={showStatusAlert}
+         responseStatus={responseStatus}
+         statusMessage={statusMessage}
+         />
       </form>
     </div>
     
