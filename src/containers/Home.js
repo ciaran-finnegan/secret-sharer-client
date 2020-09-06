@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 // import ReactDOM from 'react-dom';
+import zxcvbn from 'zxcvbn';
 import "./Home.css";
 import { useHistory } from "react-router-dom";
 import { Grid, Row, Col, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
@@ -23,6 +24,10 @@ export default function NewSecret() {
   const history = useHistory();
   let [secret, setSecret] = useState("");
   const [passphrase, setPassphrase] = useState(GeneratePassPhrase());
+  const passphraseStrength = zxcvbn(passphrase);
+  const listSuggestions = passphraseStrength.feedback.suggestions.map((suggestion) =>
+    <li>{suggestion}</li>
+  );
   const [expiry, setExpiry] = useState(config.DEFAULT_EXPIRY);
   // let [secretLink, setSecretLink] = useState('');
   // let [showModal, setShowModal] = useState(false);
@@ -92,6 +97,8 @@ export default function NewSecret() {
 
     // Debug only
     // Find a way to set a debug switch which turns these on/off
+  
+    // console.log(`debug: passphrase.score : ${passphraseStrength.score}`);
     // console.log(`debug: attachment : ${body.attachment}`);
     // console.log(`debug: passphrase : ${passphrase}`);
     // console.log(`debug: expiry : ${expiry}`);
@@ -134,7 +141,13 @@ export default function NewSecret() {
             onChange={e => setPassphrase(e.target.value)}
           />
         </FormGroup>
-
+        <div className="passwordStrength">
+        <p>{passphraseStrength.feedback.warning} </p>
+        <p>
+          <ul>{listSuggestions}</ul>
+        </p>
+        </div>
+        
         <FormGroup controlId="expiry">
             <ControlLabel>Expires in</ControlLabel>
             <FormControl

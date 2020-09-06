@@ -11,3 +11,19 @@
   .Home .lander p {
     color: #999;
   }
+
+  .Home .passwordStrength p {
+    color: red;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: smaller;
+    text-align: left;
+
+  }
+
+  .Home .passwordStrength  ul {
+      list-style-type: none;
+      color: red;
+  }
+
+  
