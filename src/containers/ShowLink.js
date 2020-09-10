@@ -37,7 +37,7 @@ export default function ShowLink(props) {
     `${config.BASE_URL}/secret/${location.state.id}`
   );
   // Must use setLink to prevent linter error
-  setLink (`${config.BASE_URL}/secret/${location.state.id}`);
+  if (null) setLink (`${config.BASE_URL}/secret/${location.state.id}`);
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [confirmationText, setConfirmationText] = useState(null);
   // console.log(`debug: ShowLink: Props: ${}, ${props.passphrase}`);
