@@ -13,12 +13,6 @@ import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
 // import Modal from './Modal';
 
-
-
-
-
-
-
 export default function NewSecret() {
   const file = useRef(null);
   const history = useHistory();

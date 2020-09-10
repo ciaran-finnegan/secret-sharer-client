@@ -32,10 +32,6 @@ export default function ShowLink(props) {
       
       <form>
         {/* <LinkContainer key={1} to={`/secret/${location.state.id}`}> */}
-
-
-       
-       
           <FormGroup controlId="secretLink">
           <ControlLabel>Link</ControlLabel>
             <FormControl
