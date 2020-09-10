@@ -36,10 +36,14 @@ export default function ShowLink(props) {
   const [link, setLink] = useState(
     `${config.BASE_URL}/secret/${location.state.id}`
   );
+  // Must use setLink to prevent linter error
+  setLink (`${config.BASE_URL}/secret/${location.state.id}`);
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [confirmationText, setConfirmationText] = useState(null);
   // console.log(`debug: ShowLink: Props: ${}, ${props.passphrase}`);
   // console.log(`debug: ShowLink: Props:  ${location.state.id}, ${location.state.passphrase}`);
+  
+  
 
   const handleShare = () => {
     if (navigator.share) {
