@@ -1,8 +1,95 @@
 .ShowLink {
-    padding-top: 100px;
-    text-align: left ;
-    width: 80%;
-  }
+  padding-top: 100px;
+  text-align: left;
+  width: 80%;
+}
 .CopyButton {
-    font-weight: normal;
+  font-weight: normal;
+}
+
+.ShareMenu {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: -1px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(500px);
+}
+
+.ShareMenu.is-displayed {
+  transform: translateY(0px);
+}
+
+.ShareMenu-content {
+  min-width: 440px;
+  max-width: 500px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.ShareMenu header {
+  background: #eee;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.ShareMenu ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.ShareMenu ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.ShareMenu ul li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.ShareMenu ul li:not(:last-child) {
+  border-right: 1px solid #eee;
+}
+
+.ShareMenu ul li div {
+  text-align: center;
+}
+
+.ShareMenu ul li div .glyphicon {
+  color: #555;
+  font-size: 17px;
+  margin-top: 5px;
+}
+
+.ShareMenu ul li div p {
+  color: #888;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.Confirmation {
+  max-width: 300px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(500px);
+  padding: 15px;
+  border-radius: 3px;
+}
+
+.Confirmation.is-displayed {
+  transform: translateX(0px);
 }
