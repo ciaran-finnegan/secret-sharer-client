@@ -74,7 +74,7 @@ export default function ShowLink(props) {
   const handleShareViaEmail = () => {
     if (window) {
       window.open(
-        `mailto:example@test.com?subject=Shh link&body=I sent you a secret: ${link}`
+        `mailto:?subject=Shhh - you've been sent a secret sharing link&body=This is your link: ${link}`
       );
       setShowShareMenu(!showShareMenu);
     }
@@ -135,7 +135,7 @@ export default function ShowLink(props) {
                 <p>Email</p>
               </div>
             </li>
-            <li>
+            {/* <li>
               <div>
                 <div className="copy">
                   <Glyphicon glyph="copy" />
@@ -150,7 +150,7 @@ export default function ShowLink(props) {
                 </div>
                 <p>Copy</p>
               </div>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
