@@ -62,7 +62,7 @@ export default function ShowLink(props) {
   const handleDisplayConfirmation = (message = "") => {
     if (message) {
       setConfirmationText(message);
-      setShowShareMenu(!showShareMenu);
+      //setShowShareMenu(!showShareMenu);
       setTimeout(() => {
         setConfirmationText(null);
       }, 2000);
@@ -72,7 +72,7 @@ export default function ShowLink(props) {
   const handleCopyToClipboard = () => {
     copyToClipboard(link);
     handleDisplayConfirmation("Copied to clipboard!");
-    setShowShareMenu(!showShareMenu);
+    //setShowShareMenu(!showShareMenu);
   };
 
   const handleShareViaEmail = () => {
@@ -92,9 +92,9 @@ export default function ShowLink(props) {
           <ControlLabel>Link</ControlLabel>
           <InputGroup>
             <FormControl value={link} type="text" />
-            <InputGroup.Addon onClick={handleCopyToClipboard}>
-              <Glyphicon glyph="copy" /> Copy
-            </InputGroup.Addon>
+            <InputGroup.Button onClick={handleCopyToClipboard}>
+              <Button><Glyphicon glyph="copy" /> Copy</Button>  
+            </InputGroup.Button>
           </InputGroup>
           {/* <Clipboard
             className="CopyButton"
@@ -105,22 +105,27 @@ export default function ShowLink(props) {
             Share
           </Clipboard> */}
           <Button bsStyle="default" onClick={handleShare}>
-            Share
+          <Glyphicon glyph="share" /> Share
           </Button>
         </FormGroup>
         {/* </LinkContainer> */}
         <FormGroup controlId="passphrase">
           <ControlLabel>Passphrase</ControlLabel>
-          <FormControl value={location.state.passphrase} type="text" />
-          <Clipboard className="CopyButton" data-clipboard-target="#passphrase">
-            Share
-          </Clipboard>
+          <InputGroup>
+            <FormControl value={location.state.passphrase} type="text" />
+            <InputGroup.Button onClick={handleCopyToClipboard}>
+              <Button><Glyphicon glyph="copy" /> Copy</Button>  
+            </InputGroup.Button>
+          </InputGroup>
+          <Button bsStyle="default" onClick={handleShare}>
+          <Glyphicon glyph="share" /> Share
+          </Button>
         </FormGroup>
       </form>
       <div className={`ShareMenu ${showShareMenu ? "is-displayed" : ""}`}>
         <div className="ShareMenu-content">
           <header>
-            <h4>Share Secret</h4>
+            Share Secret
           </header>
           <ul>
             <li onClick={handleCopyToClipboard}>
