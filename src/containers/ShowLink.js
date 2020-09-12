@@ -59,6 +59,20 @@ export default function ShowLink(props) {
     }
   };
 
+  const handleSharePassphrase = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Shhh Passphrase",
+          text: location.state.passphrase,
+        })
+        .then((something, maybe) => console.log(something, maybe))
+        .catch((error) => console.log("Sharing failed", error));
+    } else {
+      setShowShareMenu(!showShareMenu);
+    }
+  };
+
   const handleDisplayConfirmation = (message = "") => {
     if (message) {
       setConfirmationText(message);
@@ -123,7 +137,7 @@ export default function ShowLink(props) {
               <Button><Glyphicon glyph="copy" /> Copy</Button>  
             </InputGroup.Button>
           </InputGroup>
-          <Button bsStyle="default" onClick={handleShare}>
+          <Button bsStyle="default" onClick={handleSharePassphrase}>
           <Glyphicon glyph="share" /> Share
           </Button>
         </FormGroup>
