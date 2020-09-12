@@ -71,7 +71,13 @@ export default function ShowLink(props) {
 
   const handleCopyToClipboard = () => {
     copyToClipboard(link);
-    handleDisplayConfirmation("Copied to clipboard!");
+    handleDisplayConfirmation("Link copied to clipboard!");
+    //setShowShareMenu(!showShareMenu);
+  };
+
+  const handleCopyPassphraseToClipboard = () => {
+    copyToClipboard(location.state.passphrase);
+    handleDisplayConfirmation("Passphrase copied to clipboard!");
     //setShowShareMenu(!showShareMenu);
   };
 
@@ -113,7 +119,7 @@ export default function ShowLink(props) {
           <ControlLabel>Passphrase</ControlLabel>
           <InputGroup>
             <FormControl value={location.state.passphrase} type="text" />
-            <InputGroup.Button onClick={handleCopyToClipboard}>
+            <InputGroup.Button onClick={handleCopyPassphraseToClipboard}>
               <Button><Glyphicon glyph="copy" /> Copy</Button>  
             </InputGroup.Button>
           </InputGroup>
