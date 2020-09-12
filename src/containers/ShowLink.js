@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Clipboard from "react-clipboard.js";
+//import Clipboard from "react-clipboard.js";
 import { useLocation } from "react-router-dom";
 import {
   FormGroup,

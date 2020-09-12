@@ -80,7 +80,7 @@
 .Confirmation {
   max-width: 300px;
   position: fixed;
-  top: 20px;
+  top: 100px;
   right: 20px;
   background: #fff;
   border: 1px solid #ddd;
