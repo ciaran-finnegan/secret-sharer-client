@@ -112,34 +112,26 @@ export default function ShowLink(props) {
           <ControlLabel>Link</ControlLabel>
           <InputGroup>
             <FormControl value={link} type="text" />
+            <InputGroup.Button bsStyle="default" onClick={handleShare}>
+              <Button><Glyphicon glyph="share" /> Share</Button>  
+            </InputGroup.Button>
             <InputGroup.Button onClick={handleCopyToClipboard}>
               <Button><Glyphicon glyph="copy" /> Copy</Button>  
             </InputGroup.Button>
           </InputGroup>
-          {/* <Clipboard
-            className="CopyButton"
-            onClick={() =>
-              !showShareMenu ? setShowShareMenu(true) : setShowShareMenu(false)
-            }
-          >
-            Share
-          </Clipboard> */}
-          <Button bsStyle="default" onClick={handleShare}>
-          <Glyphicon glyph="share" /> Share
-          </Button>
         </FormGroup>
         {/* </LinkContainer> */}
         <FormGroup controlId="passphrase">
           <ControlLabel>Passphrase</ControlLabel>
           <InputGroup>
             <FormControl value={location.state.passphrase} type="text" />
+            <InputGroup.Button bsStyle="default" onClick={handleSharePassphrase}>
+              <Button><Glyphicon glyph="share" /> Share</Button>  
+            </InputGroup.Button>
             <InputGroup.Button onClick={handleCopyPassphraseToClipboard}>
               <Button><Glyphicon glyph="copy" /> Copy</Button>  
             </InputGroup.Button>
           </InputGroup>
-          <Button bsStyle="default" onClick={handleSharePassphrase}>
-          <Glyphicon glyph="share" /> Share
-          </Button>
         </FormGroup>
       </form>
       <div className={`ShareMenu ${showShareMenu ? "is-displayed" : ""}`}>
