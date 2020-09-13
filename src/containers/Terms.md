@@ -1,20 +1,119 @@
-# Shhh Terms of Service
+The following User Agreement applies to the  **Shhh Secret Sharing Web Application**.
 
-The following terms and conditions govern all use of the Shhh website and all content, services and products available at or through the website. The Website is owned and operated by Cloud People LLC. The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, [our Privacy Policy](https://shhh.link/privacy)) and procedures that may be published from time to time on this Site by Cloud People LLC (collectively, the &quot;Agreement&quot;).
+Use of these resources places certain duties and obligations on the DXC employee or contractor and, where relevant, on the client, partner, or vendor, along with an expectation of professional conduct. Your compliance with these duties and obligations will help protect and ensure the secure and effective operation of the service.
 
-Please read this Agreement carefully before accessing or using the Website. By accessing or using any part of the web site, you agree to become bound by the terms and conditions of this agreement. If you do not agree to all the terms and conditions of this agreement, then you may not access the Website or use any services. If these terms and conditions are considered an offer by Cloud People LLC, acceptance is expressly limited to these terms. The Website is available only to individuals who are at least 13 years old.
+Further, acknowledging this **Shhh Secret Sharing Web Application** User Agreement does not relieve you of the responsibility of reviewing and responding to separate DXC user agreements, policies, and guidelines. In the event of a conflict between this User Agreement and any laws, regulations, DXC policies and guidelines, and/or contractual requirements, the obligations that result from compliance with all necessary laws and regulations will prevail.
 
-1. **Your Shhh Access.**  If you save an encrypted message via the service, you are responsible for maintaining the security of the message and passphrase. Cloud People LLC has no knowledge of the content of encrypted messages. Cloud People LLC will not be liable for any acts or omissions by You, including any damages of any kind incurred as a result of such acts or omissions.
-  1. the Encrypted Message does not contain or install any viruses, worms, malware, Trojan horses or other harmful or destructive content;
-  2. the Encrypted Message is not spam, is not machine- or randomly-generated, and does not contain unethical or unwanted commercial content designed to drive traffic to third party sites or boost the search engine rankings of third party sites, or to further unlawful acts (such as phishing) or mislead recipients as to the source of the material (such as spoofing);
-  3. Without limiting any of those representations or warranties, Cloud People LLC has the right (though not the obligation) to, in Cloud People LLC&#39;s sole discretion (i) refuse or remove any content that, in Cloud People LLC reasonable opinion, violates any Cloud People LLC policy or is in any way harmful or objectionable, or (ii) terminate or deny access to and use of the Website to any individual or entity for any reason, in Cloud People LLC&#39;s&#39; sole discretion. Cloud People LLC will have no obligation to provide a refund of any amounts previously paid.
-2. **Responsibility of Website Visitors.**  Cloud People LLC has not reviewed, and cannot review, all of the material, including computer software, posted to the Website, and cannot therefore be responsible for that material&#39;s content, use or effects. By operating the Website, Cloud People LLC does not represent or imply that it endorses the material there posted, or that it believes such material to be accurate, useful or non-harmful. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. The Website may contain content that is offensive, indecent, or otherwise objectionable, as well as content containing technical inaccuracies, typographical mistakes, and other errors. The Website may also contain material that violates the privacy or publicity rights, or infringes the intellectual property and other proprietary rights, of third parties, or the downloading, copying or use of which is subject to additional terms and conditions, stated or unstated. Cloud People LLC disclaims any responsibility for any harm resulting from the use by visitors of the Website, or from any downloading by those visitors of content there posted.
-3. **Content Posted on Other Websites.**  We have not reviewed, and cannot review, all of the material, including computer software, made available through the websites and webpages to which Shhh links, and that link to Shhh. Cloud People LLC does not have any control over those websites and webpages, and is not responsible for their contents or their use. By linking to a website or webpage, Cloud People LLC does not represent or imply that it endorses such website or webpage. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. Cloud People LLC disclaims any responsibility for any harm resulting from your use of websites and webpages.
-4. **Intellectual Property.**  This Agreement does not transfer from Cloud People LLC to you any Cloud People LLC or third party intellectual property, and all right, title and interest in and to such property will remain (as between the parties) solely with Cloud People LLC. Cloud People LLC and Shhh, and all other trademarks, service marks, graphics and logos used in connection with Shhh, or the Website are trademarks or registered trademarks of Cloud People LLC or Cloud People LLC&#39;s licensors. Other trademarks, service marks, graphics and logos used in connection with the Website may be the trademarks of other third parties. Your use of the Website grants you no right or license to reproduce or otherwise use any Cloud People LLC or third-party trademarks.
-5. **Changes. ** Cloud People LLC reserves the right, at its sole discretion, to modify or replace any part of this Agreement. It is your responsibility to check this Agreement periodically for changes. Your continued use of or access to the Website following the posting of any changes to this Agreement constitutes acceptance of those changes. Cloud People LLC may also, in the future, offer new services and/or features through the Website (including, the release of new tools and resources). Such new features and/or services shall be subject to the terms and conditions of this Agreement.
-6. **Termination. ** Cloud People LLC may terminate your access to all or any part of the Website at any time, with or without cause, with or without notice, effective immediately. If you wish to terminate this Agreement you may simply discontinue using the Website. All provisions of this Agreement which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
-7. **Disclaimer of Warranties.**  The Website is provided &quot;as is&quot;. Cloud People LLC and its suppliers and licensors hereby disclaim all warranties of any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for a particular purpose and non-infringement. Neither Cloud People LLC nor its suppliers and licensors, makes any warranty that the Website will be error free or that access thereto will be continuous or uninterrupted. You understand that you download from, or otherwise obtain content or services through, the Website at your own discretion and risk.
-8. **Limitation of Liability.**  In no event will Cloud People LLC, or its suppliers or licensors, be liable with respect to any subject matter of this agreement under any contract, negligence, strict liability or other legal or equitable theory for: (i) any special, incidental or consequential damages; (ii) the cost of procurement for substitute products or services; (iii) for interruption of use or loss or corruption or unintended release of data; or (iv) for any amounts that exceed the fees paid by you to Cloud People LLC under this agreement during the twelve (12) month period prior to the cause of action. Cloud People LLC shall have no liability for any failure or delay due to matters beyond their reasonable control. The foregoing shall not apply to the extent prohibited by applicable law.
-9. **General Representation and Warranty.**  You represent and warrant that (i) your use of the Website will be in strict accordance with the Cloud People LLC Privacy Policy, with this Agreement and with all applicable laws and regulations (including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the United States or the country in which you reside) and (ii) your use of the Website will not infringe or misappropriate the intellectual property rights of any third party.
-10. **Indemnification.**  You agree to indemnify and hold harmless Cloud People LLC, its contractors, and its licensors, and their respective directors, officers, employees and agents from and against any and all claims and expenses, including attorneys&#39; fees, arising out of your use of the Website, including but not limited to your violation of this Agreement.
-11. **Miscellaneous.**  This Agreement constitutes the entire agreement between Cloud People LLC and you concerning the subject matter hereof, and they may only be modified by a written amendment signed by an authorized executive of Cloud People LLC, or by the posting by Cloud People LLC of a revised version. Except to the extent applicable law, if any, provides otherwise, this Agreement, any access to or use of the Website will be governed by the laws of the state of Colorado, U.S.A. Except for claims for injunctive or equitable relief or claims regarding intellectual property rights (which may be brought in any competent court without the posting of a bond), any dispute arising under this Agreement shall be finally settled in accordance with the Comprehensive Arbitration Rules of the Judicial Arbitration and Mediation Service, Inc. (&quot;JAMS&quot;) by three arbitrators appointed in accordance with such Rules. The arbitration shall take place in Boulder, CO, in the English language and the arbitral decision may be enforced in any court. The prevailing party in any action or proceeding to enforce this Agreement shall be entitled to costs and attorneys&#39; fees. If any part of this Agreement is held invalid or unenforceable, that part will be construed to reflect the parties&#39; original intent, and the remaining portions will remain in full force and effect. A waiver by either party of any term or condition of this Agreement or any breach thereof, in any one instance, will not waive such term or condition or any subsequent breach thereof. You may assign your rights under this Agreement to any party that consents to, and agrees to be bound by, its terms and conditions; Cloud People LLC may assign its rights under this Agreement without condition. This Agreement will be binding upon and will inure to the benefit of the parties, their successors and permitted assigns.
+The  **Shhh Secret Sharing Web Application** are intended for adult use only. They are not intended for minors under applicable law or regulation, and minors should not submit any information to those services.
+
+**2.1. Terms of Use: Content Contribution Guidelines**
+
+To the extent allowable by law, you agree to abide by the following terms and conditions when you access, submit, or manage content and/or information in the  **Shhh Secret Sharing Web Application** :
+
+**2.1.1.**  You will properly protect information that is protected, sensitive, and critical to DXC and its employees, contractors, clients, partners, or vendors. As described in section 1.6 in the **Shhh Secret Sharing Web Application** Data Privacy Statement, information contributed to the **Shhh Secret Sharing Web Application**  may automatically cross national boundaries as part of the expected operation of the service. You must therefore pay particular attention to any applicable restrictions, including contract restrictions, regarding the allowed locations and/or recipients of information you share. If you are unsure, do not post these types of information in the relevant service.
+
+**2.1.2.**  You will abide by any  **legal or contractual restrictions on sharing content**  in the **Shhh Secret Sharing Web Application**  with other DXC employees and contractors, and/or with DXC clients, partners, or vendors.
+
+**2.1.2.1.**  You will not transmit  **protected, sensitive, and critical DXC information**  using the **Shhh Secret Sharing Web Application**  in any form to any person or entity other than authorized DXC employees without the proper restrictions and/or nondisclosure agreements being in place.
+
+**2.1.2.2.**  You will not transmit  **protected, sensitive, and critical DXC Client information**  using the **Shhh Secret Sharing Web Application**  in any form to any other DXC employees or contractors or to any external entities or individuals without written approval from the relevant client.
+
+**2.1.2.3.**  You will not release or disclose  **DXC financial or strategic information**  to anyone not authorized to access that information.
+
+**2.1.3.**  If you are sharing export-controlled technical data or information, you will comply with DXC and applicable U.S. and foreign country export law restrictions. DXC employees and contractors will refer any questions about export-controlled technical data or information to the Global Trade Control Representative for their business unit. DXC employees and contractors can find a list of business unit Global Trade Control Representatives in the intranet myDXC. DXC clients, partners, or vendors will refer any questions about export-controlled technical data or information to relevant account and/or project management, and/or other relevant legal counsel for guidance.
+
+**2.1.6. ** You will maintain the security of your username and password for accessing the **Shhh Secret Sharing Web Application** , and will inform DXC&#39;s Security Incident Response and Coordination Center – SIRCC at [**sircc@dxc.com**](mailto:sircc@dxc.com) immediately of any unauthorized use of your account.
+
+**2.1.10. ** DXC employees and contractors will comply with applicable guidelines, terms of use, and DXC management policy statements, including the following. (DXC employees or contractors who wish to access these documents before their initial login should contact their manager.) DXC clients, partners, and vendors will comply with guidelines, terms of use, and management policy statements applicable to their relevant engagement with DXC.
+
+[**MPS 001 Ethical and Legal Business Conduct**](https://dxc.policytech.com/docview/?docid=17)
+
+[**HRMP 223 Use of Electronic Communication Media**](https://dxc.policytech.com/docview/?docid=118)
+
+[**MPS 601 Internet Web Site Development and Management****  **](https://dxc.policytech.com/docview/?docid=168)
+
+[**GNS.0044-GUID -- Posting Information on CSC Docs, C3 and CSC Wiki Security Guideline**](https://dxc.policytech.com/docview/?docid=169)
+
+[**DXC Records and Information Management Policy**](https://dxc.policytech.com/docview/?docid=26)
+
+**2.2. Terms of Use: Prohibited Content Types**
+
+When DXC employees and contractors share information using the **Shhh Secret Sharing Web Application** , they agree they will NOT under any circumstances:
+
+**2.2.1. ** Contribute Protected Health Information as defined under applicable health record statutes, including but not limited to information protected under the privacy or security regulations issued pursuant to the U.S. Health Insurance Portability and Accountability Act of 1996 (HIPAA) as amended, and the American Recovery and Reinvestment Act of 2009 and regulations promulgated thereunder (ARRA); as well as information regulated by the Australian Privacy Act 1988 and by health records statutes in Australian states and territories.
+
+**2.2.2. ** Unless otherwise explicitly agreed to in advance by DXC in writing, contribute European or Canadian Government information, including European or Canadian Defence, Public Sector, and Health Care information; as well as information about European or Canadian National Critical Infrastructure, including the Financial Sector.
+
+**2.2.3. ** Contribute private personal data such as driver license numbers; passport numbers; government-issued private identifiers such as social security, tax ID, national insurance, or similar numbers; or bank, checking, credit card, debit card, or other financial account numbers.
+
+**2.2.4. ** Contribute sensitive personal data as defined in their home jurisdiction, such as religious affiliation, union membership, etc.
+
+**2.2.5. ** Contribute any unsolicited advertisements, promotional materials, &quot;spam&quot; chain letters, surveys, or contests, or solicit participation in any pyramid schemes.
+
+**2.2.6. ** Contribute any unlawful (according to local, state or province, federal, or international law or regulation) content and/or information to or through the **Shhh Secret Sharing Web Application** , or any content and/or information that advocates illegal activity.
+
+**2.2.7. ** Contribute, or provide links to, content and/or information that could be considered harmful, obscene, pornographic, indecent, lewd, violent, abusive, profane, insulting, threatening, tortious, harassing, hateful, or otherwise objectionable.
+
+**2.2.8. ** Contribute, or provide links to, content and/or information that harasses, victimizes, degrades, or intimidates an individual or group of individuals on the basis of religion, race, ethnicity, sexual orientation, gender, age, disability, or any other legally-protected characteristic.
+
+**2.2.9. ** Contribute, or provide links to, content and/or information that is defamatory, false, or libelous.
+
+**2.2.10. ** Contribute content and/or information, to or through the **Shhh Secret Sharing Web Application** , that infringes on or violates any intellectual property or other right of any entity or person, including, without limitation, copyrights, patents, trademarks, laws governing trade secrets, rights to privacy, or publicity.
+
+**2.2.11. ** Contribute any content or information to the **Shhh Secret Sharing Web Application** , that you do not have a right to make available under law or contractual or fiduciary relationships.
+
+**2.3. Terms of Use: Online Conduct**
+
+You will NOT under any circumstances:
+
+**2.3.1.**  Impersonate another person or entity or falsely state or otherwise misrepresent your affiliation with a person or entity, or adopt a false identity if the purpose of doing so is to mislead, deceive, or defraud another.
+
+**2.3.2.**  Manipulate identifiers, including by forging headers, in order to disguise the origin of any posting delivered to or through the  **Shhh Secret Sharing Web Application**.
+
+**2.3.3.**  Use the  **Shhh Secret Sharing Web Application** , in any manner that could damage, disable, overburden, impair, or otherwise interfere with those services or with other software, hardware, or network equipment belonging to DXC or to other users.
+
+**2.3.4.**  Attempt to gain unauthorized access to the  **Shhh Secret Sharing Web Application** , and/or to any related application, service, accounts, computer systems, or networks connected to the  **Shhh Secret Sharing Web Application** ,
+
+**2.3.5.**  Otherwise cause damage on or through the  **Shhh Secret Sharing Web Application** ,
+
+**2.4. Terms of Use: Account Responsibilities and DXC Rights**
+
+In addition to the above, you are responsible for any content and/or information shared using the **Shhh Secret Sharing Web Application** , using your account. DXC reserves the right to limit or terminate access by a user of the  **Shhh Secret Sharing Web Application** , at any time, with or without notice from DXC.
+
+DXC may not regularly monitor, delete, or edit content and/or information in the  **Shhh Secret Sharing Web Application** , However, DXC reserves the right to do so at any time. DXC is not responsible for damages of any kind arising from any use of the  **Shhh Secret Sharing Web Application** ,, even when DXC is advised of the possibility of such damages and even if DXC has taken responsive action in other cases.
+
+**2.5. Limitations on Liability and Warranties**
+
+The following limitations are subject to the terms of applicable local laws and regulations and DXC policies and guidelines. In the event of a conflict between the following limitations and any laws, regulations, DXC policies and guidelines, and/or contractual requirements, the obligations that result from compliance with all necessary laws and regulations will prevail.
+
+**2.5.1.**  The material included in the  **Shhh Secret Sharing Web Application** , has been compiled from a variety of sources and it could include technical inaccuracies or typographical errors. DXC makes no warranties or representations as to the accuracy or completeness of material within the services. Everything is provided to you &quot;as is&quot; without warranty of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.
+
+**2.5.2.**  DXC does not warrant that the  **Shhh Secret Sharing Web Application** , the services provided through them, and any information, software, or other material available within the  **Shhh Secret Sharing Web Application** , will be uninterrupted, error-free, or free of viruses or other harmful components.
+
+**2.5.3.**  To the extent allowable by law and irrespective of any general contractual obligations forming a contractual relationship between the user (you) and DXC, DXC shall not be liable for any special, incidental, or consequential damages, including, without limitation, any lost revenues, lost profits, or third-party claims resulting from the use or misuse of the **Shhh Secret Sharing Web Application** , as defined herein, even if DXC has been advised of the possibility of such damages or for any claim by another party.
+
+**2.6. Intellectual Property**
+
+**2.6.1**  You will assume that everything you see or read in the  **Shhh Secret Sharing Web Application** , is copyrighted and may not be used except as provided in this User Agreement, in the text appearing with an application available in the  **Shhh Secret Sharing Web Application** ,, or with written permission in advance from DXC.
+
+**2.6.2.**  Images of people or places displayed in the  **Shhh Secret Sharing Web Application** , are either the property of DXC or used with permission by or from DXC. Your use of these images is strictly prohibited unless specifically permitted by this User Agreement, unless specific permission is provided elsewhere in the  **Shhh Secret Sharing Web Application** , or unless you write directly to and obtain permission from DXC.
+
+**2.6.3.**  DXC, DXC Technology, and the DXC logo are Trademarks or registered Trademarks of DXC Technology. All other Trademarks and logos or registered Trademarks and logos found in the  **Shhh Secret Sharing Web Application** , or mentioned herein belong to their respective owners. Nothing contained in the  **Shhh Secret Sharing Web Application** , should be construed as granting, by implication, estoppel, or otherwise, any license or right to use any Trademark displayed in the service without the written permission of Computer Sciences Corporation or such third party that owns the Trademarks displayed in this service. DXC will enforce its intellectual property rights to the fullest extent permitted by law.
+
+**2.6.4.**  Unless otherwise provided, all postings to the  **Shhh Secret Sharing Web Application** , automatically become the property of DXC. DXC will be entitled to use the material for any type of use including in any media whether now known or later devised. If any court determines that DXC does not retain exclusive ownership of any posting, then you hereby expressly grant to DXC a royalty-free, perpetual, irrevocable right to use, reproduce, adapt, modify, publish, edit, translate, perform, transmit, sell, sublicense, or otherwise distribute and display the posting for any reason, including for promotional and advertising purposes, alone or as a part of other works in any form, medium, or technology now known or later developed.
+
+**2.7. Procedure for Making Claims of Copyright Infringement**
+
+**2.7.1.**  DXC respects the intellectual property rights of third parties, and complies with all applicable laws and regulations, including the Digital Millennium Copyright Act (DMCA), regarding such rights.
+
+**2.7.2.**  If you believe that your work has been copied in a way that constitutes copyright infringement, you should send written notification thereof to appropriate DXC and/or DXC client, partner, or vendor counsel.
+
+**2.8. Choice of Law and Jurisdiction**
+
+Unless otherwise provided, the contents of the  **Shhh Secret Sharing Web Application** , are governed by the laws of the state of Virginia in the United States, and any claims rising directly or indirectly out of any materials contained in this service are subject to these same laws.
+
+By clicking the ACKNOWLEDGE button during your first attempt to log in to the service, you consent to ALL the terms of this agreement. From time to time the terms of this agreement may change and attempts will be made to notify you of such changes. If you do not click the ACKNOWLEDGE button during your first attempt to log in to the environment, you cancel that login attempt.
+
+Your subsequent use of these services implies your continued acknowledgement of this user agreement.
+
+Last updated: September 13th 2020

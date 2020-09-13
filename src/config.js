@@ -1,7 +1,7 @@
 
   const dev = {
     STRIPE_KEY: "YOUR_STRIPE_DEV_PUBLIC_KEY",
-    BASE_URL: "https://shhh.link",
+    BASE_URL: "https://shhh.awsanz.dxc.com",
     s3: {
       REGION: "ap-southeast-2",
       BUCKET: "secret-sharer-uploads"
@@ -20,7 +20,7 @@
   
   const prod = {
     STRIPE_KEY: "YOUR_STRIPE_DEV_PUBLIC_KEY",
-    BASE_URL: "https://shhh.link",
+    BASE_URL: "https://shhh.awsanz.dxc.com",
     s3: {
       REGION: "ap-southeast-2",
       BUCKET: "secret-sharer-uploads"
