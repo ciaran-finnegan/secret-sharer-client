@@ -85,4 +85,5 @@ Your app is ready to be deployed!
 ###  Deploy
 
 aws s3 sync build/ s3://YOUR_S3_DEPLOY_BUCKET_NAME
+e.g. aws s3 sync build/ s3://shhh-app-prod --profile  cscdev-admin 
 

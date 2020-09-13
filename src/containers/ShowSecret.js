@@ -6,7 +6,6 @@ import StatusAlert from "../components/StatusAlert";
 import { CreateHash, Decrypt } from "../libs/cryptoLib";
 import { API } from "aws-amplify";
 import { onError } from "../libs/errorLib";
-
 import "./ShowSecret.css";
 
 export default function ShowSecret() {
