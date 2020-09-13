@@ -41,6 +41,10 @@ function App() {
     history.push("/login");
   }
 
+  async function handleNewSecret() {
+    history.push("/secrets/new");
+  }
+
   return (
     !isAuthenticating &&
     <div className="App container">
@@ -54,7 +58,7 @@ function App() {
         <Navbar.Collapse>
           <Nav pullRight>
             {isAuthenticated
-              ? <NavItem onClick={handleLogout}>Logout</NavItem>
+              ? <><NavItem onClick={handleNewSecret}>New Secret</NavItem> <NavItem onClick={handleLogout}>Logout</NavItem></>
               : <>
                   <LinkContainer to="/signup">
                     <NavItem>Signup</NavItem>

@@ -6,7 +6,7 @@ export default function Home() {
     <div className="Home">
       <div className="lander">
       <h1>Shhh</h1>
-          <p>Share confidential information securely with expiring links</p>
+          <p>Share confidential information with expiring links</p>
       </div>
     </div>
   );

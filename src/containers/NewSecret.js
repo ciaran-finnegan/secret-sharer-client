@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react";
 // import ReactDOM from 'react-dom';
 import zxcvbn from 'zxcvbn';
-import "./Home.css";
 import { useHistory } from "react-router-dom";
-import { Grid, Row, Col, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import { onError } from "../libs/errorLib";
 import { GeneratePassPhrase, Encrypt, CreateHash } from "../libs/cryptoLib";
@@ -11,10 +10,12 @@ import config from "../config";
 import "./NewSecret.css";
 import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
+import { useAppContext } from "../libs/contextLib";
 // import Modal from './Modal';
 
 export default function NewSecret() {
   const file = useRef(null);
+  const { isAuthenticated } = useAppContext();
   const history = useHistory();
   let [secret, setSecret] = useState("");
   const [passphrase, setPassphrase] = useState(GeneratePassPhrase());
@@ -103,89 +104,72 @@ export default function NewSecret() {
     });
   }
 
-  return (
-    
-    <Grid>
-      <div className="Home"> 
-      <Row className="show-grid">
-        <Col md={6} mdPush={6}>
+  function renderPage() {
+    return (
+      
+      
         <div className="NewSecret">
-      {/* <Modal
-        show={showModal}
-        passphrase={passphrase}
-        secretLink={secretLink}
-        onCloseHandler={closeModal}
-      /> */}
-      <form onSubmit={handleSubmit}>
-        <FormGroup controlId="secret">
-        {/* <ControlLabel>Secret</ControlLabel> */}
-          <FormControl
-            value={secret}
-            componentClass="textarea"
-            placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
-            onChange={e => setSecret(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="passphrase">
-        <ControlLabel>Passphrase</ControlLabel>
-          <FormControl
-            value={passphrase}
-            type="text"
-            placeholder="Enter a complex passphrase with at least 10 characters"
-            onChange={e => setPassphrase(e.target.value)}
-          />
-        </FormGroup>
-        <div className="passwordStrength">
-        <p>{passphraseStrength.feedback.warning} </p>
-        <p>
-          <ul>{listSuggestions}</ul>
-        </p>
-        </div>
-        
-        <FormGroup controlId="expiry">
-            <ControlLabel>Expires in</ControlLabel>
+        <form onSubmit={handleSubmit}>
+          <FormGroup controlId="secret">
+          {/* <ControlLabel>Secret</ControlLabel> */}
             <FormControl
-            value={expiry}
-            componentClass="select"
-            onChange={e => setExpiry(e.target.value)}
-                >
-                <option value="1">1 hour</option>
-                <option value="1">12 hours</option>
-                <option value="24">1 day</option>
-                <option value="48">2 days</option>
-                <option value="72">3 days</option>
-            </FormControl>
-        </FormGroup>
-
-        {/* <FormGroup controlId="file">
-          <ControlLabel>Attachment</ControlLabel>
-          <FormControl onChange={handleFileChange} type="file" />
-        </FormGroup> */}
-        <LoaderButton
-          block
-          type="submit"
-          bsSize="large"
-          bsStyle="primary"
-          isLoading={isLoading}
-          disabled={!validateForm()}
-        >
-          Create
-        </LoaderButton>
-      </form>
-      <div className="Eula"> 
-      <p>By using Shhh, you agree to our <a href='terms'>Terms</a> and <a href='privacy'>Privacy Policy</a>.</p>
-      </div>
-    </div>
-        </Col>
-        <Col md={6} mdPull={6}>
-          <div className="lander">
-          <h1>Shhh</h1>
-          <p>Share confidential information securely with expiring links</p>
+              value={secret}
+              componentClass="textarea"
+              placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
+              onChange={e => setSecret(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup controlId="passphrase">
+          <ControlLabel>Passphrase</ControlLabel>
+            <FormControl
+              value={passphrase}
+              type="text"
+              placeholder="Enter a complex passphrase with at least 10 characters"
+              onChange={e => setPassphrase(e.target.value)}
+            />
+          </FormGroup>
+          <div className="passwordStrength">
+          <p>{passphraseStrength.feedback.warning} </p>
+          <p>
+            <ul>{listSuggestions}</ul>
+          </p>
+          </div>
+          
+          <FormGroup controlId="expiry">
+              <ControlLabel>Expires in</ControlLabel>
+              <FormControl
+              value={expiry}
+              componentClass="select"
+              onChange={e => setExpiry(e.target.value)}
+                  >
+                  <option value="1">1 hour</option>
+                  <option value="1">12 hours</option>
+                  <option value="24">1 day</option>
+                  <option value="48">2 days</option>
+                  <option value="72">3 days</option>
+              </FormControl>
+          </FormGroup>
+          <LoaderButton
+            block
+            type="submit"
+            bsSize="large"
+            bsStyle="primary"
+            isLoading={isLoading}
+            disabled={!validateForm()}
+          >
+            Create
+          </LoaderButton>
+        </form>
+        <div className="Eula"> 
+        <p>By using Shhh, you agree to DXC's <a href='/terms'>Terms</a> and <a href='/privacy'>Privacy Policy</a>.</p>
         </div>
-        </Col>
-      </Row> 
-  
-      </div>
-    </Grid>
+        </div>
+    );
+  }
+  return (
+    <div className="Home">
+      {isAuthenticated ? renderPage() : history.push("/login")}
+    </div>
   );
+
 }
