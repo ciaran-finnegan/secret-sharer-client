@@ -102,7 +102,7 @@ export default function Signup() {
     return (
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
-          <ControlLabel>Email</ControlLabel>
+          <ControlLabel>Email (@dxc.com only)</ControlLabel>
           <FormControl
             autoFocus
             type="email"
