@@ -33,6 +33,9 @@ import copyToClipboard from "../libs/copyToClipboard";
 
 export default function ShowLink(props) {
   let location = useLocation();
+
+  const [shareMenuItem, setShareMenuItem]  =  useState();
+  const [shareMenuItemName, setShareMenuItemName]  =  useState();
   const [link, setLink] = useState(
     `${config.BASE_URL}/secret/${location.state.id}`
   );
@@ -62,6 +65,8 @@ export default function ShowLink(props) {
         .then((something, maybe) => console.log(`debug: navigator returns: ${something}, ${maybe}`))
         .catch((error) => console.log("debug: Navigator Share failed: ", error));
     } else {
+      setShareMenuItem(link);
+      setShareMenuItemName("Link");
       setShowShareMenu(!showShareMenu);
     }
   };
@@ -78,6 +83,8 @@ export default function ShowLink(props) {
         .then((something, maybe) => console.log(something, maybe))
         .catch((error) => console.log("Sharing failed", error));
     } else {
+      setShareMenuItem(passphrase);
+      setShareMenuItemName("Passphrase");
       setShowShareMenu(!showShareMenu);
     }
   };
@@ -111,7 +118,7 @@ export default function ShowLink(props) {
   const handleShareViaEmail = () => {
     if (window) {
       window.open(
-        `mailto:?subject=Shhh - you've been sent a secret sharing link&body=This is your link: ${link}`
+        `mailto:?subject=Shhh - you've been sent a secret sharing ${shareMenuItemName}&body=This is your ${shareMenuItemName}: ${shareMenuItem}`
       );
       setShowShareMenu(!showShareMenu);
     }
@@ -150,7 +157,7 @@ export default function ShowLink(props) {
       <div className={`ShareMenu ${showShareMenu ? "is-displayed" : ""}`}>
         <div className="ShareMenu-content">
           <header>
-            Share Secret
+            Share {shareMenuItemName}
           </header>
           <ul>
             {/* <li onClick={handleCopyToClipboard}>
