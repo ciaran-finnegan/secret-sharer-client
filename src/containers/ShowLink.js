@@ -38,6 +38,11 @@ export default function ShowLink(props) {
   );
   // Must use setLink to prevent linter error
   if (null) setLink (`${config.BASE_URL}/secret/${location.state.id}`);
+
+  const [passphrase, setPassphrase] = useState(location.state.passphrase);
+  // Must use setPassphrase to prevent linter error
+  if (null) setPassphrase (location.state.passphrase);
+
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [confirmationText, setConfirmationText] = useState(null);
   // console.log(`debug: ShowLink: Props: ${}, ${props.passphrase}`);
@@ -45,15 +50,15 @@ export default function ShowLink(props) {
   
   
 
-  const handleShare = () => {
+  const handleShareLink = () => {
     if (navigator.share) {
       navigator
         .share({
           title: "Shhh Link",
           text: link,
         })
-        .then((something, maybe) => console.log(something, maybe))
-        .catch((error) => console.log("Sharing failed", error));
+        .then((something, maybe) => console.log(`debug: navigator returns: ${something}, ${maybe}`))
+        .catch((error) => console.log("debug: Navigator Share failed: ", error));
     } else {
       setShowShareMenu(!showShareMenu);
     }
@@ -64,7 +69,7 @@ export default function ShowLink(props) {
       navigator
         .share({
           title: "Shhh Passphrase",
-          text: location.state.passphrase,
+          text: passphrase,
         })
         .then((something, maybe) => console.log(something, maybe))
         .catch((error) => console.log("Sharing failed", error));
@@ -83,16 +88,20 @@ export default function ShowLink(props) {
     }
   };
 
-  const handleCopyToClipboard = () => {
+  // const handleCopyToClipboard = (copyItem) => {
+  //   copyToClipboard(copyItem);
+  //   handleDisplayConfirmation("Link copied to clipboard!");
+  //   //setShowShareMenu(!showShareMenu);
+  // };
+
+  const handleCopyLinkToClipboard = () => {
     copyToClipboard(link);
-    handleDisplayConfirmation("Link copied to clipboard!");
-    //setShowShareMenu(!showShareMenu);
-  };
+    handleDisplayConfirmation(`Link copied to clipboard!`);
+  }
 
   const handleCopyPassphraseToClipboard = () => {
-    copyToClipboard(location.state.passphrase);
+    copyToClipboard(passphrase);
     handleDisplayConfirmation("Passphrase copied to clipboard!");
-    //setShowShareMenu(!showShareMenu);
   };
 
   const handleShareViaEmail = () => {
@@ -112,10 +121,10 @@ export default function ShowLink(props) {
           <ControlLabel>Link</ControlLabel>
           <InputGroup>
             <FormControl value={link} type="text" />
-            <InputGroup.Button bsStyle="default" onClick={handleShare}>
+            <InputGroup.Button bsStyle="default" onClick={handleShareLink}>
               <Button><Glyphicon glyph="share" /> Share</Button>  
             </InputGroup.Button>
-            <InputGroup.Button onClick={handleCopyToClipboard}>
+            <InputGroup.Button onClick={handleCopyLinkToClipboard}>
               <Button><Glyphicon glyph="copy" /> Copy</Button>  
             </InputGroup.Button>
           </InputGroup>
@@ -140,14 +149,14 @@ export default function ShowLink(props) {
             Share Secret
           </header>
           <ul>
-            <li onClick={handleCopyToClipboard}>
+            {/* <li onClick={handleCopyToClipboard}>
               <div>
                 <div className="copy">
                   <Glyphicon glyph="copy" />
                 </div>
                 <p>Copy</p>
               </div>
-            </li>
+            </li> */}
             <li onClick={handleShareViaEmail}>
               <div>
                 <div className="email">
