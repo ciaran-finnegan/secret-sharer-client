@@ -1,6 +1,8 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/aaf671da-069e-4dc8-bc29-8b1650e7fbee/deploy-status)](https://app.netlify.com/sites/secret-sharer/deploys)
+https://shhh.awsanz.dxc.com
 
 # Secret Sharing Web Client
+
+Forked from https://github.com/slartibastfast/secret-sharer-client
 
 INCOMPLETE PROTOTYPE
 
@@ -59,7 +61,7 @@ Serverless backend https://github.com/slartibastfast/secret-sharer-server.git
 
 ### Installation
 
-git clone https://github.com/slartibastfast/secret-sharer-client.git
+git clone git@github.dxc.com:anzaws/shhh-web-app-client-dxc.git
 
 ### `npm start`
 
