@@ -54,8 +54,10 @@ export default function ShowLink(props) {
     if (navigator.share) {
       navigator
         .share({
+          url: link,
+          text: "",
           title: "Shhh Link",
-          text: link,
+          files: []
         })
         .then((something, maybe) => console.log(`debug: navigator returns: ${something}, ${maybe}`))
         .catch((error) => console.log("debug: Navigator Share failed: ", error));
@@ -68,8 +70,10 @@ export default function ShowLink(props) {
     if (navigator.share) {
       navigator
         .share({
+          url: "",
+          text: `Your passphrase is: ${passphrase}`,
           title: "Shhh Passphrase",
-          text: passphrase,
+          files: []
         })
         .then((something, maybe) => console.log(something, maybe))
         .catch((error) => console.log("Sharing failed", error));
