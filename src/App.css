@@ -1,7 +1,45 @@
-.App {
-  margin-top: 15px;
+.app-frame {
+  background: #fff;
+  border: 1px solid var(--black-light);
+  max-width: 600px;
+  margin: 50px auto;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.05);
 }
 
-.App .navbar-brand {
+.app-frame header {
+  padding: 30px;
+  border-bottom: 1px solid var(--black-light);
+}
+
+.app-frame header h1 {
   font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.app-frame header p {
+  font-size: 16px;
+  color: #888;
+}
+
+.app-frame .app-body {
+  padding: 30px;
+}
+
+.app-frame footer {
+  padding: 30px;
+  border-top: 1px solid var(--black-light);
+  font-size: 15px;
+  color: #ccc;
+}
+
+.app-frame footer a {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+.app-frame .btn {
+  border-radius: 3px;
 }

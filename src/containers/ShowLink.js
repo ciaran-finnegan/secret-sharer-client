@@ -34,24 +34,22 @@ import copyToClipboard from "../libs/copyToClipboard";
 export default function ShowLink(props) {
   let location = useLocation();
 
-  const [shareMenuItem, setShareMenuItem]  =  useState();
-  const [shareMenuItemName, setShareMenuItemName]  =  useState();
+  const [shareMenuItem, setShareMenuItem] = useState();
+  const [shareMenuItemName, setShareMenuItemName] = useState();
   const [link, setLink] = useState(
     `${config.BASE_URL}/secret/${location.state.id}`
   );
   // Must use setLink to prevent linter error
-  if (null) setLink (`${config.BASE_URL}/secret/${location.state.id}`);
+  if (null) setLink(`${config.BASE_URL}/secret/${location.state.id}`);
 
   const [passphrase, setPassphrase] = useState(location.state.passphrase);
   // Must use setPassphrase to prevent linter error
-  if (null) setPassphrase (location.state.passphrase);
+  if (null) setPassphrase(location.state.passphrase);
 
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [confirmationText, setConfirmationText] = useState(null);
   // console.log(`debug: ShowLink: Props: ${}, ${props.passphrase}`);
   // console.log(`debug: ShowLink: Props:  ${location.state.id}, ${location.state.passphrase}`);
-  
-  
 
   const handleShareLink = () => {
     if (navigator.share) {
@@ -60,10 +58,14 @@ export default function ShowLink(props) {
           url: link,
           text: "",
           title: "Shhh Link",
-          files: []
+          files: [],
         })
-        .then((something, maybe) => console.log(`debug: navigator returns: ${something}, ${maybe}`))
-        .catch((error) => console.log("debug: Navigator Share failed: ", error));
+        .then((something, maybe) =>
+          console.log(`debug: navigator returns: ${something}, ${maybe}`)
+        )
+        .catch((error) =>
+          console.log("debug: Navigator Share failed: ", error)
+        );
     } else {
       setShareMenuItem(link);
       setShareMenuItemName("Link");
@@ -78,7 +80,7 @@ export default function ShowLink(props) {
           url: "",
           text: `Your passphrase is: ${passphrase}`,
           title: "Shhh Passphrase",
-          files: []
+          files: [],
         })
         .then((something, maybe) => console.log(something, maybe))
         .catch((error) => console.log("Sharing failed", error));
@@ -108,7 +110,7 @@ export default function ShowLink(props) {
   const handleCopyLinkToClipboard = () => {
     copyToClipboard(link);
     handleDisplayConfirmation(`Link copied to clipboard!`);
-  }
+  };
 
   const handleCopyPassphraseToClipboard = () => {
     copyToClipboard(passphrase);
@@ -125,40 +127,37 @@ export default function ShowLink(props) {
   };
 
   return (
-    <div className="ShowLink">
+    <div className="show-link">
       <form>
         {/* <LinkContainer key={1} to={`/secret/${location.state.id}`}> */}
         <FormGroup controlId="secretLink">
           <ControlLabel>Link</ControlLabel>
-          <InputGroup>
+          <div className="link-row">
             <FormControl value={link} type="text" />
-            <InputGroup.Button bsStyle="default" onClick={handleShareLink}>
-              <Button><Glyphicon glyph="share" /> Share</Button>  
-            </InputGroup.Button>
-            <InputGroup.Button onClick={handleCopyLinkToClipboard}>
-              <Button><Glyphicon glyph="copy" /> Copy</Button>  
-            </InputGroup.Button>
-          </InputGroup>
+            <Button bsStyle="default" onClick={handleShareLink}>
+              <Glyphicon glyph="share" /> Share
+            </Button>
+            <Button bsStyle="default" onClick={handleCopyLinkToClipboard}>
+              <Glyphicon glyph="copy" /> Copy
+            </Button>
+          </div>
         </FormGroup>
-        {/* </LinkContainer> */}
-        <FormGroup controlId="passphrase">
-          <ControlLabel>Passphrase</ControlLabel>
-          <InputGroup>
-            <FormControl value={location.state.passphrase} type="text" />
-            <InputGroup.Button bsStyle="default" onClick={handleSharePassphrase}>
-              <Button><Glyphicon glyph="share" /> Share</Button>  
-            </InputGroup.Button>
-            <InputGroup.Button onClick={handleCopyPassphraseToClipboard}>
-              <Button><Glyphicon glyph="copy" /> Copy</Button>  
-            </InputGroup.Button>
-          </InputGroup>
-        </FormGroup>
+        <ControlLabel>
+          Passphrase <i className="fas fa-lock" />
+        </ControlLabel>
+        <div className="link-row">
+          <FormControl value={location.state.passphrase} type="text" />
+          <Button onClick={handleSharePassphrase}>
+            <Glyphicon glyph="share" /> Share
+          </Button>
+          <Button onClick={handleCopyPassphraseToClipboard}>
+            <Glyphicon glyph="copy" /> Copy
+          </Button>
+        </div>
       </form>
       <div className={`ShareMenu ${showShareMenu ? "is-displayed" : ""}`}>
         <div className="ShareMenu-content">
-          <header>
-            Share {shareMenuItemName}
-          </header>
+          <header>Share {shareMenuItemName}</header>
           <ul>
             {/* <li onClick={handleCopyToClipboard}>
               <div>

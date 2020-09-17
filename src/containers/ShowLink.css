@@ -93,3 +93,36 @@
 .Confirmation.is-displayed {
   transform: translateX(0px);
 }
+
+.show-link .link-row {
+  display: flex;
+}
+
+.show-link .link-row .form-control {
+  border-right: none;
+  border-radius: 3px 0px 0px 3px;
+}
+
+.show-link .link-row .form-control:focus {
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  border-color: #eee;
+}
+
+.show-link .link-row .btn {
+  border: 1px solid var(--black-light);
+  border-radius: 0px;
+  width: 125px;
+  color: #888;
+  font-size: 15px;
+  line-height: 15px;
+}
+
+.show-link .link-row .btn:hover {
+  background: #fafafa;
+}
+
+.show-link .link-row .btn:last-child {
+  border-radius: 0px 3px 3px 0px;
+  border-left: none;
+}

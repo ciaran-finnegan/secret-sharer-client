@@ -1,29 +1,80 @@
 .Home .lander {
-    padding: 80px 0;
-    text-align: center;
-  }
-  
-  .Home .lander h1 {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-  }
-  
-  .Home .lander p {
-    color: #999;
-  }
+  padding: 80px 0;
+  text-align: center;
+}
 
-  .Home .passwordStrength p {
-    color: red;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    font-size: smaller;
-    text-align: left;
+.Home .lander h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
 
-  }
+.Home .lander p {
+  color: #999;
+}
 
-  .Home .passwordStrength  ul {
-      list-style-type: none;
-      color: red;
-  }
+.Home .passwordStrength p {
+  color: red;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: smaller;
+  text-align: left;
+}
 
-  
+.Home .passwordStrength ul {
+  list-style-type: none;
+  color: red;
+}
+
+.new-secret .btn-group {
+  display: block;
+  clear: both;
+}
+
+.new-secret .btn-group .btn {
+  font-size: 16px;
+  padding: 10px 15px;
+}
+
+.new-secret .btn-group .btn-default {
+  border: 1px solid var(--black-light);
+}
+
+.new-secret .btn-group .btn-default:hover {
+  background: #fafafa;
+}
+
+.new-secret [type="submit"] {
+  margin-top: 30px;
+  background: #000;
+  border-color: #000;
+}
+
+.new-secret [type="submit"]:hover,
+.new-secret [type="submit"]:focus {
+  background: #000;
+  border-color: #000;
+}
+
+.new-secret .passwordStrength {
+  margin-bottom: 30px;
+}
+
+.new-secret .passwordStrength p,
+.new-secret .passwordStrength ul li {
+  font-size: 16px;
+  color: #888;
+}
+
+.new-secret .passwordStrength p i,
+.new-secret .passwordStrength ul li i {
+  color: #d9534f;
+  font-size: 20px;
+  margin-right: 10px;
+  position: relative;
+  top: 1px;
+}
+
+.new-secret .passwordStrength p:not(:last-child),
+.new-secret .passwordStrength ul li:not(:last-child) {
+  margin-bottom: 15px;
+}

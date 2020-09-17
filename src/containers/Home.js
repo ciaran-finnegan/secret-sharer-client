@@ -1,9 +1,18 @@
 import React, { useRef, useState } from "react";
 // import ReactDOM from 'react-dom';
-import zxcvbn from 'zxcvbn';
+import zxcvbn from "zxcvbn";
 import "./Home.css";
 import { useHistory } from "react-router-dom";
-import { Grid, Row, Col, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import {
+  Grid,
+  Row,
+  Col,
+  FormGroup,
+  FormControl,
+  ControlLabel,
+  ButtonGroup,
+  Button,
+} from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import { onError } from "../libs/errorLib";
 import { GeneratePassPhrase, Encrypt, CreateHash } from "../libs/cryptoLib";
@@ -11,6 +20,7 @@ import config from "../config";
 import "./NewSecret.css";
 import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
+import setInputHeight from "../libs/setInputHeight";
 // import Modal from './Modal';
 
 export default function NewSecret() {
@@ -19,8 +29,8 @@ export default function NewSecret() {
   let [secret, setSecret] = useState("");
   const [passphrase, setPassphrase] = useState(GeneratePassPhrase());
   const passphraseStrength = zxcvbn(passphrase);
-  const listSuggestions = passphraseStrength.feedback.suggestions.map((suggestion) =>
-    <li>{suggestion}</li>
+  const listSuggestions = passphraseStrength.feedback.suggestions.map(
+    (suggestion) => <li>{suggestion}</li>
   );
   const [expiry, setExpiry] = useState(config.DEFAULT_EXPIRY);
   // let [secretLink, setSecretLink] = useState('');
@@ -40,18 +50,18 @@ export default function NewSecret() {
   //   file.current = event.target.files[0];
   // }
 
-
   async function handleSubmit(event) {
     event.preventDefault();
-  
+
     if (file.current && file.current.size > config.MAX_ATTACHMENT_SIZE) {
       alert(
-        `Please pick a file smaller than ${config.MAX_ATTACHMENT_SIZE /
-          1000000} MB.`
+        `Please pick a file smaller than ${
+          config.MAX_ATTACHMENT_SIZE / 1000000
+        } MB.`
       );
       return;
     }
-  
+
     setIsLoading(true);
 
     try {
@@ -64,34 +74,33 @@ export default function NewSecret() {
       // attachment handling not yet implemented on backend
       const response = await createSecret({ secret, attachment });
       const { id } = response;
-    // setSecretLink(id);
-     // setShowModal(true);
+      // setSecretLink(id);
+      // setShowModal(true);
       setIsLoading(false);
       history.push({
-        pathname: '/showlink',
-        state: { id: id, passphrase: passphrase }     
-    });
-
+        pathname: "/showlink",
+        state: { id: id, passphrase: passphrase },
+      });
     } catch (e) {
       onError(e);
       setIsLoading(false);
     }
   }
-  
+
   // Todo, check if this is poor practice, passing secret & attachment into body
-  function createSecret(body) {    
+  function createSecret(body) {
     // Remove the secret from the body object before we send to the putSecret RESTful API
     delete body.secret;
 
-    // Add items to body object to send to putSecret RESTful API 
-    
+    // Add items to body object to send to putSecret RESTful API
+
     body.expiry = expiry;
     body.hash = CreateHash(passphrase);
     body.cipher = Encrypt(secret, passphrase);
 
     // Debug only
     // Find a way to set a debug switch which turns these on/off
-  
+
     // console.log(`debug: passphrase.score : ${passphraseStrength.score}`);
     // console.log(`debug: attachment : ${body.attachment}`);
     // console.log(`debug: passphrase : ${passphrase}`);
@@ -99,92 +108,185 @@ export default function NewSecret() {
     // console.log(`debug: body : ${JSON.stringify(body)}`);
 
     return API.post("secret-sharer", "/putSecret", {
-      body: body
+      body: body,
     });
   }
 
   return (
-    
+    <form className="new-secret" onSubmit={handleSubmit}>
+      <FormGroup controlId="secret">
+        <ControlLabel>Text to Encrypt</ControlLabel>
+        <FormControl
+          value={secret}
+          componentClass="textarea"
+          placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
+          onChange={(e) => {
+            setInputHeight(e.target, "100px");
+            setSecret(e.target.value);
+          }}
+        />
+      </FormGroup>
+      <FormGroup controlId="passphrase">
+        <ControlLabel>
+          Passphrase <i className="fas fa-lock" />
+        </ControlLabel>
+        <FormControl
+          value={passphrase}
+          type="text"
+          placeholder="Enter a complex passphrase with at least 10 characters"
+          onChange={(e) => {
+            setPassphrase(e.target.value);
+          }}
+        />
+      </FormGroup>
+      <div className="passwordStrength">
+        {passphraseStrength &&
+          passphraseStrength.feedback &&
+          passphraseStrength.feedback.warning && (
+            <p>
+              <i className="far fa-times" />{" "}
+              {passphraseStrength.feedback.warning}{" "}
+            </p>
+          )}
+        <ul>
+          {passphraseStrength.feedback.suggestions.map((suggestion) => (
+            <li>
+              <i className="far fa-times" /> {suggestion}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <FormGroup controlId="expiry">
+        <ControlLabel>Expires in</ControlLabel>
+        <ButtonGroup className="clearfix">
+          <Button
+            bsStyle={expiry === "1" ? "success" : "default"}
+            onClick={() => setExpiry("1")}
+          >
+            1 Hour
+          </Button>
+          <Button
+            bsStyle={expiry === "12" ? "warning" : "default"}
+            onClick={() => setExpiry("12")}
+          >
+            12 Hours
+          </Button>
+          <Button
+            bsStyle={expiry === "24" ? "warning" : "default"}
+            onClick={() => setExpiry("24")}
+          >
+            1 Day
+          </Button>
+          <Button
+            bsStyle={expiry === "48" ? "danger" : "default"}
+            onClick={() => setExpiry("48")}
+          >
+            2 Days
+          </Button>
+          <Button
+            bsStyle={expiry === "72" ? "danger" : "default"}
+            onClick={() => setExpiry("72")}
+          >
+            3 Days
+          </Button>
+        </ButtonGroup>
+      </FormGroup>
+      <LoaderButton
+        block
+        type="submit"
+        bsSize="large"
+        bsStyle="primary"
+        isLoading={isLoading}
+        disabled={!validateForm()}
+      >
+        Encrypt Text
+      </LoaderButton>
+    </form>
+  );
+
+  return (
     <Grid>
-      <div className="Home"> 
-      <Row className="show-grid">
-        <Col md={6} mdPush={6}>
-        <div className="NewSecret">
-      {/* <Modal
+      <div className="Home">
+        <Row className="show-grid">
+          <Col md={6} mdPush={6}>
+            <div className="NewSecret">
+              {/* <Modal
         show={showModal}
         passphrase={passphrase}
         secretLink={secretLink}
         onCloseHandler={closeModal}
       /> */}
-      <form onSubmit={handleSubmit}>
-        <FormGroup controlId="secret">
-        {/* <ControlLabel>Secret</ControlLabel> */}
-          <FormControl
-            value={secret}
-            componentClass="textarea"
-            placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
-            onChange={e => setSecret(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="passphrase">
-        <ControlLabel>Passphrase</ControlLabel>
-          <FormControl
-            value={passphrase}
-            type="text"
-            placeholder="Enter a complex passphrase with at least 10 characters"
-            onChange={e => setPassphrase(e.target.value)}
-          />
-        </FormGroup>
-        <div className="passwordStrength">
-        <p>{passphraseStrength.feedback.warning} </p>
-        <p>
-          <ul>{listSuggestions}</ul>
-        </p>
-        </div>
-        
-        <FormGroup controlId="expiry">
-            <ControlLabel>Expires in</ControlLabel>
-            <FormControl
-            value={expiry}
-            componentClass="select"
-            onChange={e => setExpiry(e.target.value)}
-                >
-                <option value="1">1 hour</option>
-                <option value="1">12 hours</option>
-                <option value="24">1 day</option>
-                <option value="48">2 days</option>
-                <option value="72">3 days</option>
-            </FormControl>
-        </FormGroup>
+              <form onSubmit={handleSubmit}>
+                <FormGroup controlId="secret">
+                  {/* <ControlLabel>Secret</ControlLabel> */}
+                  <FormControl
+                    value={secret}
+                    componentClass="textarea"
+                    placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
+                    onChange={(e) => setSecret(e.target.value)}
+                  />
+                </FormGroup>
+                <FormGroup controlId="passphrase">
+                  <ControlLabel>Passphrase</ControlLabel>
+                  <FormControl
+                    value={passphrase}
+                    type="text"
+                    placeholder="Enter a complex passphrase with at least 10 characters"
+                    onChange={(e) => setPassphrase(e.target.value)}
+                  />
+                </FormGroup>
+                <div className="passwordStrength">
+                  <p>{passphraseStrength.feedback.warning} </p>
+                  <p>
+                    <ul>{listSuggestions}</ul>
+                  </p>
+                </div>
 
-        {/* <FormGroup controlId="file">
+                <FormGroup controlId="expiry">
+                  <ControlLabel>Expires in</ControlLabel>
+                  <FormControl
+                    value={expiry}
+                    componentClass="select"
+                    onChange={(e) => setExpiry(e.target.value)}
+                  >
+                    <option value="1">1 hour</option>
+                    <option value="1">12 hours</option>
+                    <option value="24">1 day</option>
+                    <option value="48">2 days</option>
+                    <option value="72">3 days</option>
+                  </FormControl>
+                </FormGroup>
+
+                {/* <FormGroup controlId="file">
           <ControlLabel>Attachment</ControlLabel>
           <FormControl onChange={handleFileChange} type="file" />
         </FormGroup> */}
-        <LoaderButton
-          block
-          type="submit"
-          bsSize="large"
-          bsStyle="primary"
-          isLoading={isLoading}
-          disabled={!validateForm()}
-        >
-          Create
-        </LoaderButton>
-      </form>
-      <div className="Eula"> 
-      <p>By using Shhh, you agree to our <a href='terms'>Terms</a> and <a href='privacy'>Privacy Policy</a>.</p>
-      </div>
-    </div>
-        </Col>
-        <Col md={6} mdPull={6}>
-          <div className="lander">
-          <h1>Shhh</h1>
-          <p>Share confidential information securely with expiring links</p>
-        </div>
-        </Col>
-      </Row> 
-  
+                <LoaderButton
+                  block
+                  type="submit"
+                  bsSize="large"
+                  bsStyle="primary"
+                  isLoading={isLoading}
+                  disabled={!validateForm()}
+                >
+                  Create
+                </LoaderButton>
+              </form>
+              <div className="Eula">
+                <p>
+                  By using Shhh, you agree to our <a href="terms">Terms</a> and{" "}
+                  <a href="privacy">Privacy Policy</a>.
+                </p>
+              </div>
+            </div>
+          </Col>
+          <Col md={6} mdPull={6}>
+            <div className="lander">
+              <h1>Shhh</h1>
+              <p>Share confidential information securely with expiring links</p>
+            </div>
+          </Col>
+        </Row>
       </div>
     </Grid>
   );

@@ -19,7 +19,6 @@ export default function ShowSecret() {
   const [secret, setSecret] = useState("");
   const [responseStatus, setResponseStatus] = useState();
   const [statusMessage, setStatusMessage] = useState("");
-  
 
   // useEffect(() => {
   //   function loadSecret() {
@@ -39,28 +38,27 @@ export default function ShowSecret() {
   //   onLoad();
   // }, [id]);
 
-// function StatusAlert(props) {
-//   const showStatusAlert = props.showStatusAlert;
-//   console.log(`debug: StatusAlert, showStatusAlert: ${showStatusAlert}`);
-//   if (showStatusAlert & responseStatus) {
-//     return <Alert bsStyle="success">{statusMessage}</Alert>;
-//   }
-//   if (showStatusAlert & !responseStatus) {
-//     return <Alert bsStyle="danger">{statusMessage}</Alert>;
-//   }
-//   return null;
-// }  
+  // function StatusAlert(props) {
+  //   const showStatusAlert = props.showStatusAlert;
+  //   console.log(`debug: StatusAlert, showStatusAlert: ${showStatusAlert}`);
+  //   if (showStatusAlert & responseStatus) {
+  //     return <Alert bsStyle="success">{statusMessage}</Alert>;
+  //   }
+  //   if (showStatusAlert & !responseStatus) {
+  //     return <Alert bsStyle="danger">{statusMessage}</Alert>;
+  //   }
+  //   return null;
+  // }
 
-function getSecret(body) {
-  return API.post("secret-sharer", "/getsecret", {
-  body: body
-});
-
-}
+  function getSecret(body) {
+    return API.post("secret-sharer", "/getsecret", {
+      body: body,
+    });
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
-  
+
     setIsLoading(true);
     setSecret("");
 
@@ -70,14 +68,12 @@ function getSecret(body) {
       const response = await getSecret({ id, hash });
       const { cipher, status, message } = response;
       if (status) {
-        setSecret(Decrypt(cipher,passphrase));
+        setSecret(Decrypt(cipher, passphrase));
       }
       setIsLoading(false);
       setShowStatusAlert(true);
       setResponseStatus(status);
       setStatusMessage(message);
-
-
 
       // console.log(`debug: id : ${id}`);
       // console.log(`debug: status : ${status}`);
@@ -88,25 +84,22 @@ function getSecret(body) {
       // console.log(`debug: cipher : ${cipher}`);
       // console.log(`debug: secret : ${secret}`);
       // console.log (`debug: secret : ${Decrypt(cipher,passphrase)}`);
-      
-    
     } catch (e) {
       onError(e);
       setIsLoading(false);
     }
   }
 
-  return (  
-    <div className="ShowLink">
-      
+  return (
+    <div className="show-secret">
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="passphrase">
-        <ControlLabel>Passphrase</ControlLabel>
+          <ControlLabel>Passphrase</ControlLabel>
           <FormControl
             value={passphrase}
             type="password"
             placeholder="Enter your passphrase"
-            onChange={e => setPassphrase(e.target.value)}
+            onChange={(e) => setPassphrase(e.target.value)}
           />
         </FormGroup>
         <LoaderButton
@@ -118,22 +111,23 @@ function getSecret(body) {
         >
           Retrieve
         </LoaderButton>
-        <FormGroup controlId="secret">
-        <ControlLabel>Secret</ControlLabel>
-          <FormControl
-            value={secret}
-            componentClass="textarea"
-            placeholder="We're not telling yet"
-            onChange={e => setSecret(e.target.value)}
-          />
-        </FormGroup>
+        {secret && (
+          <FormGroup className="secret" controlId="secret">
+            <ControlLabel>Secret</ControlLabel>
+            <FormControl
+              value={secret}
+              componentClass="textarea"
+              placeholder="We're not telling yet"
+              onChange={(e) => setSecret(e.target.value)}
+            />
+          </FormGroup>
+        )}
         <StatusAlert
-         showStatusAlert={showStatusAlert}
-         responseStatus={responseStatus}
-         statusMessage={statusMessage}
-         />
+          showStatusAlert={showStatusAlert}
+          responseStatus={responseStatus}
+          statusMessage={statusMessage}
+        />
       </form>
     </div>
-    
   );
 }
