@@ -1,7 +1,7 @@
 import { LinkContainer } from "react-router-bootstrap";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Nav, Navbar, NavItem } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+import { NavItem } from "react-bootstrap";
 import "./App.css";
 import Routes from "./Routes";
 import { AppContext } from "./libs/contextLib";
@@ -21,6 +21,7 @@ function App() {
 
   useEffect(() => {
     onLoad();
+    // eslint-disable-next-line
   }, []);
 
   async function onLoad() {
@@ -34,6 +35,7 @@ function App() {
     }
 
     setIsAuthenticating(false);
+    console.log(isAuthenticating);
   }
 
   async function handleLogout() {
@@ -106,42 +108,42 @@ function App() {
     </React.Fragment>
   );
 
-  return (
-    !isAuthenticating && (
-      <div className="App container">
-        <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to="/">Shhh</Link>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav pullRight>
-              {isAuthenticated ? (
-                <NavItem onClick={handleLogout}>Logout</NavItem>
-              ) : (
-                <>
-                  <LinkContainer to="/signup">
-                    <NavItem>Signup</NavItem>
-                  </LinkContainer>
-                  <LinkContainer to="/login">
-                    <NavItem>Login</NavItem>
-                  </LinkContainer>
-                </>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-        <ErrorBoundary>
-          <AppContext.Provider
-            value={{ isAuthenticated, userHasAuthenticated }}
-          >
-            <Routes />
-          </AppContext.Provider>
-        </ErrorBoundary>
-      </div>
-    )
-  );
+  // return (
+  //   !isAuthenticating && (
+  //     <div className="App container">
+  //       <Navbar fluid collapseOnSelect>
+  //         <Navbar.Header>
+  //           <Navbar.Brand>
+  //             <Link to="/">Shhh</Link>
+  //           </Navbar.Brand>
+  //           <Navbar.Toggle />
+  //         </Navbar.Header>
+  //         <Navbar.Collapse>
+  //           <Nav pullRight>
+  //             {isAuthenticated ? (
+  //               <NavItem onClick={handleLogout}>Logout</NavItem>
+  //             ) : (
+  //               <>
+  //                 <LinkContainer to="/signup">
+  //                   <NavItem>Signup</NavItem>
+  //                 </LinkContainer>
+  //                 <LinkContainer to="/login">
+  //                   <NavItem>Login</NavItem>
+  //                 </LinkContainer>
+  //               </>
+  //             )}
+  //           </Nav>
+  //         </Navbar.Collapse>
+  //       </Navbar>
+  //       <ErrorBoundary>
+  //         <AppContext.Provider
+  //           value={{ isAuthenticated, userHasAuthenticated }}
+  //         >
+  //           <Routes />
+  //         </AppContext.Provider>
+  //       </ErrorBoundary>
+  //     </div>
+  //   )
+  // );
 }
 export default App;
