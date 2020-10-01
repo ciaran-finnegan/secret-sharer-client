@@ -1,8 +1,82 @@
+.app-page {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.app-page:not(.is-home) {
+  margin-top: 50px;
+}
+
+.app-navigation {
+  border-bottom: 1px solid #eee;
+  position: relative;
+  padding: 25px 0;
+}
+
+.app-navigation > div {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+  position: relative;
+}
+
+.app-navigation h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0099ff;
+  font-family: "Staatliches";
+}
+
+.app-navigation h1:hover {
+  cursor: pointer;
+}
+
+.app-navigation .fa-bars {
+  margin-left: auto;
+  font-size: 22px;
+}
+
+.app-navigation ul {
+  display: none;
+  position: absolute;
+  right: 0px;
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 20px;
+  left: 0px;
+  right: 0px;
+  border-radius: 3px;
+  top: 35px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
+}
+
+.app-navigation ul.is-open {
+  display: block;
+}
+
+.app-navigation ul li a {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+.app-navigation ul li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.app-page .masthead {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  padding: 40px 0;
+}
+
 .app-frame {
   background: #fff;
   border: 1px solid var(--black-light);
-  max-width: 600px;
-  margin: 50px auto;
   border-radius: 3px;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.05);
 }
@@ -33,6 +107,7 @@
   border-top: 1px solid var(--black-light);
   font-size: 15px;
   color: #ccc;
+  text-align: center;
 }
 
 .app-frame footer a {
@@ -42,4 +117,98 @@
 
 .app-frame .btn {
   border-radius: 3px;
+}
+
+@media screen and (min-width: 992px) {
+  .app-navigation {
+    border-bottom: 1px solid #eee;
+    padding: 40px 0;
+  }
+
+  .app-navigation h1 {
+    font-size: 38px;
+    font-weight: bold;
+  }
+
+  .app-navigation .fa-bars {
+    display: none;
+    margin-left: auto;
+    font-size: 22px;
+  }
+
+  .app-navigation ul {
+    display: flex !important;
+    align-items: center;
+    position: static;
+    background: transparent;
+    border: none;
+    padding: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    margin-left: auto;
+  }
+
+  .app-navigation ul li,
+  .app-navigation ul li:not(:last-child) {
+    margin: 0;
+  }
+
+  .app-navigation ul li:not(:first-child) {
+    margin-left: 40px;
+  }
+
+  .app-navigation ul li a {
+    font-size: 18px;
+    color: #aaa;
+    font-weight: normal;
+  }
+
+  .app-navigation ul li.share-secret {
+    background-image: linear-gradient(180deg, #0099ff 0%, #067dcc 100%);
+    padding: 15px 20px;
+    border-radius: 30px;
+    color: #fff;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .app-navigation ul li.share-secret a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+
+  .app-page {
+    display: flex;
+    margin-top: 100px;
+  }
+
+  .app-page .masthead {
+    display: flex;
+    font-size: 38px;
+    font-weight: bold;
+    text-align: left;
+    padding: 0;
+    width: 45%;
+    margin-right: 5%;
+  }
+
+  .app-page .masthead h1 {
+    margin-top: 30px;
+    max-width: 500px;
+  }
+
+  .app-page:not(.is-home) .app-frame {
+    width: 100%;
+  }
+
+  .app-frame {
+    width: 50%;
+    border-radius: 5px;
+  }
+
+  .app-frame .app-body {
+    padding: 50px;
+  }
 }

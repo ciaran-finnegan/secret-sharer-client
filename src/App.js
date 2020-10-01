@@ -12,8 +12,12 @@ import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   const history = useHistory();
+  const [showNavigation, setShowNavigation] = useState(false);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
+  const currentPathname =
+    history && history.location && history.location.pathname;
+  const isHomePage = currentPathname === "/";
 
   useEffect(() => {
     onLoad();
@@ -41,12 +45,94 @@ function App() {
   }
 
   return (
-    <div className="app-frame">
-      <header>
-        <h1>Shhh</h1>
-        <p>Share confidential information securely with expiring links.</p>
-      </header>
-      <div className="app-body">
+    <React.Fragment>
+      <nav className="app-navigation">
+        <div>
+          <h1 className="logo" onClick={() => history.push("/")}>
+            Shhh
+          </h1>
+          <i
+            className="fas fa-bars"
+            onClick={() => setShowNavigation(!showNavigation)}
+          />
+          <ul className={showNavigation ? "is-open" : ""}>
+            <LinkContainer to="/about">
+              <NavItem>About</NavItem>
+            </LinkContainer>
+            {isAuthenticated ? (
+              <NavItem onClick={handleLogout}>Logout</NavItem>
+            ) : (
+              <>
+                <LinkContainer to="/signup">
+                  <NavItem>Signup</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/login">
+                  <NavItem>Login</NavItem>
+                </LinkContainer>
+              </>
+            )}
+            <LinkContainer to="/" className="share-secret">
+              <NavItem>Share a Secret</NavItem>
+            </LinkContainer>
+          </ul>
+        </div>
+      </nav>
+      <div className={`app-page ${isHomePage ? "is-home" : ""}`}>
+        {currentPathname === "/" && (
+          <header className="masthead">
+            <h1>
+              Share confidential information securely with expiring links.
+            </h1>
+          </header>
+        )}
+        <div className="app-frame">
+          <div className="app-body">
+            <ErrorBoundary>
+              <AppContext.Provider
+                value={{ isAuthenticated, userHasAuthenticated }}
+              >
+                <Routes />
+              </AppContext.Provider>
+            </ErrorBoundary>
+          </div>
+          <footer>
+            <p>
+              By using Shhh, you agree to our <a href="terms">Terms</a> and{" "}
+              <a href="privacy">Privacy Policy</a>.
+            </p>
+          </footer>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+
+  return (
+    !isAuthenticating && (
+      <div className="App container">
+        <Navbar fluid collapseOnSelect>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to="/">Shhh</Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav pullRight>
+              {isAuthenticated ? (
+                <NavItem onClick={handleLogout}>Logout</NavItem>
+              ) : (
+                <>
+                  <LinkContainer to="/signup">
+                    <NavItem>Signup</NavItem>
+                  </LinkContainer>
+                  <LinkContainer to="/login">
+                    <NavItem>Login</NavItem>
+                  </LinkContainer>
+                </>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
         <ErrorBoundary>
           <AppContext.Provider
             value={{ isAuthenticated, userHasAuthenticated }}
@@ -55,51 +141,7 @@ function App() {
           </AppContext.Provider>
         </ErrorBoundary>
       </div>
-      <footer>
-        <p>
-          By using Shhh, you agree to our <a href="terms">Terms</a> and{" "}
-          <a href="privacy">Privacy Policy</a>.
-        </p>
-      </footer>
-    </div>
+    )
   );
-
-  // return (
-  //   !isAuthenticating && (
-  //     <div className="App container">
-  //       <Navbar fluid collapseOnSelect>
-  //         <Navbar.Header>
-  //           <Navbar.Brand>
-  //             <Link to="/">Shhh</Link>
-  //           </Navbar.Brand>
-  //           <Navbar.Toggle />
-  //         </Navbar.Header>
-  //         <Navbar.Collapse>
-  //           <Nav pullRight>
-  //             {isAuthenticated ? (
-  //               <NavItem onClick={handleLogout}>Logout</NavItem>
-  //             ) : (
-  //               <>
-  //                 <LinkContainer to="/signup">
-  //                   <NavItem>Signup</NavItem>
-  //                 </LinkContainer>
-  //                 <LinkContainer to="/login">
-  //                   <NavItem>Login</NavItem>
-  //                 </LinkContainer>
-  //               </>
-  //             )}
-  //           </Nav>
-  //         </Navbar.Collapse>
-  //       </Navbar>
-  //       <ErrorBoundary>
-  //         <AppContext.Provider
-  //           value={{ isAuthenticated, userHasAuthenticated }}
-  //         >
-  //           <Routes />
-  //         </AppContext.Provider>
-  //       </ErrorBoundary>
-  //     </div>
-  //   )
-  // );
 }
 export default App;
