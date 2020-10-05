@@ -9,6 +9,7 @@ import ShowLink from "./containers/ShowLink";
 import ShowSecret from "./containers/ShowSecret";
 import Privacy from "./containers/Privacy";
 import Terms from "./containers/Terms";
+import About from "./containers/About";
 
 export default function Routes() {
   return (
@@ -33,6 +34,9 @@ export default function Routes() {
       </Route>
       <Route exact path="/terms">
         <Terms />
+      </Route>
+      <Route exact path="/about">
+        <About />
       </Route>
       {/* Finally, catch all unmatched routes */}
       <Route>
