@@ -1,0 +1,120 @@
+.about header {
+  max-width: 1000px;
+  margin: 100px auto 0;
+  border: none;
+  padding: 0;
+}
+
+.about header h1 {
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.about header p {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #888;
+  text-align: center;
+}
+
+.about .process-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 40px;
+  margin-top: 100px;
+}
+
+.about .process-step {
+  text-align: center;
+}
+
+.about .process-steps .process-step img {
+  width: 100px;
+}
+
+.about .process-steps .process-step h4 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  color: #333;
+  margin-top: 25px;
+}
+
+.about .process-steps .process-step p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #888;
+  margin-top: 12px;
+}
+
+/* 1 */
+
+.about .process-steps .process-step:nth-child(1) img {
+  width: 60px;
+}
+
+/* 2 */
+
+.about .process-steps .process-step:nth-child(2) img {
+  width: 60px;
+  margin-top: -5px;
+}
+
+.about .process-steps .process-step:nth-child(2) h4 {
+  margin-top: 20px;
+}
+
+/* 3 */
+
+.about .process-steps .process-step:nth-child(3) img {
+  width: 75px;
+  margin-top: 0px;
+}
+
+.about .technology {
+  margin-top: 100px;
+}
+
+.about .technology header h2 {
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.about .technology header p {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #888;
+  text-align: center;
+}
+
+.about .technology ul {
+  max-width: 60%;
+  margin: 60px auto 0;
+}
+
+.about .technology ul li {
+  display: flex;
+}
+
+.about .technology ul li:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.about .technology ul li .fa-check {
+  font-size: 24px;
+  line-height: 26px;
+  color: #00d490;
+  margin-right: 30px;
+}
+
+.about .technology ul li p {
+  font-size: 18px;
+  line-height: 28px;
+  color: #555;
+}

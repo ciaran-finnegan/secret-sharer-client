@@ -87,24 +87,22 @@ function App() {
             </h1>
           </header>
         )}
-        <div className="app-frame">
-          <div className="app-body">
-            <ErrorBoundary>
-              <AppContext.Provider
-                value={{ isAuthenticated, userHasAuthenticated }}
-              >
-                <Routes />
-              </AppContext.Provider>
-            </ErrorBoundary>
-          </div>
-          <footer>
-            <p>
-              By using Shhh, you agree to our <a href="terms">Terms</a> and{" "}
-              <a href="privacy">Privacy Policy</a>.
-            </p>
-          </footer>
+        <div className="app-body">
+          <ErrorBoundary>
+            <AppContext.Provider
+              value={{ isAuthenticated, userHasAuthenticated }}
+            >
+              <Routes />
+            </AppContext.Provider>
+          </ErrorBoundary>
         </div>
       </div>
+      <footer>
+        <p>
+          By using Shhh, you agree to our <a href="terms">Terms</a> and{" "}
+          <a href="privacy">Privacy Policy</a>.
+        </p>
+      </footer>
     </React.Fragment>
   );
 

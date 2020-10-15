@@ -91,43 +91,45 @@ export default function ShowSecret() {
   }
 
   return (
-    <div className="show-secret">
-      <form onSubmit={handleSubmit}>
-        <FormGroup controlId="passphrase">
-          <ControlLabel>Passphrase</ControlLabel>
-          <FormControl
-            value={passphrase}
-            type="password"
-            placeholder="Enter your passphrase"
-            onChange={(e) => setPassphrase(e.target.value)}
-          />
-        </FormGroup>
-        <LoaderButton
-          block
-          type="submit"
-          bsSize="large"
-          bsStyle="primary"
-          isLoading={isLoading}
-        >
-          Retrieve
-        </LoaderButton>
-        {secret && (
-          <FormGroup className="secret" controlId="secret">
-            <ControlLabel>Secret</ControlLabel>
+    <div className="content-frame">
+      <div className="show-secret">
+        <form onSubmit={handleSubmit}>
+          <FormGroup controlId="passphrase">
+            <ControlLabel>Passphrase</ControlLabel>
             <FormControl
-              value={secret}
-              componentClass="textarea"
-              placeholder="We're not telling yet"
-              onChange={(e) => setSecret(e.target.value)}
+              value={passphrase}
+              type="password"
+              placeholder="Enter your passphrase"
+              onChange={(e) => setPassphrase(e.target.value)}
             />
           </FormGroup>
-        )}
-        <StatusAlert
-          showStatusAlert={showStatusAlert}
-          responseStatus={responseStatus}
-          statusMessage={statusMessage}
-        />
-      </form>
+          <LoaderButton
+            block
+            type="submit"
+            bsSize="large"
+            bsStyle="primary"
+            isLoading={isLoading}
+          >
+            Retrieve
+          </LoaderButton>
+          {secret && (
+            <FormGroup className="secret" controlId="secret">
+              <ControlLabel>Secret</ControlLabel>
+              <FormControl
+                value={secret}
+                componentClass="textarea"
+                placeholder="We're not telling yet"
+                onChange={(e) => setSecret(e.target.value)}
+              />
+            </FormGroup>
+          )}
+          <StatusAlert
+            showStatusAlert={showStatusAlert}
+            responseStatus={responseStatus}
+            statusMessage={statusMessage}
+          />
+        </form>
+      </div>
     </div>
   );
 }

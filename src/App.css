@@ -4,6 +4,25 @@
   margin: auto;
 }
 
+.app-page + footer {
+  width: 90%;
+  max-width: 1200px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.app-page + footer p {
+  color: #aaa;
+}
+
+.app-page + footer p a {
+  color: #aaa;
+}
+
+.app-page + footer p a:hover {
+  text-decoration: underline;
+}
+
 .app-page:not(.is-home) {
   margin-top: 50px;
 }
@@ -74,51 +93,6 @@
   padding: 40px 0;
 }
 
-.app-frame {
-  background: #fff;
-  border: 1px solid var(--black-light);
-  border-radius: 3px;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.05);
-}
-
-.app-frame header {
-  padding: 30px;
-  border-bottom: 1px solid var(--black-light);
-}
-
-.app-frame header h1 {
-  font-weight: bold;
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.app-frame header p {
-  font-size: 16px;
-  color: #888;
-}
-
-.app-frame .app-body {
-  padding: 30px;
-}
-
-.app-frame footer {
-  padding: 30px;
-  border-top: 1px solid var(--black-light);
-  font-size: 15px;
-  color: #ccc;
-  text-align: center;
-}
-
-.app-frame footer a {
-  color: #ccc;
-  text-decoration: underline;
-}
-
-.app-frame .btn {
-  border-radius: 3px;
-}
-
 @media screen and (min-width: 992px) {
   .app-navigation {
     border-bottom: 1px solid #eee;
@@ -164,7 +138,9 @@
   }
 
   .app-navigation ul li.share-secret {
-    background-image: linear-gradient(180deg, #0099ff 0%, #067dcc 100%);
+    background-image: linear-gradient(180deg, #00c9ff 0%, #0099ff 100%);
+    border: 1px solid #029aff;
+    box-shadow: 0 2px 11px 0 rgba(0, 153, 255, 0.35);
     padding: 15px 20px;
     border-radius: 30px;
     color: #fff;
@@ -179,12 +155,12 @@
     text-transform: uppercase;
   }
 
-  .app-page {
+  .app-page.is-home {
     display: flex;
     margin-top: 100px;
   }
 
-  .app-page .masthead {
+  .app-page.is-home .masthead {
     display: flex;
     font-size: 38px;
     font-weight: bold;
@@ -194,21 +170,14 @@
     margin-right: 5%;
   }
 
-  .app-page .masthead h1 {
+  .app-page.is-home .masthead h1 {
+    font-size: 38px;
+    line-height: 48px;
     margin-top: 30px;
     max-width: 500px;
   }
 
-  .app-page:not(.is-home) .app-frame {
-    width: 100%;
-  }
-
-  .app-frame {
+  .app-page.is-home .app-body {
     width: 50%;
-    border-radius: 5px;
-  }
-
-  .app-frame .app-body {
-    padding: 50px;
   }
 }

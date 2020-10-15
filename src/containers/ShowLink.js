@@ -126,39 +126,40 @@ export default function ShowLink(props) {
   };
 
   return (
-    <div className="show-link">
-      <form>
-        {/* <LinkContainer key={1} to={`/secret/${location.state.id}`}> */}
-        <FormGroup controlId="secretLink">
-          <ControlLabel>Link</ControlLabel>
+    <div className="content-frame">
+      <div className="show-link">
+        <form>
+          {/* <LinkContainer key={1} to={`/secret/${location.state.id}`}> */}
+          <FormGroup controlId="secretLink">
+            <ControlLabel>Link</ControlLabel>
+            <div className="link-row">
+              <FormControl value={link} type="text" />
+              <Button bsStyle="default" onClick={handleShareLink}>
+                <Glyphicon glyph="share" /> Share
+              </Button>
+              <Button bsStyle="default" onClick={handleCopyLinkToClipboard}>
+                <Glyphicon glyph="copy" /> Copy
+              </Button>
+            </div>
+          </FormGroup>
+          <ControlLabel>
+            Passphrase <i className="fas fa-lock" />
+          </ControlLabel>
           <div className="link-row">
-            <FormControl value={link} type="text" />
-            <Button bsStyle="default" onClick={handleShareLink}>
+            <FormControl value={location.state.passphrase} type="text" />
+            <Button onClick={handleSharePassphrase}>
               <Glyphicon glyph="share" /> Share
             </Button>
-            <Button bsStyle="default" onClick={handleCopyLinkToClipboard}>
+            <Button onClick={handleCopyPassphraseToClipboard}>
               <Glyphicon glyph="copy" /> Copy
             </Button>
           </div>
-        </FormGroup>
-        <ControlLabel>
-          Passphrase <i className="fas fa-lock" />
-        </ControlLabel>
-        <div className="link-row">
-          <FormControl value={location.state.passphrase} type="text" />
-          <Button onClick={handleSharePassphrase}>
-            <Glyphicon glyph="share" /> Share
-          </Button>
-          <Button onClick={handleCopyPassphraseToClipboard}>
-            <Glyphicon glyph="copy" /> Copy
-          </Button>
-        </div>
-      </form>
-      <div className={`ShareMenu ${showShareMenu ? "is-displayed" : ""}`}>
-        <div className="ShareMenu-content">
-          <header>Share {shareMenuItemName}</header>
-          <ul>
-            {/* <li onClick={handleCopyToClipboard}>
+        </form>
+        <div className={`ShareMenu ${showShareMenu ? "is-displayed" : ""}`}>
+          <div className="ShareMenu-content">
+            <header>Share {shareMenuItemName}</header>
+            <ul>
+              {/* <li onClick={handleCopyToClipboard}>
               <div>
                 <div className="copy">
                   <Glyphicon glyph="copy" />
@@ -166,15 +167,15 @@ export default function ShowLink(props) {
                 <p>Copy</p>
               </div>
             </li> */}
-            <li onClick={handleShareViaEmail}>
-              <div>
-                <div className="email">
-                  <Glyphicon glyph="envelope" />
+              <li onClick={handleShareViaEmail}>
+                <div>
+                  <div className="email">
+                    <Glyphicon glyph="envelope" />
+                  </div>
+                  <p>Email</p>
                 </div>
-                <p>Email</p>
-              </div>
-            </li>
-            {/* <li>
+              </li>
+              {/* <li>
               <div>
                 <div className="copy">
                   <Glyphicon glyph="copy" />
@@ -190,11 +191,14 @@ export default function ShowLink(props) {
                 <p>Copy</p>
               </div>
             </li> */}
-          </ul>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className={`Confirmation ${confirmationText ? "is-displayed" : ""}`}>
-        <Glyphicon glyph="check" /> {confirmationText}
+        <div
+          className={`Confirmation ${confirmationText ? "is-displayed" : ""}`}
+        >
+          <Glyphicon glyph="check" /> {confirmationText}
+        </div>
       </div>
     </div>
   );

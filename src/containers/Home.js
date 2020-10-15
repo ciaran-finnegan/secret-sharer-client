@@ -110,95 +110,97 @@ export default function NewSecret() {
   }
 
   return (
-    <form className="new-secret" onSubmit={handleSubmit}>
-      <FormGroup controlId="secret">
-        <ControlLabel>Text to Encrypt</ControlLabel>
-        <FormControl
-          value={secret}
-          componentClass="textarea"
-          placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
-          onChange={(e) => {
-            setInputHeight(e.target, "100px");
-            setSecret(e.target.value);
-          }}
-        />
-      </FormGroup>
-      <FormGroup controlId="passphrase">
-        <ControlLabel>
-          Passphrase <i className="fas fa-lock" />
-        </ControlLabel>
-        <FormControl
-          value={passphrase}
-          type="text"
-          placeholder="Enter a complex passphrase with at least 10 characters"
-          onChange={(e) => {
-            setPassphrase(e.target.value);
-          }}
-        />
-      </FormGroup>
-      <div className="passwordStrength">
-        {passphraseStrength &&
-          passphraseStrength.feedback &&
-          passphraseStrength.feedback.warning && (
-            <p>
-              <i className="far fa-times" />{" "}
-              {passphraseStrength.feedback.warning}{" "}
-            </p>
-          )}
-        <ul>
-          {passphraseStrength.feedback.suggestions.map((suggestion) => (
-            <li>
-              <i className="far fa-times" /> {suggestion}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <FormGroup controlId="expiry">
-        <ControlLabel>Expires in</ControlLabel>
-        <ButtonGroup className="clearfix">
-          <Button
-            bsStyle={expiry === "1" ? "success" : "default"}
-            onClick={() => setExpiry("1")}
-          >
-            1 Hour
-          </Button>
-          <Button
-            bsStyle={expiry === "12" ? "warning" : "default"}
-            onClick={() => setExpiry("12")}
-          >
-            12 Hours
-          </Button>
-          <Button
-            bsStyle={expiry === "24" ? "warning" : "default"}
-            onClick={() => setExpiry("24")}
-          >
-            1 Day
-          </Button>
-          <Button
-            bsStyle={expiry === "48" ? "danger" : "default"}
-            onClick={() => setExpiry("48")}
-          >
-            2 Days
-          </Button>
-          <Button
-            bsStyle={expiry === "72" ? "danger" : "default"}
-            onClick={() => setExpiry("72")}
-          >
-            3 Days
-          </Button>
-        </ButtonGroup>
-      </FormGroup>
-      <LoaderButton
-        block
-        type="submit"
-        bsSize="large"
-        bsStyle="primary"
-        isLoading={isLoading}
-        disabled={!validateForm()}
-      >
-        Encrypt Text
-      </LoaderButton>
-    </form>
+    <div className="content-frame">
+      <form className="new-secret" onSubmit={handleSubmit}>
+        <FormGroup controlId="secret">
+          <ControlLabel>Text to Encrypt</ControlLabel>
+          <FormControl
+            value={secret}
+            componentClass="textarea"
+            placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
+            onChange={(e) => {
+              setInputHeight(e.target, "100px");
+              setSecret(e.target.value);
+            }}
+          />
+        </FormGroup>
+        <FormGroup controlId="passphrase">
+          <ControlLabel>
+            Passphrase <i className="fas fa-lock" />
+          </ControlLabel>
+          <FormControl
+            value={passphrase}
+            type="text"
+            placeholder="Enter a complex passphrase with at least 10 characters"
+            onChange={(e) => {
+              setPassphrase(e.target.value);
+            }}
+          />
+        </FormGroup>
+        <div className="passwordStrength">
+          {passphraseStrength &&
+            passphraseStrength.feedback &&
+            passphraseStrength.feedback.warning && (
+              <p>
+                <i className="far fa-times" />{" "}
+                {passphraseStrength.feedback.warning}{" "}
+              </p>
+            )}
+          <ul>
+            {passphraseStrength.feedback.suggestions.map((suggestion) => (
+              <li>
+                <i className="far fa-times" /> {suggestion}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <FormGroup controlId="expiry">
+          <ControlLabel>Expires in</ControlLabel>
+          <ButtonGroup className="clearfix">
+            <Button
+              bsStyle={expiry === "1" ? "success" : "default"}
+              onClick={() => setExpiry("1")}
+            >
+              1 Hour
+            </Button>
+            <Button
+              bsStyle={expiry === "12" ? "warning" : "default"}
+              onClick={() => setExpiry("12")}
+            >
+              12 Hours
+            </Button>
+            <Button
+              bsStyle={expiry === "24" ? "warning" : "default"}
+              onClick={() => setExpiry("24")}
+            >
+              1 Day
+            </Button>
+            <Button
+              bsStyle={expiry === "48" ? "danger" : "default"}
+              onClick={() => setExpiry("48")}
+            >
+              2 Days
+            </Button>
+            <Button
+              bsStyle={expiry === "72" ? "danger" : "default"}
+              onClick={() => setExpiry("72")}
+            >
+              3 Days
+            </Button>
+          </ButtonGroup>
+        </FormGroup>
+        <LoaderButton
+          block
+          type="submit"
+          bsSize="large"
+          bsStyle="primary"
+          isLoading={isLoading}
+          disabled={!validateForm()}
+        >
+          Encrypt Text
+        </LoaderButton>
+      </form>
+    </div>
   );
 
   // return (

@@ -1,6 +1,6 @@
 # Encrypted expiring messages allows you to securely exchange confidential data with your customers and coworkers.
 
-Perfect for sharing one time passwords, API keys, license keys, VPN credentials or personally identifiable information such as credit cards, bank account numbers and identity information.
+Shh is perfect for sharing one time passwords, API keys, license keys, VPN credentials or personally identifiable information such as credit cards, bank account numbers and identity information.
 
 ## Confidential data exchanged via e-mail is difficult to delete and may introduce a compliance risk.
 
@@ -18,7 +18,7 @@ We use the CryptoJS implementations of standard and secure cryptographic algorit
 
 #### Hashing
 
-We use the SHA-256 hashing which is one of the four variants in the SHA-2 set. It isn&#39;t as widely used as SHA-1, though it appears to provide much better security.
+We use the SHA-256 hashing which is one of the four variants in the SHA-2 set, an improvement over the widely used SHA-1.
 
 #### Encryption
 
