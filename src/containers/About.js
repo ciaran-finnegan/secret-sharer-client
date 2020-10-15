@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactMarkdown from "react-markdown";
 import AboutMarkdown from "./About.md";
 import "./About.css";
 
@@ -17,7 +16,6 @@ class About extends Component {
   }
 
   render() {
-    const { markdown } = this.state;
     return (
       <div className="about">
         <header>
