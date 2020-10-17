@@ -17,7 +17,9 @@ class Privacy extends Component {
 
   render() {
     const { markdown } = this.state;
-    return <ReactMarkdown source={markdown} />;
+    return <div className="privacy">
+              <ReactMarkdown source={markdown} />
+          </div>
   }
 }
 

@@ -17,7 +17,9 @@ class Terms extends Component {
 
   render() {
     const { markdown } = this.state;
-    return <ReactMarkdown source={markdown} />;
+    return <div className="terms">
+              <ReactMarkdown source={markdown} />
+          </div>
   }
 }
 

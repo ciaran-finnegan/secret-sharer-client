@@ -1,0 +1,49 @@
+.terms {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .terms b, strong {
+    font-weight: bold;
+    }
+
+  .terms ol {
+   list-style-type: decimal; 
+  }
+  .terms ul {
+    list-style-type: decimal;
+    list-style-position: inside; 
+   }
+
+  .terms li {
+    list-style-type: decimal; 
+   }
+  
+  .terms h1 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bolder;
+  }
+  .terms h2 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: bolder;
+  }
+  .terms h3
+  {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: bold;
+  }
+  .terms h4,
+  .terms h5,
+  .terms h6 {
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: bold;
+  }
+
+  
+  .terms > *:not(:last-child) {
+    margin-bottom: 30px;
+  }

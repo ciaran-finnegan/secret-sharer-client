@@ -1,0 +1,49 @@
+.privacy {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .privacy b, strong {
+    font-weight: bold;
+    }
+
+  .privacy ol {
+   list-style-type: decimal; 
+  }
+  .privacy ul {
+    list-style-type: decimal;
+    list-style-position: inside; 
+   }
+
+  .privacy li {
+    list-style-type: decimal; 
+   }
+  
+  .privacy h1 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bolder;
+  }
+  .privacy h2 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: bold;
+  }
+  .privacy h3
+  {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: bold;
+  }
+  .privacy h4,
+  .privacy h5,
+  .privacy h6 {
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: bold;
+  }
+
+  
+  .privacy > *:not(:last-child) {
+    margin-bottom: 30px;
+  }
