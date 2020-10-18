@@ -40,10 +40,10 @@ export default function Contact() {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       // not sure if this works, test..
-      body: encode({ "form-name": "contact", ...fields })
+      body: encode({ "form-name": "contact",...fields })
       
     })
-      .then(() => alert("Success!"))
+      .then(() => alert("Your message has been submitted!"))
       .catch(error => onError(error));
 
     setIsLoading(false);
@@ -52,6 +52,13 @@ export default function Contact() {
   return (
     <div className="content-frame">
       <div className="contact">
+      
+      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="name" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+      </form> 
+
         <form onSubmit={handleSubmit}>
           <FormGroup controlId="name" bsSize="large">
             <ControlLabel>Name</ControlLabel>
@@ -65,7 +72,6 @@ export default function Contact() {
           <FormGroup controlId="email" bsSize="large">
             <ControlLabel>Email</ControlLabel>
             <FormControl
-              autoFocus
               type="email"
               value={fields.email}
               onChange={handleFieldChange}
