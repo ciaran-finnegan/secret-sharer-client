@@ -26,6 +26,7 @@
   - Data Sovereignty, choose AWS Region
   - Customised hosting,BYO AWS account
   - Security assessments
+  - Penetration testing
   - Source code reviews
   - Audit logging
   - SOC II reports

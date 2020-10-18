@@ -11,12 +11,16 @@ import Privacy from "./containers/Privacy";
 import Terms from "./containers/Terms";
 import About from "./containers/About";
 import Pricing from "./containers/Pricing";
+import Contact from "./containers/Contact";
 
 export default function Routes() {
   return (
     <Switch>
       <Route exact path="/">
         <NewSecret />
+      </Route>
+      <Route exact path="/contact">
+        <Contact />
       </Route>
       <Route exact path="/login">
         <Login />

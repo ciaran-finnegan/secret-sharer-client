@@ -1,0 +1,30 @@
+  .contact .btn-group {
+    display: block;
+    clear: both;
+  }
+  
+  .contact .btn-group .btn {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+  
+  .contact .btn-group .btn-default {
+    border: 1px solid var(--black-light);
+  }
+  
+  .contact .btn-group .btn-default:hover {
+    background: #fafafa;
+  }
+  
+  .contact [type="submit"] {
+    margin-top: 30px;
+    background: #000;
+    border-color: #000;
+  }
+  
+  .contact [type="submit"]:hover,
+  .contact [type="submit"]:focus {
+    background: #000;
+    border-color: #000;
+  }
+  

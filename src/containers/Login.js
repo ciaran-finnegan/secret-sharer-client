@@ -38,7 +38,7 @@ export default function Login() {
 
   return (
     <div className="content-frame">
-      <div className="Login">
+      <div className="">
         <form onSubmit={handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
             <ControlLabel>Email</ControlLabel>
