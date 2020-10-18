@@ -50,9 +50,9 @@ class About extends Component {
             </div>
             <div className="process-step">
               <img src="/cloud-purge.svg" alt="Cloud With X" />
-              <h4>Hash &amp; Cipher Deleted on Retrieval</h4>
+              <h4>Hash &amp; Cipher Purged on Retrieval</h4>
               <p>
-                The hash and cipher are purged from our service on retrieval or
+                The hash and cipher are purged from our database on retrieval or
                 expiry of the link.
               </p>
             </div>
@@ -60,7 +60,7 @@ class About extends Component {
         </section>
         <section className="technology">
           <header>
-            <h2>What technolody do we use?</h2>
+            <h2>What technology do we use?</h2>
             <p>
               We use the CryptoJS implementations of standard and secure
               cryptographic algorithms.
