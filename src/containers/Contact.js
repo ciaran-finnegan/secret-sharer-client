@@ -40,7 +40,7 @@ export default function Contact() {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       // not sure if this works, test..
-      body: encode({ "form-name": "contact",...fields })
+      body: encode({ "form-name": "contact", "data-netlify": "true",...fields })
       
     })
       .then(() => alert("Your message has been submitted!"))
@@ -53,7 +53,7 @@ export default function Contact() {
     <div className="content-frame">
       <div className="contact">
       
-      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
         <input type="name" name="name" />
         <input type="email" name="email" />
         <textarea name="message"></textarea>
