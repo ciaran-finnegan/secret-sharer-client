@@ -8,3 +8,42 @@
       max-width: 320px;
     }
   }
+
+  .Login .btn-primary{
+    color:#fff;
+  }
+  
+  .Login .btn-default{
+    color:#fff;
+  }
+  
+  .Login .btn-group {
+    display: block;
+    clear: both;
+  }
+  
+  .Login .btn-group .btn {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+  
+  .Login .btn-group .btn-default {
+    border: 1px solid var(--black-light);
+  }
+  
+  .Login .btn-group .btn-default:hover {
+    background: #fafafa;
+  }
+  
+  .Login [type="submit"] {
+    margin-top: 30px;
+    background: #000;
+    border-color: #000;
+  }
+  
+  .Login [type="submit"]:hover,
+  .Login [type="submit"]:focus {
+    background: #000;
+    border-color: #000;
+  }
+   

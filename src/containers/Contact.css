@@ -1,3 +1,11 @@
+  .contact .btn-primary{
+    color:#fff;
+  }
+  
+  .contact .btn-default{
+    color:#fff;
+  }
+  
   .contact .btn-group {
     display: block;
     clear: both;

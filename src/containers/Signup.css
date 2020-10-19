@@ -14,3 +14,42 @@
     padding-bottom: 10px;
     color: #999;
   }
+
+  .Signup .btn-primary{
+    color:#fff;
+  }
+  
+  .Signup .btn-default{
+    color:#fff;
+  }
+  
+  .Signup .btn-group {
+    display: block;
+    clear: both;
+  }
+  
+  .Signup .btn-group .btn {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+  
+  .Signup .btn-group .btn-default {
+    border: 1px solid var(--black-light);
+  }
+  
+  .Signup .btn-group .btn-default:hover {
+    background: #fafafa;
+  }
+  
+  .Signup [type="submit"] {
+    margin-top: 30px;
+    background: #000;
+    border-color: #000;
+  }
+  
+  .Signup [type="submit"]:hover,
+  .Signup [type="submit"]:focus {
+    background: #000;
+    border-color: #000;
+  }
+   

@@ -74,27 +74,29 @@ export default function Signup() {
 
   function renderConfirmationForm() {
     return (
-      <form onSubmit={handleConfirmationSubmit}>
-        <FormGroup controlId="confirmationCode" bsSize="large">
-          <ControlLabel>Confirmation Code</ControlLabel>
-          <FormControl
-            autoFocus
-            type="tel"
-            onChange={handleFieldChange}
-            value={fields.confirmationCode}
-          />
-          <HelpBlock>Please check your email for the code.</HelpBlock>
-        </FormGroup>
-        <LoaderButton
-          block
-          type="submit"
-          bsSize="large"
-          isLoading={isLoading}
-          disabled={!validateConfirmationForm()}
-        >
-          Verify
-        </LoaderButton>
-      </form>
+      <div className="Signup">
+        <form onSubmit={handleConfirmationSubmit}>
+          <FormGroup controlId="confirmationCode" bsSize="large">
+            <ControlLabel>Confirmation Code</ControlLabel>
+            <FormControl
+              autoFocus
+              type="tel"
+              onChange={handleFieldChange}
+              value={fields.confirmationCode}
+            />
+            <HelpBlock>Please check your email for the code.</HelpBlock>
+          </FormGroup>
+          <LoaderButton
+            block
+            type="submit"
+            bsSize="large"
+            isLoading={isLoading}
+            disabled={!validateConfirmationForm()}
+          >
+            Verify
+          </LoaderButton>
+        </form>
+      </div>  
     );
   }
 
