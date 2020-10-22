@@ -16,40 +16,18 @@ import Contact from "./containers/Contact";
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/">
-        <NewSecret />
-      </Route>
-      <Route exact path="/contact">
-        <Contact />
-      </Route>
-      <Route exact path="/login">
-        <Login />
-      </Route>
-      <Route exact path="/signup">
-        <Signup />
-      </Route>
-      <Route exact path="/showlink">
-        <ShowLink />
-      </Route>
-      <Route exact path="/secret/:id">
-        <ShowSecret />
-      </Route>
-      <Route exact path="/privacy">
-        <Privacy />
-      </Route>
-      <Route exact path="/terms">
-        <Terms />
-      </Route>
-      <Route exact path="/about">
-        <About />
-      </Route>
-      <Route exact path="/pricing">
-        <Pricing />
-      </Route>
+      <Route exact path="/" component={NewSecret} />
+      <Route exact path="/contact" component={Contact} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/showlink" component={ShowLink} />
+      <Route exact path="/secret/:id" component={ShowSecret} />
+      <Route exact path="/privacy" component={Privacy} />
+      <Route exact path="/terms" component={Terms} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/pricing" component={Pricing} />
       {/* Finally, catch all unmatched routes */}
-      <Route>
-        <NotFound />
-      </Route>
+      <Route component={NotFound} />
     </Switch>
   );
 }
