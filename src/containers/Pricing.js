@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactMarkdown from "react-markdown";
 import PricingMarkdown from "./Pricing.md";
 import "./Pricing.css";
 
@@ -17,7 +16,6 @@ class Pricing extends Component {
   }
 
   render() {
-    const { markdown } = this.state;
     const { history } = this.props;
 
     return (
