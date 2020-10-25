@@ -1,55 +1,102 @@
-import React, { Component } from "react";
-import PricingMarkdown from "./Pricing.md";
+import React from "react";
 import "./Pricing.css";
 import config from "../config";
 import { loadStripe } from '@stripe/stripe-js';
 import { API } from "aws-amplify";
+import { useHistory } from "react-router-dom";
+import { onError } from "../libs/errorLib";
+
 // Use the Stripe public key
 const stripePromise = loadStripe(config.STRIPE_KEY);
 
-async function handleSignupClick(subscriptionName) {
-  // Get Stripe.js instance
-  const stripe = await stripePromise;
+// async function handleSignupClick(subscriptionName) {
+//   // Get Stripe.js instance
+//   const stripe = await stripePromise;
 
-  const body = {
-    "subscriptionName": subscriptionName
+//   const body = {
+//     "subscriptionName": subscriptionName
+//   };
+//   console.log(`subscriptionName: ${subscriptionName}`);
+//   // Todo, set users email here
+
+//   // Call REST API to create the Checkout Session
+//   const response = await API.post("secret-sharer", "/create-checkout-session", {
+//     body: body,
+//   });
+
+//   const session = await response;
+
+//   // When the customer clicks on the button, redirect them to Checkout.
+//   const result = await stripe.redirectToCheckout({
+//     sessionId: session.sessionId,
+//   });
+
+//   if (result.error) {
+//     // If `redirectToCheckout` fails due to a browser or network
+//     // error, display the localized error message to your customer
+//     // using `result.error.message`.
+//     onError(result.error.message);
+//   }
+// }
+
+export default function Pricing() {
+  const history = useHistory();
+
+  const handleBusinessSignupClick = async (event) => {
+    // Get Stripe.js instance
+    const stripe = await stripePromise;
+
+    const body = {
+      "subscriptionName": "Business"
+      };
+
+    // Call backend to create the Checkout Session
+    const response = await API.post("secret-sharer", "/create-checkout-session", {
+      body: body,
+      });
+
+    const session = await response;
+
+    // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.sessionId,
+    });
+
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+      onError(result.error.message);
+    }
   };
-  
-  console.log(`subscriptionName: ${subscriptionName}`);
-  // Todo, set users email here
 
-  // Call REST API to create the Checkout Session
-  const session = await API.post("secret-sharer", "/create-checkout-session", {
-    body: body,
-  });
+  const handleEnterpriseSignupClick = async (event) => {
+    // Get Stripe.js instance
+    const stripe = await stripePromise;
 
-  // When the customer clicks on the button, redirect them to Checkout.
-  const result = await stripe.redirectToCheckout({
-    sessionId: session.sessionId,
-  });
+    const body = {
+      "subscriptionName": "Enterprise"
+      };
 
-  if (result.error) {
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer
-    // using `result.error.message`.
-  }
-}
+    // Call backend to create the Checkout Session
+    const response = await API.post("secret-sharer", "/create-checkout-session", {
+      body: body,
+      });
 
-class Pricing extends Component {
-  constructor() {
-    super();
-    this.state = { markdown: "" };
-  }
+    const session = await response;
 
-  componentWillMount() {
-    // Get the contents from the Markdown file and put them in the React state, so we can reference it in render() below.
-    fetch(PricingMarkdown)
-      .then((res) => res.text())
-      .then((text) => this.setState({ markdown: text }));
-  }
+    // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.sessionId,
+    });
 
-  render() {
-    const { history } = this.props;
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+      onError(result.error.message);
+    }
+  };
 
     return (
       <div className="pricing">
@@ -109,7 +156,8 @@ class Pricing extends Component {
             <button
              role="link"
             onClick={
-              handleSignupClick("Business")
+              //handleSignupClick("Business")
+              handleBusinessSignupClick
               }>
             Sign Up Now
             </button>
@@ -139,7 +187,11 @@ class Pricing extends Component {
                 </li> */}
               </ul>
             </div>
-            <button>Sign Up Now</button>
+            <button
+             role="link"
+            onClick={handleEnterpriseSignupClick}>
+            Sign Up Now
+            </button>
           </div>
         </div>
         <div className="pricing-customizations">
@@ -207,9 +259,7 @@ class Pricing extends Component {
             </li>
           </ul>
         </div>
-        {/* <ReactMarkdown source={markdown} /> */}
       </div>
     );
   }
-}
-export default Pricing;
+
