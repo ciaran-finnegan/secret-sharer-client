@@ -1,6 +1,6 @@
 
   const dev = {
-    STRIPE_KEY: "YOUR_STRIPE_DEV_PUBLIC_KEY",
+    STRIPE_KEY: "pk_test_51Hf3JqChF6zaLrtnLAm28IoGk0A7wlQQ08U1ePJVqBTRn0wz8qNZbUMeAP5aqaQABAaEi8mQKhWOjliuK9YFJyKy006OiezpYL",
     BASE_URL: "https://shhh.link",
     s3: {
       REGION: "ap-southeast-2",
@@ -19,7 +19,7 @@
   };
   
   const prod = {
-    STRIPE_KEY: "YOUR_STRIPE_DEV_PUBLIC_KEY",
+    STRIPE_KEY: "pk_test_51Hf3JqChF6zaLrtnLAm28IoGk0A7wlQQ08U1ePJVqBTRn0wz8qNZbUMeAP5aqaQABAaEi8mQKhWOjliuK9YFJyKy006OiezpYL",
     BASE_URL: "https://shhh.link",
     s3: {
       REGION: "ap-southeast-2",

@@ -1,6 +1,39 @@
 import React, { Component } from "react";
 import PricingMarkdown from "./Pricing.md";
 import "./Pricing.css";
+import config from "../config";
+import { loadStripe } from '@stripe/stripe-js';
+import { API } from "aws-amplify";
+// Use the Stripe public key
+const stripePromise = loadStripe(config.STRIPE_KEY);
+
+async function handleSignupClick(subscriptionName) {
+  // Get Stripe.js instance
+  const stripe = await stripePromise;
+
+  const body = {
+    "subscriptionName": subscriptionName
+  };
+  
+  console.log(`subscriptionName: ${subscriptionName}`);
+  // Todo, set users email here
+
+  // Call REST API to create the Checkout Session
+  const session = await API.post("secret-sharer", "/create-checkout-session", {
+    body: body,
+  });
+
+  // When the customer clicks on the button, redirect them to Checkout.
+  const result = await stripe.redirectToCheckout({
+    sessionId: session.sessionId,
+  });
+
+  if (result.error) {
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `result.error.message`.
+  }
+}
 
 class Pricing extends Component {
   constructor() {
@@ -21,8 +54,8 @@ class Pricing extends Component {
     return (
       <div className="pricing">
         <header>
-          <h1>Pricing</h1>
-          <p>This is some extra text to display beneath the pricing title.</p>
+          <h1>Shhh.link is free for personal use</h1>
+          <p> Anonymous messages can be sent free of charge. Business and Enterprise subscriptions allow recepients to validate the e-mail address of the sender.</p>
         </header>
         <div className="pricing-table">
           <div className="pricing-table-option">
@@ -48,7 +81,7 @@ class Pricing extends Component {
                 </li>
               </ul>
             </div>
-            <button>Sign Up Now</button>
+            <button onClick={() => history.push("/")}>Share a Secret</button>
           </div>
           <div className="pricing-table-option featured">
             <header>
@@ -73,7 +106,13 @@ class Pricing extends Component {
                 </li>
               </ul>
             </div>
-            <button>Sign Up Now</button>
+            <button
+             role="link"
+            onClick={
+              handleSignupClick("Business")
+              }>
+            Sign Up Now
+            </button>
           </div>
           <div className="pricing-table-option">
             <header>
@@ -87,13 +126,13 @@ class Pricing extends Component {
             <div className="features">
               <ul>
                 <li>
-                  <i className="fas fa-check" /> <span>50 users</span>
-                </li>
-                <li>
                   <i className="fas fa-check" /> <span>Unlimited Users</span>
                 </li>
                 <li>
                   <i className="fas fa-check" /> <span>Unlimited Messages</span>
+                </li>
+                <li>
+                  <i className="fas fa-check" /> <span>Custom domain</span>
                 </li>
                 {/* <li>
                   <i className="fas fa-check" /> <span>Custom subdomain</span>
@@ -107,7 +146,7 @@ class Pricing extends Component {
           <header>
             <h2>Additional Customisations</h2>
             <p>
-              Customisations are available for paid plans by request for an
+              Customisations are available for paid plans for an
               additional fee. <a href="/contact">Contact us</a> to learn more.
             </p>
           </header>
@@ -173,5 +212,4 @@ class Pricing extends Component {
     );
   }
 }
-
 export default Pricing;
