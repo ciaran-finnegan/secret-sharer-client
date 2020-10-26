@@ -47,6 +47,8 @@ function App() {
   }
 
   return (
+    // Todo, implement Natitem for support (external link)
+    // See discussion here, https://github.com/ReactTraining/react-router/issues/1147
     <React.Fragment>
       <nav className="app-navigation">
         <div>
@@ -79,9 +81,7 @@ function App() {
                 </LinkContainer>
               </>
             )}
-            <LinkContainer to="/support">
-              <NavItem>Support</NavItem>
-            </LinkContainer><LinkContainer to="/" className="share-secret">
+            <LinkContainer to="/" className="share-secret">
               <NavItem>Share a Secret</NavItem>
             </LinkContainer>
           </ul>
