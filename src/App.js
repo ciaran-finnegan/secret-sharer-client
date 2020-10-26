@@ -79,7 +79,9 @@ function App() {
                 </LinkContainer>
               </>
             )}
-            <LinkContainer to="/" className="share-secret">
+            <LinkContainer to="/support">
+              <NavItem>Support</NavItem>
+            </LinkContainer><LinkContainer to="/" className="share-secret">
               <NavItem>Share a Secret</NavItem>
             </LinkContainer>
           </ul>
