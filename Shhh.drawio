@@ -1,1 +1,162 @@
-<mxfile host="app.diagrams.net" modified="2020-11-08T02:48:00.027Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15" etag="QvHkpn4Hf_ecNszxzWIR" version="13.9.2" type="github"><diagram id="Hv6Z0Z-jgz0hXXmfDjHY" name="Page-1">7VndcqIwGH0aLzuDgJS9VOy23bU7nbHdTvfGiRAh20BoiFX79PshAUTSle7417o3CicJkXNOTj6wZTjh/JKjOLhhHqYtXfPmLaPf0vV227bgK0UWGWLZ5xngc+LJTiUwJK9YgppEp8TDSaWjYIwKEldBl0URdkUFQ5yzWbXbhNHqrDHycQ0YuojW0QfiiSBD7Y5W4leY+EE+c1uTLSHKO0sgCZDHZiuQcdEyHM6YyI7CuYNpSl7OSzbu6xutxQ/jOBJNBvDu492r9du/+vY8eh6Q6/MRujprG9llXhCdyjtu6RaFC/YCE4789OjagymIWKSURh58dl0XJwkc3KAICAjTXyBHwfzlwO7DEDo5zI+IYHmPMc+bjw9Z6iQWuficTSMPp/y1oXkWEIGHMXLT1hnYPSVJhFQ2cyaQICyCU6242Ko8UrEXzAWer0BSrkvMQix4yrJsNXMvLfLz7HRWGrFtSSxYNaEtQSTN7xeXLv0BB9Ii77BLE7f0CKUk8pWGGApOYnxolT++Eyy7qRWsXVnBamCFbhxT4mZc6BYKU56icRKvcK7IiwEKxx46tAH+I6e3rBonbDFw68vKri2rZJmZoxkeB4w91SiEWxVVnmAAe8IOo4wDErEIevYmkMprEKLET8l0gUAMeC8lDpYr7cqGkHheOo1SmFK6LYlR7FpSjI5WF8MwFGLou9Iir0FXxQBm7uMdiEDxRBxcAlPrVCRo63UJzL0q0FHsMusZErBwPE0258cWCDLWPKoiSN8rQfW8OC6COocm6MuRE6So5PZKUHELJUHwLD0hPBxCBE1PJ+sUTt1r1uXGXNttrqOTUUCxFParQJPH2/sEaiVd6xOOXcHSWRUPMsUrD012v2WM1nPnsNWvZVaj6PCvF3SzQVi/h7Q1v2/FtBs5U8W3aeyMs3qJhENEYJyzvNckmTHufdYM0bXNBZnSxLsLkfO/6SG31uVKdpiHT0YXxe66Z11UlfJ6uPeRQGOUYGWo9xcRClkfQO0OjSlO6KHfpnxW5Lj3ycYbpbENM4/44PbR0rpuz/4+CH7ZNz9/DM7qNXvdyw6JA8wTpZV3QHGNTwXrb1NsVSk2VDGu2le3UYooGa4X4wqGp4mA6T4ox2bT2uUfOIbT8o/NZdvK38PGxR8=</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-11-08T13:35:10.707Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15" etag="K2qi9Ca7uDTruSJ2oL3r" version="13.9.2" type="github" pages="4">
+  <diagram id="Hv6Z0Z-jgz0hXXmfDjHY" name="Application Architecture">
+    <mxGraphModel dx="1099" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rAYTz6jgHJq_qLiI7_aH-13" value="&lt;h4&gt;Identity and Access Management&lt;/h4&gt;AWS Cognito&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
+          <mxGeometry x="400" width="160" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="rAYTz6jgHJq_qLiI7_aH-3" value="&lt;h4&gt;Billing&lt;/h4&gt;Stripe&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
+          <mxGeometry x="400" y="680" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="rAYTz6jgHJq_qLiI7_aH-6" value="&lt;h4&gt;Application&amp;nbsp;&lt;/h4&gt;AWS API Gateway&lt;br&gt;AWS Lambda&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
+          <mxGeometry x="400" y="240" width="160" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="rAYTz6jgHJq_qLiI7_aH-10" value="/signUp" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="405" y="80" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rAYTz6jgHJq_qLiI7_aH-21" value="/confirmSignup" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="405" y="110" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rAYTz6jgHJq_qLiI7_aH-22" value="/signIn" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="405" y="140" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rAYTz6jgHJq_qLiI7_aH-23" value="&lt;h4&gt;User Directory&lt;/h4&gt;Cognito User Pool" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
+          <mxGeometry x="640" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rAYTz6jgHJq_qLiI7_aH-24" value="" style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="120" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="rAYTz6jgHJq_qLiI7_aH-28" value="&lt;h4&gt;Database&lt;/h4&gt;DynamoDB Tablesl&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
+          <mxGeometry x="640" y="240" width="160" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="_rLPY60AcB8KLhZ8MVNL-1" value="&lt;h4&gt;Ciphers&lt;/h4&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
+          <mxGeometry x="660" y="320" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_rLPY60AcB8KLhZ8MVNL-2" value="&lt;h4&gt;Customers&lt;/h4&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
+          <mxGeometry x="660" y="440" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CP3uooLWyoKTAAhPnvAy-1" value="&lt;h4&gt;SAML Provider&lt;/h4&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="100" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HtaPsJCZTVptxdijYcUO-7" value="/putSecret" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="405" y="340" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="HtaPsJCZTVptxdijYcUO-8" value="/getSecret" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="405" y="360" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="HtaPsJCZTVptxdijYcUO-9" value="/purgeSecret" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="405" y="380" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="HtaPsJCZTVptxdijYcUO-10" value="/create-checkout-session" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="405" y="460" width="145" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="HtaPsJCZTVptxdijYcUO-12" value="/currentUserInfo" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="405" y="170" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="HtaPsJCZTVptxdijYcUO-16" value="/updateUserAttributes" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="405" y="200" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="avt5vIIPCPfY_CYcahbM-1" value="/create-customerportal-session" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="405" y="490" width="145" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="avt5vIIPCPfY_CYcahbM-2" value="/stripe-webhook" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="405" y="440" width="145" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="NxciisnmmN84hfSMXkzs" name="CICD">
+    <mxGraphModel dx="1339" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="5weoIt8CV3_sYMo1khrZ-0" />
+        <mxCell id="5weoIt8CV3_sYMo1khrZ-1" parent="5weoIt8CV3_sYMo1khrZ-0" />
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-0" value="&lt;h4&gt;Seed.run&lt;/h4&gt;&lt;div&gt;pipeline: development&amp;nbsp;&lt;/div&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://ryqb0azfd7.execute-api.ap-southeast-2.amazonaws.com/dev&quot; style=&quot;box-sizing: border-box ; color: rgb(46 , 45 , 51) ; text-decoration: none ; transition: 0.3s ; font-family: &amp;#34;rubik&amp;#34; , sans-serif ; text-align: left&quot;&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;ryqb0azfd7.execute-api.ap-southeast-2.amazonaws.com/dev&lt;/font&gt;&lt;/a&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;pipeline: production (manual deploy)&lt;/div&gt;&lt;div&gt;qnsed5flsh.execute-api.ap-southeast-2.amazonaws.com/prod&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="5weoIt8CV3_sYMo1khrZ-1">
+          <mxGeometry x="320" y="320" width="520" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-1" value="&lt;h4&gt;GitHub&lt;/h4&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="5weoIt8CV3_sYMo1khrZ-1">
+          <mxGeometry x="40" y="120" width="240" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-2" value="&lt;h4&gt;Secret-Sharer-Client Repo&lt;/h4&gt;&lt;div&gt;branch: master&lt;/div&gt;&lt;div&gt;branch: dev-branch&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="5weoIt8CV3_sYMo1khrZ-1">
+          <mxGeometry x="80" y="200" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-3" value="&lt;h4&gt;Secret-Sharer-Server Repo&lt;/h4&gt;&lt;div&gt;branch: master&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="5weoIt8CV3_sYMo1khrZ-1">
+          <mxGeometry x="80" y="320" width="160" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-4" value="&lt;h4&gt;Netlify&lt;/h4&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;https://master--secret-sharer.netlify.app&lt;br&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;https:/dev-branch--secret-sharer.netlify.app&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="5weoIt8CV3_sYMo1khrZ-1">
+          <mxGeometry x="320" y="200" width="520" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-7" value="&lt;h4&gt;Cloudflare&lt;/h4&gt;&lt;div&gt;CNAME&lt;/div&gt;&lt;div&gt;shhh.link&lt;/div&gt;master--secret-sharer.netlify.app&lt;div&gt;&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="5weoIt8CV3_sYMo1khrZ-1">
+          <mxGeometry x="590" y="80" width="250" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="8XQlMVYwTLiwBFjd8v2O" name="Mgmt &amp; Reporting">
+    <mxGraphModel dx="1339" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="kYcK-3j_SrmOTwIYCgRn-0" />
+        <mxCell id="kYcK-3j_SrmOTwIYCgRn-1" parent="kYcK-3j_SrmOTwIYCgRn-0" />
+        <mxCell id="4YO0bs2g4u5x8FvCbHhL-0" value="&lt;h4&gt;Serverless.com&lt;/h4&gt;&lt;div&gt;Serverless Usage and Statistics&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="kYcK-3j_SrmOTwIYCgRn-1">
+          <mxGeometry x="160" y="680" width="520" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4YO0bs2g4u5x8FvCbHhL-4" value="&lt;h4&gt;Sentry.io&lt;/h4&gt;React Web Application Usage, Statistics and Bug Tracking" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="kYcK-3j_SrmOTwIYCgRn-1">
+          <mxGeometry x="160" y="560" width="520" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4YO0bs2g4u5x8FvCbHhL-5" value="&lt;h4&gt;Cloudflare&lt;/h4&gt;&lt;div&gt;DNS and WAF Management, Usage and Statistics&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="kYcK-3j_SrmOTwIYCgRn-1">
+          <mxGeometry x="160" y="80" width="520" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4YO0bs2g4u5x8FvCbHhL-6" value="&lt;h4&gt;Amazonaws.com&lt;/h4&gt;&lt;div&gt;DynamoDB, Cognito, API Gateway &amp;amp; Lambda Management, Usage and Statistics&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="kYcK-3j_SrmOTwIYCgRn-1">
+          <mxGeometry x="160" y="800" width="520" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4YO0bs2g4u5x8FvCbHhL-7" value="&lt;h4&gt;Github.com&lt;/h4&gt;Code Repository Management, Usage and Statistics" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="kYcK-3j_SrmOTwIYCgRn-1">
+          <mxGeometry x="160" y="200" width="520" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4YO0bs2g4u5x8FvCbHhL-8" value="&lt;h4&gt;Seed.run&lt;/h4&gt;&lt;div&gt;Serverless Backend Continuous Integration / Deployment Management&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="kYcK-3j_SrmOTwIYCgRn-1">
+          <mxGeometry x="160" y="440" width="520" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4YO0bs2g4u5x8FvCbHhL-9" value="&lt;h4&gt;Netlify.com&lt;/h4&gt;Web Application Continuous Integration / Deployment Managment" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" vertex="1" parent="kYcK-3j_SrmOTwIYCgRn-1">
+          <mxGeometry x="160" y="320" width="520" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ktrm1AF7MMYaVzFN94N8" name="References">
+    <mxGraphModel dx="1099" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="GUHfuzDCQo2xxeLJagS3-0" />
+        <mxCell id="GUHfuzDCQo2xxeLJagS3-1" parent="GUHfuzDCQo2xxeLJagS3-0" />
+        <mxCell id="GUHfuzDCQo2xxeLJagS3-2" value="Customer Signup" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="GUHfuzDCQo2xxeLJagS3-1">
+          <mxGeometry x="120" y="40" width="110" height="20" as="geometry" />
+        </mxCell>
+        <UserObject label="https://stripe.com/docs/billing/subscriptions/integrating-customer-portal" link="https://stripe.com/docs/billing/subscriptions/integrating-customer-portal" id="GUHfuzDCQo2xxeLJagS3-3">
+          <mxCell style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="GUHfuzDCQo2xxeLJagS3-1">
+            <mxGeometry x="120" y="480" width="390" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="https://stripe.com/docs/webhooks/integration-builder" link="https://stripe.com/docs/webhooks/integration-builder" id="GWS15qCUytG4cjWKH32i-0">
+          <mxCell style="text;whiteSpace=wrap;html=1;" vertex="1" parent="GUHfuzDCQo2xxeLJagS3-1">
+            <mxGeometry x="125" y="510" width="300" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="https://stripe.com/docs/billing/subscriptions/checkout/fixed-price" link="https://stripe.com/docs/billing/subscriptions/checkout/fixed-price" id="GWS15qCUytG4cjWKH32i-1">
+          <mxCell style="text;whiteSpace=wrap;html=1;" vertex="1" parent="GUHfuzDCQo2xxeLJagS3-1">
+            <mxGeometry x="125" y="420" width="360" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="https://github.com/stripe-samples/checkout-single-subscription" link="https://github.com/stripe-samples/checkout-single-subscription" id="GWS15qCUytG4cjWKH32i-2">
+          <mxCell style="text;whiteSpace=wrap;html=1;" vertex="1" parent="GUHfuzDCQo2xxeLJagS3-1">
+            <mxGeometry x="125" y="450" width="360" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="GWS15qCUytG4cjWKH32i-3" value="Billing" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="GUHfuzDCQo2xxeLJagS3-1">
+          <mxGeometry x="120" y="400" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="GWS15qCUytG4cjWKH32i-4" value="&lt;div style=&quot;text-align: left&quot;&gt;Create Cognito customer&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;Validate E-mail&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;&lt;div style=&quot;text-align: left&quot;&gt;E-mail matches existing Domain?&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;Yes - Job done&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;No -&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&amp;nbsp; Call create-checkout-session (pass e-mail)&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&amp;nbsp; Stripe redirects to /success?sessionId=n&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&amp;nbsp; Call checkout-session&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&amp;nbsp; Call Cognito Auth.updateUserAttributes&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;add stripeCustomerId&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;suscriptionName&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;subscriptionActiveToDate (or whatever this is called)&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;isBillingAdmin=true&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;IsUserAdmin=true&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="GUHfuzDCQo2xxeLJagS3-1">
+          <mxGeometry x="125" y="60" width="310" height="230" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
