@@ -58,19 +58,24 @@ function App() {
             onClick={() => setShowNavigation(!showNavigation)}
           />
           <ul className={showNavigation ? "is-open" : ""}>
-            <LinkContainer to="/about">
-              <NavItem>About</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/contact">
-              <NavItem>Contact</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/pricing">
-              <NavItem>Pricing</NavItem>
-            </LinkContainer>
             {isAuthenticated ? (
-              <NavItem onClick={handleLogout}>Logout</NavItem>
+              <>
+                <LinkContainer to="/billing">
+                  <NavItem>Billing</NavItem>
+                </LinkContainer>
+                <NavItem onClick={handleLogout}>Logout</NavItem>
+              </>
             ) : (
               <>
+                <LinkContainer to="/about">
+                  <NavItem>About</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/contact">
+                  <NavItem>Contact</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/pricing">
+                  <NavItem>Pricing</NavItem>
+                </LinkContainer>
                 <LinkContainer to="/signup">
                   <NavItem>Signup</NavItem>
                 </LinkContainer>
