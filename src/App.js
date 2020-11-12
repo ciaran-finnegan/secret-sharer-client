@@ -60,8 +60,8 @@ function App() {
           <ul className={showNavigation ? "is-open" : ""}>
             {isAuthenticated ? (
               <>
-                <LinkContainer to="/billing">
-                  <NavItem>Billing</NavItem>
+                <LinkContainer to="/settings">
+                  <NavItem>Settings</NavItem>
                 </LinkContainer>
                 <NavItem onClick={handleLogout}>Logout</NavItem>
               </>
