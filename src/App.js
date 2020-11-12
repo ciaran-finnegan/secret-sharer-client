@@ -68,7 +68,12 @@ function App() {
               <NavItem>Pricing</NavItem>
             </LinkContainer>
             {isAuthenticated ? (
-              <NavItem onClick={handleLogout}>Logout</NavItem>
+              <>
+                <LinkContainer to="/settings">
+                  <NavItem>Settings</NavItem>
+                </LinkContainer>
+                <NavItem onClick={handleLogout}>Logout</NavItem>
+              </>
             ) : (
               <>
                 <LinkContainer to="/signup">
