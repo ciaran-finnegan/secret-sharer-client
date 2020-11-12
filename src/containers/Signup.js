@@ -11,7 +11,9 @@ import { useAppContext } from "../libs/contextLib";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import "./Signup.css";
-import { Auth } from "aws-amplify";
+import { Auth, API } from "aws-amplify";
+import { loadStripe } from "@stripe/stripe-js";
+import config from "../config";
 
 export default function Signup() {
   const [fields, handleFieldChange] = useFormFields({
@@ -55,6 +57,32 @@ export default function Signup() {
     }
   }
 
+  async function handleCreateCheckoutSession() {
+    const stripe = await loadStripe(config.STRIPE_KEY);
+
+    const session = await API.post(
+      "secret-sharer",
+      "/create-checkout-session",
+      {
+        body: {
+          subscriptionName: "Business",
+        },
+      }
+    );
+
+    // // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.sessionId,
+    });
+
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+      onError(result.error.message);
+    }
+  }
+
   async function handleConfirmationSubmit(event) {
     event.preventDefault();
 
@@ -65,7 +93,12 @@ export default function Signup() {
       await Auth.signIn(fields.email, fields.password);
 
       userHasAuthenticated(true);
-      history.push("/");
+      // history.push("/");
+      handleCreateCheckoutSession();
+
+      // const userAttributes = await Auth.userAttributes();
+      // TODO: Check if existing customer on Cognito user.
+      // TODO: If not, create checkout session and redirect.
     } catch (e) {
       onError(e);
       setIsLoading(false);
@@ -96,7 +129,7 @@ export default function Signup() {
             Verify
           </LoaderButton>
         </form>
-      </div>  
+      </div>
     );
   }
 

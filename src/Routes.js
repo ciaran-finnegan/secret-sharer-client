@@ -16,6 +16,7 @@ import Terms from "./containers/Terms";
 import About from "./containers/About";
 import Pricing from "./containers/Pricing";
 import Contact from "./containers/Contact";
+import Success from "./containers/Success";
 
 export default function Routes() {
   return (
@@ -34,6 +35,7 @@ export default function Routes() {
       <Route exact path="/terms" component={Terms} />
       <Route exact path="/about" component={About} />
       <Route exact path="/pricing" component={Pricing} />
+      <Route exact path="/success" component={Success} />
       {/* Finally, catch all unmatched routes */}
       <Route component={NotFound} />
     </Switch>
