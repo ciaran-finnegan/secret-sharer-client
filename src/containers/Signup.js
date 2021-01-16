@@ -24,7 +24,7 @@ export default function Signup() {
   });
   const history = useHistory();
   const [newUser, setNewUser] = useState(null);
-  const { userHasAuthenticated } = useAppContext();
+  const { userHasAuthenticated, setUser } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
 
   function validateForm() {
@@ -51,6 +51,7 @@ export default function Signup() {
       });
       setIsLoading(false);
       setNewUser(newUser);
+      setUser(newUser);
     } catch (e) {
       onError(e);
       setIsLoading(false);
@@ -59,18 +60,19 @@ export default function Signup() {
 
   async function handleCreateCheckoutSession() {
     const stripe = await loadStripe(config.STRIPE_KEY);
-
     const session = await API.post(
       "secret-sharer",
       "/create-checkout-session",
       {
         body: {
+          redirectURL: config.BASE_URL,
           subscriptionName: "Business",
+          email: newUser && newUser.user && newUser.user.username, // NOTE: Email stored as username by Cognito.
         },
       }
     );
 
-    // // When the customer clicks on the button, redirect them to Checkout.
+    // When the customer clicks on the button, redirect them to Checkout.
     const result = await stripe.redirectToCheckout({
       sessionId: session.sessionId,
     });

@@ -11,7 +11,7 @@ import "./Login.css";
 
 export default function Login() {
   const history = useHistory();
-  const { userHasAuthenticated } = useAppContext();
+  const { userHasAuthenticated, setUser } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
   const [fields, handleFieldChange] = useFormFields({
     email: "",
@@ -28,7 +28,8 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      await Auth.signIn(fields.email, fields.password);
+      const user = await Auth.signIn(fields.email, fields.password);
+      setUser(user);
       userHasAuthenticated(true);
       history.push("/");
     } catch (e) {

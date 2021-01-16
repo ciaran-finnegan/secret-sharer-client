@@ -14,6 +14,7 @@ function App() {
   const history = useHistory();
   const [showNavigation, setShowNavigation] = useState(false);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const currentPathname =
     history && history.location && history.location.pathname;
@@ -26,7 +27,9 @@ function App() {
 
   async function onLoad() {
     try {
-      await Auth.currentSession();
+      const authenticatedUser = await Auth.currentAuthenticatedUser();
+      console.log(authenticatedUser);
+      setUser(authenticatedUser);
       userHasAuthenticated(true);
     } catch (e) {
       if (e !== "No current user") {
@@ -41,6 +44,7 @@ function App() {
   async function handleLogout() {
     await Auth.signOut();
 
+    setUser(null);
     userHasAuthenticated(false);
 
     history.push("/login");
@@ -101,7 +105,12 @@ function App() {
         <div className="app-body">
           <ErrorBoundary>
             <AppContext.Provider
-              value={{ isAuthenticated, userHasAuthenticated }}
+              value={{
+                isAuthenticated,
+                userHasAuthenticated,
+                setUser,
+                user,
+              }}
             >
               <Routes />
             </AppContext.Provider>
@@ -109,6 +118,7 @@ function App() {
         </div>
       </div>
       <footer>
+        {JSON.stringify({ user }, null, 2)}
         <p>
           By using Shhh, you agree to our <a href="terms">Terms</a> and{" "}
           <a href="privacy">Privacy Policy</a>.
