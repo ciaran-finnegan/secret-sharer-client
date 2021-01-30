@@ -1,5 +1,9 @@
 **Cloud People LLC Privacy Policy**
 
+**Philosophy**
+
+Our Company is committed to protecting and respecting your privacy. It is our overriding policy to collect as little user information as possible to ensure a private and anonymous user experience when using the Service. Below is a summary of the way we deal with information when you use the Service.
+
 Shhh is owned by Cloud People LLC. This privacy policy will explain how our organization uses the personal data we collect from you when you use our website.
 
 ***Topics:***
