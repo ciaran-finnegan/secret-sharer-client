@@ -3,6 +3,7 @@ import { Auth } from "aws-amplify";
 import { useHistory } from "react-router-dom";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
+import { Link } from "react-router-dom";
 import { useAppContext } from "../libs/contextLib";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
@@ -10,7 +11,7 @@ import "./Login.css";
 
 export default function Login() {
   const history = useHistory();
-  const { userHasAuthenticated } = useAppContext();
+  const { userHasAuthenticated, setUser } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
   const [fields, handleFieldChange] = useFormFields({
     email: "",
@@ -27,7 +28,8 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      await Auth.signIn(fields.email, fields.password);
+      const user = await Auth.signIn(fields.email, fields.password);
+      setUser(user);
       userHasAuthenticated(true);
       history.push("/");
     } catch (e) {
@@ -57,6 +59,7 @@ export default function Login() {
               onChange={handleFieldChange}
             />
           </FormGroup>
+          <Link to="/login/reset">Forgot password?</Link>
           <LoaderButton
             block
             type="submit"

@@ -46,4 +46,10 @@
     background: #000;
     border-color: #000;
   }
+
+  .Login form a {
+    margin-bottom: 15px;
+    display: block;
+    font-size: 14px;
+  }
    

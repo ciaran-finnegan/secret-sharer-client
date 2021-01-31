@@ -14,6 +14,7 @@
 # secret
 .env
 /src/config.js
+ciaran-login
 
 # misc
 .DS_Store

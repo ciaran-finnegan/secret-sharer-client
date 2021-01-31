@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import {
   HelpBlock,
   FormGroup,
@@ -11,7 +11,9 @@ import { useAppContext } from "../libs/contextLib";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import "./Signup.css";
-import { Auth } from "aws-amplify";
+import { Auth, API } from "aws-amplify";
+import { loadStripe } from "@stripe/stripe-js";
+import config from "../config";
 
 export default function Signup() {
   const [fields, handleFieldChange] = useFormFields({
@@ -20,9 +22,9 @@ export default function Signup() {
     confirmPassword: "",
     confirmationCode: "",
   });
-  const history = useHistory();
+  
   const [newUser, setNewUser] = useState(null);
-  const { userHasAuthenticated } = useAppContext();
+  const { userHasAuthenticated, setUser } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
 
   function validateForm() {
@@ -49,9 +51,37 @@ export default function Signup() {
       });
       setIsLoading(false);
       setNewUser(newUser);
+      setUser(newUser);
     } catch (e) {
       onError(e);
       setIsLoading(false);
+    }
+  }
+
+  async function handleCreateCheckoutSession() {
+    const stripe = await loadStripe(config.STRIPE_KEY);
+    const session = await API.post(
+      "secret-sharer",
+      "/create-checkout-session",
+      {
+        body: {
+          redirectURL: config.BASE_URL,
+          subscriptionName: "Business",
+          email: newUser && newUser.user && newUser.user.username, // NOTE: Email stored as username by Cognito.
+        },
+      }
+    );
+
+    // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.sessionId,
+    });
+
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+      onError(result.error.message);
     }
   }
 
@@ -65,7 +95,12 @@ export default function Signup() {
       await Auth.signIn(fields.email, fields.password);
 
       userHasAuthenticated(true);
-      history.push("/");
+      // history.push("/");
+      handleCreateCheckoutSession();
+
+      // const userAttributes = await Auth.userAttributes();
+      // TODO: Check if existing customer on Cognito user.
+      // TODO: If not, create checkout session and redirect.
     } catch (e) {
       onError(e);
       setIsLoading(false);
@@ -96,7 +131,7 @@ export default function Signup() {
             Verify
           </LoaderButton>
         </form>
-      </div>  
+      </div>
     );
   }
 
