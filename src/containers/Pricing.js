@@ -76,7 +76,8 @@ export default function Pricing() {
     // Get Stripe.js instance
 
     console.log("HELLO");
-    const stripe = await stripePromise;
+    // linting error
+    // const stripe = await stripePromise;
 
     const body = {
       subscriptionName: "Enterprise",
