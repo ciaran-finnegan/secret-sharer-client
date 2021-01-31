@@ -118,7 +118,6 @@ function App() {
         </div>
       </div>
       <footer>
-        {JSON.stringify({ user }, null, 2)}
         <p>
           By using Shhh, you agree to our <a href="terms">Terms</a> and{" "}
           <a href="privacy">Privacy Policy</a>.
