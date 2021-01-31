@@ -51,6 +51,8 @@ function App() {
   }
 
   return (
+    // Todo, implement Natitem for support (external link)
+    // See discussion here, https://github.com/ReactTraining/react-router/issues/1147
     <React.Fragment>
       <nav className="app-navigation">
         <div>
