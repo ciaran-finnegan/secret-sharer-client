@@ -42,8 +42,9 @@ export default function NewSecret() {
   // }
 
   if (user) {
+    console.log(`DEBUG: user`)
     console.log({ user });
-    API.get("secret-sharer", "/getSubscriptionStatus", {
+    API.post("secret-sharer", "/getSubscriptionStatus", {
       body: {},
     }).catch((error) => {
       console.dir(error);
