@@ -42,6 +42,34 @@ const stripePromise = loadStripe(config.STRIPE_KEY);
 export default function Pricing() {
   const history = useHistory();
 
+  const handleSignup = async (event, subscriptionName = "Basic") => {
+    // Get Stripe.js instance
+    const stripe = await stripePromise;
+
+    // Call backend to create the Checkout Session
+    const session = await API.post(
+      "secret-sharer",
+      "/create-checkout-session",
+      {
+        body: {
+          subscriptionName,
+        },
+      }
+    );
+
+    // // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.sessionId,
+    });
+
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+      onError(result.error.message);
+    }
+  };
+
   const handleBusinessSignupClick = async (event) => {
     // Get Stripe.js instance
     const stripe = await stripePromise;
@@ -131,6 +159,12 @@ export default function Pricing() {
           <div className="features">
             <ul>
               <li>
+                <i className="fas fa-check" /> <span>1 user</span>
+              </li>
+              <li>
+                <i className="fas fa-check" /> <span>3 secrets per month</span>
+              </li>
+              {/* <li>
                 <i className="fas fa-check" />{" "}
                 <span>Perfect for personal use</span>
               </li>
@@ -141,45 +175,66 @@ export default function Pricing() {
               <li>
                 <i className="fas fa-check" />{" "}
                 <span>Rate limits may apply</span>
-              </li>
+              </li> */}
             </ul>
           </div>
-          <button onClick={() => history.push("/")}>Share a Secret</button>
+          <button onClick={() => history.push("/signup?plan=free")}>
+            Start Sharing
+          </button>
         </div>
         <div className="pricing-table-option featured">
           <header>
-            <h5>Business</h5>
+            <h5>Solo</h5>
           </header>
           <div className="price">
             <h2>
-              $49.99<span>/month</span>
+              $4.99<span>/month</span>
             </h2>
           </div>
           <div className="features">
             <ul>
               <li>
-                <i className="fas fa-check" /> <span>50 users</span>
+                <i className="fas fa-check" /> <span>1 user</span>
               </li>
               <li>
-                <i className="fas fa-check" />{" "}
-                <span>5000 messages per day</span>
+                <i className="fas fa-check" /> <span>10 secrets per month</span>
               </li>
-              <li>
+              {/* <li>
                 <i className="fas fa-check" /> <span>Custom subdomain</span>
-              </li>
+              </li> */}
             </ul>
           </div>
-          <button
-            role="link"
-            onClick={
-              //handleSignupClick("Business")
-              handleBusinessSignupClick
-            }
-          >
-            Sign Up Now
+          <button role="link" onClick={() => history.push("/signup?plan=solo")}>
+            Start Sharing
           </button>
         </div>
-        <div className="pricing-table-option">
+        <div className="pricing-table-option featured">
+          <header>
+            <h5>Pro</h5>
+          </header>
+          <div className="price">
+            <h2>
+              $14.99<span>/month</span>
+            </h2>
+          </div>
+          <div className="features">
+            <ul>
+              <li>
+                <i className="fas fa-check" /> <span>3 users</span>
+              </li>
+              <li>
+                <i className="fas fa-check" /> <span>50 secrets per month</span>
+              </li>
+              {/* <li>
+                <i className="fas fa-check" /> <span>Custom subdomain</span>
+              </li> */}
+            </ul>
+          </div>
+          <button role="link" onClick={() => history.push("/signup?plan=pro")}>
+            Start Sharing
+          </button>
+        </div>
+        {/* <div className="pricing-table-option">
           <header>
             <h5>Enterprise</h5>
           </header>
@@ -199,15 +254,15 @@ export default function Pricing() {
               <li>
                 <i className="fas fa-check" /> <span>Custom domain</span>
               </li>
-              {/* <li>
-                  <i className="fas fa-check" /> <span>Custom subdomain</span>
-                </li> */}
             </ul>
           </div>
-          <button role="link" onClick={handleEnterpriseSignupClick}>
+          <button
+            role="link"
+            onClick={(event) => handleSignup(event, "Enterprise")}
+          >
             Sign Up Now
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="pricing-customizations">
         <header>

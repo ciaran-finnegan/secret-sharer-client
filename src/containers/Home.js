@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import zxcvbn from "zxcvbn";
 import "./Home.css";
 import { useHistory } from "react-router-dom";
+import { API } from "aws-amplify";
 import {
   FormGroup,
   FormControl,
@@ -15,9 +16,9 @@ import { onError } from "../libs/errorLib";
 import { GeneratePassPhrase, Encrypt, CreateHash } from "../libs/cryptoLib";
 import config from "../config";
 import "./NewSecret.css";
-import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
 import setInputHeight from "../libs/setInputHeight";
+import { useAppContext } from "../libs/contextLib";
 // import Modal from './Modal';
 
 export default function NewSecret() {
@@ -25,6 +26,7 @@ export default function NewSecret() {
   const history = useHistory();
   let [secret, setSecret] = useState("");
   const [passphrase, setPassphrase] = useState(GeneratePassPhrase());
+  const { user } = useAppContext();
   const passphraseStrength = zxcvbn(passphrase);
   // const listSuggestions = passphraseStrength.feedback.suggestions.map(
   //   (suggestion) => <li>{suggestion}</li>
@@ -38,6 +40,15 @@ export default function NewSecret() {
   // function closeModal() {
   //   setShowModal(false);
   // }
+
+  if (user) {
+    console.log({ user });
+    API.get("secret-sharer", "/getSubscriptionStatus", {
+      body: {},
+    }).catch((error) => {
+      console.dir(error);
+    });
+  }
 
   function validateForm() {
     return secret.length > 0;
@@ -112,8 +123,21 @@ export default function NewSecret() {
   return (
     <div className="content-frame">
       <form className="new-secret" onSubmit={handleSubmit}>
+        <p className="no-secrets">
+          <i className="fas fa-exclamation-triangle" />
+          <span>
+            You've used all of the secrets for your current plan.{" "}
+            <a href="#">Upgrade now</a> to send more secrets.
+          </span>
+        </p>
         <FormGroup controlId="secret">
-          <ControlLabel>Text to Encrypt</ControlLabel>
+          <header className="text-to-encrypt">
+            <ControlLabel>Text to Encrypt</ControlLabel>
+            <p>
+              <strong>0 Secrets Available</strong> &mdash;{" "}
+              <a href="#">Upgrade Now</a>
+            </p>
+          </header>
           <FormControl
             value={secret}
             componentClass="textarea"
