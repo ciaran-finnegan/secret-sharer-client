@@ -1,7 +1,7 @@
 const dev = {
   STRIPE_KEY:
     "pk_test_51Hf3JqChF6zaLrtnLAm28IoGk0A7wlQQ08U1ePJVqBTRn0wz8qNZbUMeAP5aqaQABAaEi8mQKhWOjliuK9YFJyKy006OiezpYL",
-  BASE_URL: "http://localhost:3000",
+    BASE_URL: "https://develop.shhh.link",
   s3: {
     REGION: "ap-southeast-2",
     BUCKET: "secret-sharer-uploads",
