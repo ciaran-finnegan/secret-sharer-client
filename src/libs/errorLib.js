@@ -38,5 +38,5 @@ export function onError(error) {
 
   logError(error, errorInfo);
 
-  console.log(`DEBUG: Error Message ${message}`);
+  console.log(`DEBUG: Error Message from ${message}`);
 }

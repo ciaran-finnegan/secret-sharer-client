@@ -28,11 +28,11 @@ function App() {
   async function onLoad() {
     try {
       const authenticatedUser = await Auth.currentAuthenticatedUser();
-      console.log(authenticatedUser);
       setUser(authenticatedUser);
       userHasAuthenticated(true);
     } catch (e) {
       if (e !== "No current user") {
+        console.log(`DEBUG:: No current user: ${e}`);
         onError(e);
       }
     }
