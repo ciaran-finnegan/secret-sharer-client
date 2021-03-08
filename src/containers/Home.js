@@ -128,7 +128,7 @@ export default function NewSecret() {
           <i className="fas fa-exclamation-triangle" />
           <span>
             You've used all of the secrets for your current plan.{" "}
-            <a href="#">Upgrade now</a> to send more secrets.
+            <a href="/pricing">Upgrade now</a> to send more secrets.
           </span>
         </p>
         <FormGroup controlId="secret">
@@ -136,7 +136,7 @@ export default function NewSecret() {
             <ControlLabel>Text to Encrypt</ControlLabel>
             <p>
               <strong>0 Secrets Available</strong> &mdash;{" "}
-              <a href="#">Upgrade Now</a>
+              <a href="/pricing">Upgrade Now</a>
             </p>
           </header>
           <FormControl

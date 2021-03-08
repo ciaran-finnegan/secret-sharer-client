@@ -39,9 +39,11 @@ const stripePromise = loadStripe(config.STRIPE_KEY);
 //   }
 // }
 
+
 export default function Pricing() {
   const history = useHistory();
 
+  // eslint-disable-next-line 
   const handleSignup = async (event, subscriptionName = "Basic") => {
     // Get Stripe.js instance
     const stripe = await stripePromise;
@@ -70,6 +72,7 @@ export default function Pricing() {
     }
   };
 
+  // eslint-disable-next-line 
   const handleBusinessSignupClick = async (event) => {
     // Get Stripe.js instance
     const stripe = await stripePromise;
@@ -100,6 +103,7 @@ export default function Pricing() {
     }
   };
 
+  // eslint-disable-next-line 
   const handleEnterpriseSignupClick = async (event) => {
     // Get Stripe.js instance
 
