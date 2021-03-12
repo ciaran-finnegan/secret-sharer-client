@@ -33,7 +33,7 @@ function App() {
       userHasAuthenticated(true);
     } catch (e) {
       if (e !== "No current user") {
-        console.log(`DEBUG:: No current user: ${e}`);
+        console.log(`DEBUG:: App.js No current user, won't call /getSubscriptionStatus: ${e}`);
         onError(e);
       }
     }

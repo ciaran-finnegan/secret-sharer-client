@@ -1,3 +1,9 @@
+const dotenv = require("dotenv")
+
+dotenv.config({ 
+  path: ".env/.env",
+});
+
 const dev = {
   STRIPE_KEY:
     "pk_test_51Hf3JqChF6zaLrtnLAm28IoGk0A7wlQQ08U1ePJVqBTRn0wz8qNZbUMeAP5aqaQABAaEi8mQKhWOjliuK9YFJyKy006OiezpYL",
@@ -28,7 +34,7 @@ const prod = {
   },
   apiGateway: {
     REGION: "ap-southeast-2",
-    URL: "https://ryqb0azfd7.execute-api.ap-southeast-2.amazonaws.com/dev",
+    URL: "https://qnsed5flsh.execute-api.ap-southeast-2.amazonaws.com/prod",
   },
   cognito: {
     REGION: "ap-southeast-2",

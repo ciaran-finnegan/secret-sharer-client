@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // import ReactDOM from 'react-dom';
 import zxcvbn from "zxcvbn";
+// import { Auth } from "aws-amplify";
 import "./Home.css";
 import { useHistory } from "react-router-dom";
 import { API } from "aws-amplify";
@@ -18,15 +19,18 @@ import config from "../config";
 import "./NewSecret.css";
 import { s3Upload } from "../libs/awsLib";
 import setInputHeight from "../libs/setInputHeight";
-import { useAppContext } from "../libs/contextLib";
+// import { useAppContext } from "../libs/contextLib";
 // import Modal from './Modal';
 
 export default function NewSecret() {
   const file = useRef(null);
   const history = useHistory();
   let [secret, setSecret] = useState("");
+  // eslint-disable-next-line 
+  const [isAuthenticated, userHasAuthenticated] = useState(false);
+  // const [user, setUser] = useState(null);
   const [passphrase, setPassphrase] = useState(GeneratePassPhrase());
-  const { user } = useAppContext();
+  // const { user } = useAppContext();
   const passphraseStrength = zxcvbn(passphrase);
   // const listSuggestions = passphraseStrength.feedback.suggestions.map(
   //   (suggestion) => <li>{suggestion}</li>
@@ -41,15 +45,23 @@ export default function NewSecret() {
   //   setShowModal(false);
   // }
 
-  if (user) {
-    console.log(`DEBUG: user`)
-    console.log({ user });
-    API.post("secret-sharer", "/getSubscriptionStatus", {
-      body: {},
-    }).catch((error) => {
-      console.dir(error);
-    });
-  }
+
+  // TO FIX - this isn't working - Ciaran 8th March 2021
+  // if (isAuthenticated) {
+   if (true) {
+     console.log(`DEBUG: isAuthenticated ${isAuthenticated}`);
+
+     API.post("secret-sharer", "/getSubscriptionStatus", {
+       body: {},
+     }).catch((error) => {
+      console.log(`DEBUG: Home.js Error calling /getSubscriptionStatus API`);
+      console.log(error);
+     });
+   }
+   else {
+    console.log(`DEBUG: isAuthenticated ${isAuthenticated}`);
+    console.log('DEBUG: did not call /getSubscriptionStatus')
+   }
 
   function validateForm() {
     return secret.length > 0;

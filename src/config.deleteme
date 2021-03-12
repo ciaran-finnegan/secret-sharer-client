@@ -1,0 +1,73 @@
+const dotenv = require("dotenv");
+
+// dotenv does not accept relative paths
+console.log(__dirname);
+console.log(__dirname + `.env/.env`);
+// dotenv.config({ 
+//   path: `../env/.env`,
+// });
+
+
+const result = dotenv.config();
+
+console.log(result);
+// if (result.error) {
+//   throw result.error
+// }
+ 
+console.log(result.parsed)
+
+console.log(process.env);
+console.log(process.env.DEV_STRIPE_SECRET_KEY);
+
+const dev = {
+  STRIPE_KEY:
+    process.env.DEV_STRIPE_SECRET_KEY,
+    BASE_URL: process.env.DEV_BASE_URL,
+  s3: {
+    REGION: process.env.DEV_AWS_S3_REGION,
+    BUCKET: process.env.DEV_AWS_S3_BUCKET,
+  },
+  apiGateway: {
+    REGION: process.env.DEV_AWS_APIGATEWAY_REGION,
+    URL: process.env.DEV_AWS_APIGATEWAY_URL,
+  },
+  cognito: {
+    REGION: process.env.DEV_COGNITO_REGION,
+    USER_POOL_ID: process.env.DEV_COGNITO_USER_POOL_ID,
+    APP_CLIENT_ID: process.env.DEV_COGNITO_APP_CLIENT_ID,
+    IDENTITY_POOL_ID: process.env.DEV_COGNITO_IDENTITY_POOL_ID,
+  },
+};
+
+const prod = {
+    STRIPE_KEY:
+      process.env.PROD_STRIPE_SECRET_KEY,
+      BASE_URL: process.env.PROD_BASE_URL,
+    s3: {
+      REGION: process.env.PROD_AWS_S3_REGION,
+      BUCKET: process.env.PROD_AWS_S3_BUCKET,
+    },
+    apiGateway: {
+      REGION: process.env.PROD_AWS_APIGATEWAY_REGION,
+      URL: process.env.PROD_AWS_APIGATEWAY_URL,
+    },
+    cognito: {
+      REGION: process.env.PROD_COGNITO_REGION,
+      USER_POOL_ID: process.env.PROD_COGNITO_USER_POOL_ID,
+      APP_CLIENT_ID: process.env.PROD_COGNITO_APP_CLIENT_ID,
+      IDENTITY_POOL_ID: process.env.PROD_COGNITO_IDENTITY_POOL_ID,
+    },
+  };
+
+// Default to dev if not set
+const config = process.env.REACT_APP_STAGE === "prod" ? prod : dev;
+
+console.log({ config });
+
+export default {
+  // Add common config values here
+  MAX_ATTACHMENT_SIZE: 5000000,
+  DEFAULT_EXPIRY: 72,
+  ...config,
+};
