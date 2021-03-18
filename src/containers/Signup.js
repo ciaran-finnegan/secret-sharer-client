@@ -64,7 +64,6 @@ export default function Signup({ history }) {
     const plan = (queryParams && queryParams.plan) || "free";
 
     if (plan !== "free") {
-      console.log({ plan });
       const stripe = await loadStripe(config.STRIPE_KEY);
       const session = await API.post(
         "secret-sharer",
@@ -106,7 +105,11 @@ export default function Signup({ history }) {
       await Auth.signIn(fields.email, fields.password);
 
       userHasAuthenticated(true);
-      // history.push("/");
+
+      await API.post("secret-sharer", "/create-stripe-customer", {
+        body: {},
+      });
+
       handleCreateCheckoutSession();
 
       // const userAttributes = await Auth.userAttributes();

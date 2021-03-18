@@ -19,14 +19,17 @@ import config from "../config";
 import "./NewSecret.css";
 import { s3Upload } from "../libs/awsLib";
 import setInputHeight from "../libs/setInputHeight";
+import stripeBillingPortalSession from "../libs/stripeBillingPortalSession";
+
 // import { useAppContext } from "../libs/contextLib";
 // import Modal from './Modal';
 
 export default function NewSecret() {
   const file = useRef(null);
   const history = useHistory();
+  const [secretsAvailable, setSecretsAvailable] = useState(9999);
   let [secret, setSecret] = useState("");
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const [isAuthenticated, userHasAuthenticated] = useState(false);
   // const [user, setUser] = useState(null);
   const [passphrase, setPassphrase] = useState(GeneratePassPhrase());
@@ -45,23 +48,26 @@ export default function NewSecret() {
   //   setShowModal(false);
   // }
 
-
   // TO FIX - this isn't working - Ciaran 8th March 2021
   // if (isAuthenticated) {
-   if (true) {
-     console.log(`DEBUG: isAuthenticated ${isAuthenticated}`);
-
-     API.post("secret-sharer", "/getSubscriptionStatus", {
-       body: {},
-     }).catch((error) => {
-      console.log(`DEBUG: Home.js Error calling /getSubscriptionStatus API`);
-      console.log(error);
-     });
-   }
-   else {
+  if (true) {
     console.log(`DEBUG: isAuthenticated ${isAuthenticated}`);
-    console.log('DEBUG: did not call /getSubscriptionStatus')
-   }
+
+    API.post("secret-sharer", "/getSubscriptionStatus", {
+      body: {},
+    })
+      .then((response) => {
+        setSecretsAvailable(response.secretsAvailable);
+        console.log({ response });
+      })
+      .catch((error) => {
+        console.log(`DEBUG: Home.js Error calling /getSubscriptionStatus API`);
+        console.log(error);
+      });
+  } else {
+    console.log(`DEBUG: isAuthenticated ${isAuthenticated}`);
+    console.log("DEBUG: did not call /getSubscriptionStatus");
+  }
 
   function validateForm() {
     return secret.length > 0;
@@ -136,22 +142,34 @@ export default function NewSecret() {
   return (
     <div className="content-frame">
       <form className="new-secret" onSubmit={handleSubmit}>
-        <p className="no-secrets">
-          <i className="fas fa-exclamation-triangle" />
-          <span>
-            You've used all of the secrets for your current plan.{" "}
-            <a href="/pricing">Upgrade now</a> to send more secrets.
-          </span>
-        </p>
+        {secretsAvailable === 0 && (
+          <div className="no-secrets">
+            <p className="no-secrets-warning">
+              <i className="fas fa-exclamation-triangle" />
+              <span>
+                You've used all of the secrets for your current plan.{" "}
+                <strong>Upgrade your plan to send more secrets</strong>.
+              </span>
+            </p>
+            <Button
+              bsStyle="success"
+              block
+              onClick={() => stripeBillingPortalSession()}
+            >
+              Upgrade Now
+            </Button>
+          </div>
+        )}
         <FormGroup controlId="secret">
           <header className="text-to-encrypt">
             <ControlLabel>Text to Encrypt</ControlLabel>
-            <p>
+            {/* <p>
               <strong>0 Secrets Available</strong> &mdash;{" "}
               <a href="/pricing">Upgrade Now</a>
-            </p>
+            </p> */}
           </header>
           <FormControl
+            disabled={secretsAvailable === 0}
             value={secret}
             componentClass="textarea"
             placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
@@ -166,6 +184,7 @@ export default function NewSecret() {
             Passphrase <i className="fas fa-lock" />
           </ControlLabel>
           <FormControl
+            disabled={secretsAvailable === 0}
             value={passphrase}
             type="text"
             placeholder="Enter a complex passphrase with at least 10 characters"
@@ -195,30 +214,35 @@ export default function NewSecret() {
           <ControlLabel>Expires in</ControlLabel>
           <ButtonGroup className="clearfix">
             <Button
+              disabled={secretsAvailable === 0}
               bsStyle={expiry === "1" ? "success" : "default"}
               onClick={() => setExpiry("1")}
             >
               1 Hour
             </Button>
             <Button
+              disabled={secretsAvailable === 0}
               bsStyle={expiry === "12" ? "warning" : "default"}
               onClick={() => setExpiry("12")}
             >
               12 Hours
             </Button>
             <Button
+              disabled={secretsAvailable === 0}
               bsStyle={expiry === "24" ? "warning" : "default"}
               onClick={() => setExpiry("24")}
             >
               1 Day
             </Button>
             <Button
+              disabled={secretsAvailable === 0}
               bsStyle={expiry === "48" ? "danger" : "default"}
               onClick={() => setExpiry("48")}
             >
               2 Days
             </Button>
             <Button
+              disabled={secretsAvailable === 0}
               bsStyle={expiry === "72" ? "danger" : "default"}
               onClick={() => setExpiry("72")}
             >
@@ -228,6 +252,7 @@ export default function NewSecret() {
         </FormGroup>
         <LoaderButton
           block
+          disabled={secretsAvailable === 0}
           type="submit"
           bsSize="large"
           bsStyle="primary"

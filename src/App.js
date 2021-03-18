@@ -5,7 +5,7 @@ import { NavItem } from "react-bootstrap";
 import "./App.css";
 import Routes from "./Routes";
 import { AppContext } from "./libs/contextLib";
-import { Auth } from "aws-amplify";
+import { API, Auth } from "aws-amplify";
 import { useHistory } from "react-router-dom";
 import { onError } from "./libs/errorLib";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -14,6 +14,7 @@ function App() {
   const history = useHistory();
   const [showNavigation, setShowNavigation] = useState(false);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const [subscriptionStatus, setSubscriptionStatus] = useState(9999);
   const [user, setUser] = useState(null);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const currentPathname =
@@ -28,12 +29,31 @@ function App() {
   async function onLoad() {
     try {
       const authenticatedUser = await Auth.currentAuthenticatedUser();
-      console.log(authenticatedUser);
+
       setUser(authenticatedUser);
       userHasAuthenticated(true);
+
+      if (authenticatedUser) {
+        API.post("secret-sharer", "/getSubscriptionStatus", {
+          body: {},
+        })
+          .then((response) => {
+            if (response) {
+              setSubscriptionStatus(response);
+            }
+          })
+          .catch((error) => {
+            console.log(
+              `DEBUG: Home.js Error calling /getSubscriptionStatus API`
+            );
+            console.log(error);
+          });
+      }
     } catch (e) {
       if (e !== "No current user") {
-        console.log(`DEBUG:: App.js No current user, won't call /getSubscriptionStatus: ${e}`);
+        console.log(
+          `DEBUG:: App.js No current user, won't call /getSubscriptionStatus: ${e}`
+        );
         onError(e);
       }
     }
@@ -109,6 +129,7 @@ function App() {
           <ErrorBoundary>
             <AppContext.Provider
               value={{
+                subscriptionStatus,
                 isAuthenticated,
                 userHasAuthenticated,
                 setUser,

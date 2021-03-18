@@ -5,6 +5,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { API } from "aws-amplify";
 import { useHistory } from "react-router-dom";
 import { onError } from "../libs/errorLib";
+import { useAppContext } from "../libs/contextLib";
 
 // Use the Stripe public key
 const stripePromise = loadStripe(config.STRIPE_KEY);
@@ -39,11 +40,25 @@ const stripePromise = loadStripe(config.STRIPE_KEY);
 //   }
 // }
 
-
 export default function Pricing() {
   const history = useHistory();
+  const { subscriptionStatus } = useAppContext();
+  const currentPlanName = subscriptionStatus && subscriptionStatus.currentPlan;
+  const plans = subscriptionStatus && subscriptionStatus.plans;
+  const currentPlan =
+    plans && plans.find(({ name }) => name === currentPlanName);
+  const soloButtonLabel =
+    currentPlan && currentPlan.order < 1 ? "Upgrade" : "Downgrade";
 
-  // eslint-disable-next-line 
+  console.log({ currentPlan });
+
+  // plans: [
+  //   { order: 0, name: "free" },
+  //   { order: 1, name: "solo" },
+  //   { order: 2, name: "pro" },
+  // ],
+
+  // eslint-disable-next-line
   const handleSignup = async (event, subscriptionName = "Basic") => {
     // Get Stripe.js instance
     const stripe = await stripePromise;
@@ -72,7 +87,7 @@ export default function Pricing() {
     }
   };
 
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const handleBusinessSignupClick = async (event) => {
     // Get Stripe.js instance
     const stripe = await stripePromise;
@@ -103,7 +118,7 @@ export default function Pricing() {
     }
   };
 
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const handleEnterpriseSignupClick = async (event) => {
     // Get Stripe.js instance
 
@@ -182,8 +197,18 @@ export default function Pricing() {
               </li> */}
             </ul>
           </div>
-          <button onClick={() => history.push("/signup?plan=free")}>
-            Start Sharing
+          {console.log({ currentPlanName })}
+          <button
+            disabled={currentPlanName && currentPlanName === "free"}
+            onClick={() => history.push("/signup?plan=free")}
+          >
+            {currentPlanName ? (
+              <span>
+                {currentPlanName === "free" ? "Current Plan" : "Downgrade"}
+              </span>
+            ) : (
+              <span>Start Sharing</span>
+            )}
           </button>
         </div>
         <div className="pricing-table-option featured">
@@ -208,8 +233,18 @@ export default function Pricing() {
               </li> */}
             </ul>
           </div>
-          <button role="link" onClick={() => history.push("/signup?plan=solo")}>
-            Start Sharing
+          <button
+            disabled={currentPlanName && currentPlanName === "solo"}
+            role="link"
+            onClick={() => history.push("/signup?plan=solo")}
+          >
+            {currentPlanName ? (
+              <span>
+                {currentPlanName === "solo" ? "Current Plan" : soloButtonLabel}
+              </span>
+            ) : (
+              <span>Start Sharing</span>
+            )}
           </button>
         </div>
         <div className="pricing-table-option featured">
@@ -234,8 +269,18 @@ export default function Pricing() {
               </li> */}
             </ul>
           </div>
-          <button role="link" onClick={() => history.push("/signup?plan=pro")}>
-            Start Sharing
+          <button
+            disabled={currentPlanName && currentPlanName === "pro"}
+            role="link"
+            onClick={() => history.push("/signup?plan=pro")}
+          >
+            {currentPlanName ? (
+              <span>
+                {currentPlanName === "pro" ? "Current Plan" : "Upgrade"}
+              </span>
+            ) : (
+              <span>Start Sharing</span>
+            )}
           </button>
         </div>
         {/* <div className="pricing-table-option">

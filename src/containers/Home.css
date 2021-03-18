@@ -87,14 +87,23 @@
 }
 
 .no-secrets {
+  margin-bottom: 40px;
+}
+
+.no-secrets-warning {
   display: flex;
   align-items: center;
   background: #fff8c4;
   padding: 20px;
-  margin-bottom: 40px;
   font-size: 16px;
   line-height: 24px;
   color: #75680c;
+}
+
+.no-secrets .btn {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 15px 20px;
 }
 
 .no-secrets a {
