@@ -63,35 +63,31 @@ export default function Signup({ history }) {
     const queryParams = queryString.parse(window.location.search);
     const plan = (queryParams && queryParams.plan) || "free";
 
-    if (plan !== "free") {
-      const stripe = await loadStripe(config.STRIPE_KEY);
-      const session = await API.post(
-        "secret-sharer",
-        "/create-checkout-session",
-        {
-          body: {
-            redirectURL: config.BASE_URL,
-            subscriptionName: plan,
-            email: newUser && newUser.user && newUser.user.username, // NOTE: Email stored as username by Cognito.
-          },
-        }
-      );
-
-      console.log(session);
-
-      // When the customer clicks on the button, redirect them to Checkout.
-      const result = await stripe.redirectToCheckout({
-        sessionId: session.sessionId,
-      });
-
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer
-        // using `result.error.message`.
-        onError(result.error.message);
+    const stripe = await loadStripe(config.STRIPE_KEY);
+    const session = await API.post(
+      "secret-sharer",
+      "/create-checkout-session",
+      {
+        body: {
+          redirectURL: config.BASE_URL,
+          subscriptionName: plan,
+          email: newUser && newUser.user && newUser.user.username, // NOTE: Email stored as username by Cognito.
+        },
       }
-    } else {
-      history.push("/"); // TODO: How to handle this path for public?
+    );
+
+    console.log(session);
+
+    // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.sessionId,
+    });
+
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+      onError(result.error.message);
     }
   }
 

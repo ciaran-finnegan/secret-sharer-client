@@ -57,7 +57,10 @@ export default function NewSecret() {
       body: {},
     })
       .then((response) => {
-        setSecretsAvailable(response.secretsAvailable);
+        if (response && response.secretsAvailable) {
+          setSecretsAvailable(response.secretsAvailable);
+        }
+
         console.log({ response });
       })
       .catch((error) => {
