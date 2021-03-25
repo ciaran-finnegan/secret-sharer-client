@@ -59,7 +59,7 @@ export default function Pricing() {
   // ],
 
   // eslint-disable-next-line
-  const handleSignup = async (event, subscriptionName = "Basic") => {
+  const handleSoloSignup = async (event, subscriptionName = "solo") => {
     // Get Stripe.js instance
     const stripe = await stripePromise;
 
@@ -236,7 +236,9 @@ export default function Pricing() {
           <button
             disabled={currentPlanName && currentPlanName === "solo"}
             role="link"
-            onClick={() => history.push("/signup?plan=solo")}
+            // temporarily changed by Ciaran to create a new user to troubleshoot issue with empty users table
+            onClick={() => history.push("/signup?plan=solo")} 
+            // onClick={() => handleSoloSignup}
           >
             {currentPlanName ? (
               <span>

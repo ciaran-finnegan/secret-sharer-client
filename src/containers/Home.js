@@ -71,10 +71,11 @@ export default function NewSecret() {
     console.log(`DEBUG: isAuthenticated ${isAuthenticated}`);
     console.log("DEBUG: did not call /getSubscriptionStatus");
   }
-
+// eslint-disable-next-line
   function validateForm() {
     return secret.length > 0;
   }
+
 
   // function handleFileChange(event) {
   //   file.current = event.target.files[0];
@@ -145,7 +146,7 @@ export default function NewSecret() {
   return (
     <div className="content-frame">
       <form className="new-secret" onSubmit={handleSubmit}>
-        {secretsAvailable === 0 && (
+        {secretsAvailable <=0 && (
           <div className="no-secrets">
             <p className="no-secrets-warning">
               <i className="fas fa-exclamation-triangle" />
@@ -172,7 +173,7 @@ export default function NewSecret() {
             </p> */}
           </header>
           <FormControl
-            disabled={secretsAvailable === 0}
+            disabled={secretsAvailable <=0}
             value={secret}
             componentClass="textarea"
             placeholder="Enter data to be encrypted here. We don't store your data or your passphrase"
@@ -187,7 +188,7 @@ export default function NewSecret() {
             Passphrase <i className="fas fa-lock" />
           </ControlLabel>
           <FormControl
-            disabled={secretsAvailable === 0}
+            disabled={secretsAvailable <= 0}
             value={passphrase}
             type="text"
             placeholder="Enter a complex passphrase with at least 10 characters"
@@ -217,35 +218,35 @@ export default function NewSecret() {
           <ControlLabel>Expires in</ControlLabel>
           <ButtonGroup className="clearfix">
             <Button
-              disabled={secretsAvailable === 0}
+              disabled={secretsAvailable <= 0}
               bsStyle={expiry === "1" ? "success" : "default"}
               onClick={() => setExpiry("1")}
             >
               1 Hour
             </Button>
             <Button
-              disabled={secretsAvailable === 0}
+              disabled={secretsAvailable <=0}
               bsStyle={expiry === "12" ? "warning" : "default"}
               onClick={() => setExpiry("12")}
             >
               12 Hours
             </Button>
             <Button
-              disabled={secretsAvailable === 0}
+              disabled={secretsAvailable <= 0}
               bsStyle={expiry === "24" ? "warning" : "default"}
               onClick={() => setExpiry("24")}
             >
               1 Day
             </Button>
             <Button
-              disabled={secretsAvailable === 0}
+              disabled={secretsAvailable <=0}
               bsStyle={expiry === "48" ? "danger" : "default"}
               onClick={() => setExpiry("48")}
             >
               2 Days
             </Button>
             <Button
-              disabled={secretsAvailable === 0}
+              disabled={secretsAvailable <= 0}
               bsStyle={expiry === "72" ? "danger" : "default"}
               onClick={() => setExpiry("72")}
             >
@@ -255,12 +256,13 @@ export default function NewSecret() {
         </FormGroup>
         <LoaderButton
           block
-          disabled={secretsAvailable === 0}
+          disabled={secretsAvailable <= 0}
+          // TODO // {secretsAvailable <= 0 || disabled={!validateForm()} - why no workie?
           type="submit"
           bsSize="large"
           bsStyle="primary"
           isLoading={isLoading}
-          disabled={!validateForm()}
+          
         >
           Encrypt Text
         </LoaderButton>
