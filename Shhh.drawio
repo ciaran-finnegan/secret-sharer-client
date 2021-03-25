@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-25T05:24:42.739Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15" etag="ig6GGsstMhthxejqkUCv" version="14.5.1" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2021-03-25T14:46:35.385Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15" etag="UTPiAdUNKLoKur7M1zhh" version="14.5.1" type="github" pages="5">
   <diagram id="Hv6Z0Z-jgz0hXXmfDjHY" name="Application Architecture">
     <mxGraphModel dx="929" dy="1617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -112,33 +112,36 @@
     </mxGraphModel>
   </diagram>
   <diagram id="NxciisnmmN84hfSMXkzs" name="CICD">
-    <mxGraphModel dx="929" dy="517" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1169" dy="517" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="5weoIt8CV3_sYMo1khrZ-0" />
         <mxCell id="5weoIt8CV3_sYMo1khrZ-1" parent="5weoIt8CV3_sYMo1khrZ-0" />
         <mxCell id="gUvDCBEUuUBYy2Yh0ItH-0" value="&lt;h4&gt;Seed.run&lt;/h4&gt;&lt;div&gt;pipeline: development&amp;nbsp;&lt;/div&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://ryqb0azfd7.execute-api.ap-southeast-2.amazonaws.com/dev&quot; style=&quot;box-sizing: border-box ; color: rgb(46 , 45 , 51) ; text-decoration: none ; transition: 0.3s ; font-family: &amp;#34;rubik&amp;#34; , sans-serif ; text-align: left&quot;&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;ryqb0azfd7.execute-api.ap-southeast-2.amazonaws.com/dev&lt;/font&gt;&lt;/a&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;pipeline: production (manual deploy)&lt;/div&gt;&lt;div&gt;qnsed5flsh.execute-api.ap-southeast-2.amazonaws.com/prod&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
-          <mxGeometry x="320" y="320" width="520" height="200" as="geometry" />
+          <mxGeometry x="320" y="400" width="400" height="160" as="geometry" />
         </mxCell>
         <mxCell id="gUvDCBEUuUBYy2Yh0ItH-1" value="&lt;h4&gt;GitHub&lt;/h4&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
-          <mxGeometry x="40" y="120" width="240" height="440" as="geometry" />
+          <mxGeometry x="40" y="160" width="240" height="400" as="geometry" />
         </mxCell>
-        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-2" value="&lt;h4&gt;Secret-Sharer-Client Repo&lt;/h4&gt;&lt;div&gt;branch: master&lt;/div&gt;&lt;div&gt;branch: dev-branch&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-2" value="&lt;h4&gt;Secret-Sharer-Client Repo&lt;/h4&gt;&lt;div&gt;branch: master&lt;/div&gt;&lt;div&gt;branch: develop&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
           <mxGeometry x="80" y="200" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-3" value="&lt;h4&gt;Secret-Sharer-Server Repo&lt;/h4&gt;&lt;div&gt;branch: master&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-3" value="&lt;h4&gt;Secret-Sharer-Server Repo&lt;/h4&gt;&lt;div&gt;branch: master&lt;/div&gt;&lt;div&gt;branch: develop&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
           <mxGeometry x="80" y="320" width="160" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-4" value="&lt;h4&gt;Netlify&lt;/h4&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;https://master--secret-sharer.netlify.app&lt;br&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;https:/dev-branch--secret-sharer.netlify.app&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
-          <mxGeometry x="320" y="200" width="520" height="80" as="geometry" />
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-4" value="&lt;h4&gt;Netlify&lt;/h4&gt;https://master--secret-sharer.netlify.app&lt;br&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;https:/develop-branch--secret-sharer.netlify.app&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;align=center;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
+          <mxGeometry x="320" y="280" width="400" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-7" value="&lt;h4&gt;Cloudflare&lt;/h4&gt;&lt;div&gt;CNAME&lt;/div&gt;&lt;div&gt;shhh.link&lt;/div&gt;master--secret-sharer.netlify.app&lt;div&gt;&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
-          <mxGeometry x="590" y="80" width="250" height="80" as="geometry" />
+        <mxCell id="gUvDCBEUuUBYy2Yh0ItH-7" value="&lt;h4&gt;Cloudflare&lt;/h4&gt;CNAME: shhh.link master--secret-sharer.netlify.app&lt;div&gt;&amp;nbsp;CNAME: develop.shhh.link develop-branch--secret-sharer.netlify.app&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;" parent="5weoIt8CV3_sYMo1khrZ-1" vertex="1">
+          <mxGeometry x="320" y="160" width="400" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IdxI-2eN1-50pj2KSYlP-0" value="&lt;h4 style=&quot;color: rgb(0 , 0 , 0) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 12px ; font-style: normal ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; text-decoration: none&quot;&gt;Github&lt;/h4&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="5weoIt8CV3_sYMo1khrZ-1">
+          <mxGeometry x="130" y="150" width="80" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="8XQlMVYwTLiwBFjd8v2O" name="Mgmt &amp; Reporting">
-    <mxGraphModel dx="929" dy="517" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1169" dy="517" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="kYcK-3j_SrmOTwIYCgRn-0" />
         <mxCell id="kYcK-3j_SrmOTwIYCgRn-1" parent="kYcK-3j_SrmOTwIYCgRn-0" />
@@ -167,7 +170,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ktrm1AF7MMYaVzFN94N8" name="References">
-    <mxGraphModel dx="929" dy="517" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1169" dy="517" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="GUHfuzDCQo2xxeLJagS3-0" />
         <mxCell id="GUHfuzDCQo2xxeLJagS3-1" parent="GUHfuzDCQo2xxeLJagS3-0" />
