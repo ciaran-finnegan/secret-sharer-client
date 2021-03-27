@@ -1,4 +1,6 @@
 import * as Sentry from "@sentry/browser";
+import pong from "./pong";
+import "./Pong.css";
 
 const isLocal = process.env.NODE_ENV === "development";
 
@@ -38,5 +40,7 @@ export function onError(error) {
 
   logError(error, errorInfo);
 
-  alert(message);
+  //alert(message);
+  console.log(`DEBUG:: Calling pong.danger.${message}`);
+  pong.danger(message);
 }
