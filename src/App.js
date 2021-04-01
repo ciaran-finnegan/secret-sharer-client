@@ -77,9 +77,9 @@ function App() {
     <React.Fragment>
       <nav className="app-navigation">
         <div>
-          <h1 className="logo" onClick={() => history.push("/")}>
-            Shhh
-          </h1>
+          <div className="logo" onClick={() => history.push("/")}>
+            <img src="/vanish-logo.svg" alt="Vanish" />
+          </div>
           <i
             className="fas fa-bars"
             onClick={() => setShowNavigation(!showNavigation)}
@@ -118,28 +118,26 @@ function App() {
         </div>
       </nav>
       <div className={`app-page ${isHomePage ? "is-home" : ""}`}>
-        {currentPathname === "/" && (
+        {/* {currentPathname === "/" && (
           <header className="masthead">
             <h1>
               Share confidential information securely with expiring links.
             </h1>
           </header>
-        )}
-        <div className="app-body">
-          <ErrorBoundary>
-            <AppContext.Provider
-              value={{
-                subscriptionStatus,
-                isAuthenticated,
-                userHasAuthenticated,
-                setUser,
-                user,
-              }}
-            >
-              <Routes />
-            </AppContext.Provider>
-          </ErrorBoundary>
-        </div>
+        )} */}
+        <ErrorBoundary>
+          <AppContext.Provider
+            value={{
+              subscriptionStatus,
+              isAuthenticated,
+              userHasAuthenticated,
+              setUser,
+              user,
+            }}
+          >
+            <Routes />
+          </AppContext.Provider>
+        </ErrorBoundary>
       </div>
       <footer>
         <p>
