@@ -11,7 +11,7 @@
 - $49.99 per month, 1 year minimum term
 - 50 users
 - 5000 messages per day
-- Subdomain, yourcompany.shhh.link
+- Subdomain, yourcompany.vanish.link
 
 ## Enterprise
 

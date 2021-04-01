@@ -56,7 +56,7 @@ export default function ShowLink(props) {
         .share({
           url: link,
           text: "",
-          title: "Shhh Link",
+          title: "Vanish Link",
           files: [],
         })
         .then((something, maybe) =>
@@ -78,7 +78,7 @@ export default function ShowLink(props) {
         .share({
           url: "",
           text: `Your passphrase is: ${passphrase}`,
-          title: "Shhh Passphrase",
+          title: "Vanish Passphrase",
           files: [],
         })
         .then((something, maybe) => console.log(something, maybe))
@@ -119,7 +119,7 @@ export default function ShowLink(props) {
   const handleShareViaEmail = () => {
     if (window) {
       window.open(
-        `mailto:?subject=Shhh - you've been sent a secret sharing ${shareMenuItemName}&body=This is your ${shareMenuItemName}: ${shareMenuItem}`
+        `mailto:?subject=Vanish - you've been sent a secret sharing ${shareMenuItemName}&body=This is your ${shareMenuItemName}: ${shareMenuItem}`
       );
       setShowShareMenu(!showShareMenu);
     }

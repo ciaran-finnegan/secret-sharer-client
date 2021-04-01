@@ -159,7 +159,7 @@ export default function Pricing() {
   return (
     <div className="pricing">
       <header>
-        <h1>Shhh.link is free for personal use</h1>
+        <h1>Vanish.link is free for personal use</h1>
         <p>
           {" "}
           Anonymous messages can be sent free of charge. Business and Enterprise

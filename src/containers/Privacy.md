@@ -4,7 +4,7 @@
 
 Our Company is committed to protecting and respecting your privacy. It is our overriding policy to collect as little user information as possible to ensure a private and anonymous user experience when using the Service. Below is a summary of the way we deal with information when you use the Service.
 
-Shhh is owned by Cloud People LLC. This privacy policy will explain how our organization uses the personal data we collect from you when you use our website.
+Vanish is owned by Cloud People LLC. This privacy policy will explain how our organization uses the personal data we collect from you when you use our website.
 
 ***Topics:***
 
@@ -76,7 +76,7 @@ Cloud People LLC would like to make sure you are fully aware of all of your data
 
 **The right to data portability**  – You have the right to request that Cloud People LLC transfer the data that we have collected to another organization, or directly to you, under certain conditions.
 
-If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at our email: data-protection-request@shhh.link
+If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at our email: data-protection-request@vanish.link
 
 
 **Cookies**
@@ -115,7 +115,7 @@ Cloud People LLC keeps its privacy policy under regular review and places any up
 
 If you have any questions about Cloud People LLC&#39;s privacy policy, the data we hold on you, or you would like to exercise one of your data protection rights, please do not hesitate to contact us.
 
-Email us at: privacy@shhh.link
+Email us at: privacy@vanish.link
 
 **How to contact the appropriate authority**
 

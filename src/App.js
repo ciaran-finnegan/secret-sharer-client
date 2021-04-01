@@ -111,7 +111,7 @@ function App() {
                 </LinkContainer>
               </>
             )}
-            <LinkContainer to="/" className="share-secret">
+            <LinkContainer to="/share" className="share-secret">
               <NavItem>Share a Secret</NavItem>
             </LinkContainer>
           </ul>
@@ -141,7 +141,7 @@ function App() {
       </div>
       <footer>
         <p>
-          By using Shhh, you agree to our <a href="terms">Terms</a> and{" "}
+          By using Vanish, you agree to our <a href="terms">Terms</a> and{" "}
           <a href="privacy">Privacy Policy</a>.
         </p>
       </footer>
@@ -154,7 +154,7 @@ function App() {
   //       <Navbar fluid collapseOnSelect>
   //         <Navbar.Header>
   //           <Navbar.Brand>
-  //             <Link to="/">Shhh</Link>
+  //             <Link to="/">Vanish</Link>
   //           </Navbar.Brand>
   //           <Navbar.Toggle />
   //         </Navbar.Header>

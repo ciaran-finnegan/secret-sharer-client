@@ -28,5 +28,5 @@ We use the Advanced Encryption Standard (AES-256), a U.S. Federal Information Pr
 
 Our service is hosted on Amazon Web Services using serverless lambda functions and DynamoDB.
 
-SHHH.link
-Copyright © 2019-2020 [Terms Of Service](https://shhh.link/terms) &amp; [Privacy Policy](https://shhh.link/privacy).
+Vanish.link
+Copyright © 2019-2020 [Terms Of Service](https://vanish.link/terms) &amp; [Privacy Policy](https://vanish.link/privacy).

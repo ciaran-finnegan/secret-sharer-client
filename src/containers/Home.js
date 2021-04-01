@@ -8,10 +8,11 @@ const Home = ({ prop1, prop2 }) => (
     <header>
       <h1>Share confidential information securely with expiring links.</h1>
       <p>
-        Something will go here to make the header look less sparse. A subtitle
-        or explainer.
+        Bad actors often retrieve sensitive data from email archivesstored in email or chat history 
       </p>
-      <button className="button">Get Started</button>
+      <button className="button">
+        Get Started
+        </button>
     </header>
     <section className="product">
       <div>
@@ -41,9 +42,9 @@ const Home = ({ prop1, prop2 }) => (
         </ul>
         <div className="explainer">
           <p>
-            <strong>Vanish never sees your data</strong> and has no way to
-            access it. A single encrypted cypher with no identifying information
-            is all we see.
+            <strong>Vanish never stores your data</strong> and has no way to
+            access it. An encrypted cipher with no identifying information
+            is all we store and this is purged from our systems on retrieval or expiry.
           </p>
         </div>
       </div>
