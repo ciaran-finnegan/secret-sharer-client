@@ -50,7 +50,7 @@ export default function ShareSecret() {
         console.log(error);
       });
   }
-
+  // TODO - Improve form validation
   function validateForm() {
     return secret.length > 0;
   }
@@ -230,12 +230,12 @@ export default function ShareSecret() {
         </FormGroup>
         <LoaderButton
           block
-          disabled={secretsAvailable === 0}
+          disabled={secretsAvailable >= 0 && !validateForm()}
           type="submit"
           bsSize="large"
           bsStyle="primary"
           isLoading={isLoading}
-          disabled={!validateForm()}
+          
         >
           Encrypt Text
         </LoaderButton>
