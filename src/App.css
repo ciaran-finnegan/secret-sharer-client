@@ -28,7 +28,7 @@
 }
 
 .app-navigation {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--black-light);
   position: relative;
   padding: 25px 0;
 }
@@ -40,6 +40,15 @@
   margin: 0 auto;
   width: 90%;
   position: relative;
+}
+
+.app-navigation .logo {
+  width: 145px;
+}
+
+.app-navigation .logo img {
+  max-width: 100%;
+  height: auto;
 }
 
 .app-navigation h1 {
@@ -95,7 +104,6 @@
 
 @media screen and (min-width: 992px) {
   .app-navigation {
-    border-bottom: 1px solid #eee;
     padding: 40px 0;
   }
 
@@ -133,14 +141,19 @@
 
   .app-navigation ul li a {
     font-size: 18px;
-    color: #aaa;
+    color: var(--black-dark);
     font-weight: normal;
   }
 
   .app-navigation ul li.share-secret {
-    background-image: linear-gradient(180deg, #00c9ff 0%, #0099ff 100%);
-    border: 1px solid #029aff;
-    box-shadow: 0 2px 11px 0 rgba(0, 153, 255, 0.35);
+    background: rgb(75, 123, 236);
+    background: linear-gradient(
+      180deg,
+      rgba(75, 123, 236, 1) 0%,
+      rgba(56, 103, 214, 1) 100%
+    );
+    border: 1px solid var(--primary);
+    box-shadow: 0 2px 11px 0 rgba(56, 103, 214, 0.05);
     padding: 15px 20px;
     border-radius: 30px;
     color: #fff;
