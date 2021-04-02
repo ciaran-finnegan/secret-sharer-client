@@ -33,7 +33,7 @@ export default function ShareSecret() {
   // TO FIX - this isn't working - Ciaran 8th March 2021
   // if (isAuthenticated) {
   if (true) {
-    console.log(`DEBUG: isAuthenticated ${isAuthenticated}`);
+    console.log(`DEBUG: useState isAuthenticated is set to ${isAuthenticated}`);
 
     API.post("secret-sharer", "/getSubscriptionStatus", {
       body: {},
