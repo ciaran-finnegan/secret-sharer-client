@@ -47,6 +47,7 @@ function App() {
               `DEBUG: Home.js Error calling /getSubscriptionStatus API`
             );
             console.log(error);
+            onError(error);
           });
       }
     } catch (e) {
@@ -54,7 +55,7 @@ function App() {
         console.log(
           `DEBUG:: App.js No current user, won't call /getSubscriptionStatus: ${e}`
         );
-        onError(e);
+        // onError(e);
       }
     }
 
