@@ -2,10 +2,11 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import LoaderButton from "../components/LoaderButton";
+import authenticatedPage from "../components/AuthenticatedPage";
 import stripeBillingPortalSession from "../libs/stripeBillingPortalSession";
 import "./Settings.css";
 
-export default function Settings() {
+function Settings() {
   return (
     <div className="Settings">
       <LinkContainer to="/settings/email">
@@ -25,3 +26,5 @@ export default function Settings() {
     </div>
   );
 }
+
+export default authenticatedPage(Settings);
