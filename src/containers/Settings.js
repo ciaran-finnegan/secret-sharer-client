@@ -9,6 +9,11 @@ import "./Settings.css";
 function Settings() {
   return (
     <div className="Settings">
+      <LinkContainer to="/settings/team">
+        <LoaderButton block bsSize="large">
+          Manage Team
+        </LoaderButton>
+      </LinkContainer>
       <LinkContainer to="/settings/email">
         <LoaderButton block bsSize="large">
           Change Email

@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.2.1",
     "aws-amplify": "^3.3.23",
     "crypto-js": "^4.0.0",
+    "dayjs": "^1.10.4",
     "query-string": "^6.13.7",
     "react": "^16.13.1",
     "react-bootstrap": "^0.33.1",
