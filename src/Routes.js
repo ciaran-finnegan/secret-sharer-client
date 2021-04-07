@@ -18,6 +18,7 @@ import Pricing from "./containers/Pricing";
 import Contact from "./containers/Contact";
 import Success from "./containers/Success";
 import ShareSecret from "./containers/ShareSecret";
+import Team from "./containers/Team";
 
 export default function Routes() {
   return (
@@ -29,6 +30,7 @@ export default function Routes() {
       <Route exact path="/settings" component={Settings} />
       <Route exact path="/settings/password" component={ChangePassword} />
       <Route exact path="/settings/email" component={ChangeEmail} />
+      <Route exact path="/settings/team" component={Team} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/showlink" component={ShowLink} />
       <Route exact path="/share" component={ShareSecret} />

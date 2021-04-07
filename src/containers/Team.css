@@ -1,0 +1,16 @@
+.Team header {
+  display: flex;
+  border-bottom: 1px solid var(--black-light);
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.Team header button {
+  margin-left: auto;
+}
+
+.Team .blank-state {
+  text-align: center;
+  font-size: 18px;
+  padding: 100px 0;
+}
