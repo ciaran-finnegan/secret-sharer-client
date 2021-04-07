@@ -8,11 +8,16 @@ const InviteTeamMemberModal = ({ className, show, onHide, onSend }) => {
   const [emailAddress, setEmailAddress] = useState("");
   const [role, setRole] = useState("user");
 
+  console.log(`TODO: Retrieve TeamId from getSubscriptionStatus`);
+  const teamId = "9f60262a-9fe2-4e8b-9a96-75e1ee1c030c";
+  console.log(`DEBUG: teamId: ${teamId}`);
+
   const handleSendInvite = (event) => {
     event.preventDefault();
 
-    API.post("secret-sharer", "/sendTeamInvite", {
+    API.post("secret-sharer", "/invites/send", {
       body: {
+        teamId,
         emailAddress,
         role,
       },

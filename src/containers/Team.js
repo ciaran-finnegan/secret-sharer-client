@@ -32,14 +32,19 @@ class Team extends React.Component {
   }
 
   handleFetchInvites = async () => {
-    API.get("secret-sharer", "/getTeamInvites", {
-      body: {},
+    // TODO - Ciaran - update GetSubscriptionStatus to return teamId and teamName
+    // wip - REMOVE ME
+    const teamId ="9f60262a-9fe2-4e8b-9a96-75e1ee1c030c";
+    API.post("secret-sharer", "/invites/get", {
+      body: {
+        "teamId": teamId
+      },
     })
       .then((response) => {
         console.log(response);
         this.setState({
           loading: false,
-          invites: response?.invites || [],
+          invites: response?.items || [],
         });
       })
       .catch((error) => {
