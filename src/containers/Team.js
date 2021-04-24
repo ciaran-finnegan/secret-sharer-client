@@ -34,10 +34,10 @@ class Team extends React.Component {
   handleFetchInvites = async () => {
     // TODO - Ciaran - update GetSubscriptionStatus to return teamId and teamName
     // wip - REMOVE ME
-    const teamId ="9f60262a-9fe2-4e8b-9a96-75e1ee1c030c";
+    const teamId = "9f60262a-9fe2-4e8b-9a96-75e1ee1c030c";
     API.post("secret-sharer", "/invites/get", {
       body: {
-        "teamId": teamId
+        teamId: teamId,
       },
     })
       .then((response) => {
@@ -52,6 +52,28 @@ class Team extends React.Component {
         console.log(error);
         onError(error);
       });
+  };
+
+  handleResendInvite = (event, inviteId = null) => {
+    if (
+      window.confirm("Are you sure? This will resend the invite immediately.")
+    ) {
+      event.preventDefault();
+
+      API.post("secret-sharer", "/invites/resend", {
+        body: {
+          inviteId,
+        },
+      })
+        .then((response) => {
+          window.alert("Invite resent!");
+        })
+        .catch((error) => {
+          console.log(`DEBUG: Home.js Error calling /invites/resend API`);
+          console.log(error);
+          onError(error);
+        });
+    }
   };
 
   render() {
@@ -81,8 +103,6 @@ class Team extends React.Component {
             <table className="table">
               <thead>
                 <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
                   <th>Email Address</th>
                   <th>Role</th>
                   <th>Invited At</th>
@@ -90,29 +110,25 @@ class Team extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {invites.map(
-                  ({
-                    _id,
-                    firstName,
-                    lastName,
-                    emailAddress,
-                    role,
-                    invitedAt,
-                  }) => {
-                    return (
-                      <tr>
-                        <td>{firstName}</td>
-                        <td>{lastName}</td>
-                        <td>{emailAddress}</td>
-                        <td>{role}</td>
-                        <td>{monthDayYearAtTime(invitedAt)}</td>
-                        <td>
-                          <Button bsStyle="primary">Resend</Button>
-                        </td>
-                      </tr>
-                    );
-                  }
-                )}
+                {invites.map(({ id, emailAddress, role, invitedAt }) => {
+                  return (
+                    <tr key={id}>
+                      <td>{emailAddress}</td>
+                      <td>{role}</td>
+                      <td>{monthDayYearAtTime(invitedAt)}</td>
+                      <td>
+                        <Button
+                          bsStyle="primary"
+                          onClick={(event) =>
+                            this.handleResendInvite(event, id)
+                          }
+                        >
+                          Resend
+                        </Button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
