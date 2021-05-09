@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col, Label, FormGroup, Button } from "react-bootstrap";
-import API from "@aws-amplify/api";
+import { Auth, API } from "aws-amplify";
 
 import "./AcceptInvite.css";
 
@@ -17,7 +17,7 @@ class AcceptInvite extends React.Component {
   }
 
   handleFetchInvite = (inviteId = null) => {
-    API.post("secret-sharer", "/invites/accept", {
+    API.post("secret-sharer", "/invites/get", {
       body: {
         inviteId,
       },
@@ -26,22 +26,56 @@ class AcceptInvite extends React.Component {
         console.log(response);
         this.setState({
           loading: false,
+          inviteError: !response?.invite?.id,
           invite: response?.invite,
         });
       })
       .catch((error) => {
-        console.log(`DEBUG: Home.js Error calling /invites/accept API`);
+        console.log(`DEBUG: Home.js Error calling /invites/get API`);
         console.log(error);
       });
   };
 
-  handleAcceptInvite = (inviteId = null) => {};
+  handleAcceptInvite = (inviteId = null, emailAddress = "", password = "") => {
+    Auth.signUp({
+      username: emailAddress,
+      password,
+    }).then((user) => {
+      const userId = user?.userSub;
+      API.post("secret-sharer", "/invites/accept", {
+        body: {
+          inviteId,
+          emailAddress,
+          userId,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          // this.setState({
+          //   loading: false,
+          //   invite: response?.invite,
+          // });
+        })
+        .catch((error) => {
+          console.log(`DEBUG: Home.js Error calling /invites/get API`);
+          console.log(error);
+        });
+    });
+  };
 
   render() {
-    const { loading, invite, password } = this.state;
+    const { loading, invite, password, inviteError } = this.state;
     const { match } = this.props;
 
     if (loading) return <div />;
+
+    if (inviteError) {
+      return (
+        <div className="alert alert-danger">
+          Sorry, this invite is invalid or no longer exists.
+        </div>
+      );
+    }
 
     return (
       <div className="accept-invite">
@@ -77,7 +111,13 @@ class AcceptInvite extends React.Component {
               bsStyle="primary"
               type="button"
               block
-              onClick={() => this.handleAcceptInvite(match?.props?.token)}
+              onClick={() =>
+                this.handleAcceptInvite(
+                  match?.params?.inviteId,
+                  invite?.emailAddress,
+                  password
+                )
+              }
             >
               Accept Invite & Signup
             </Button>

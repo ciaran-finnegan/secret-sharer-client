@@ -32,7 +32,7 @@ export default function Routes() {
       <Route exact path="/settings/password" component={ChangePassword} />
       <Route exact path="/settings/email" component={ChangeEmail} />
       <Route exact path="/settings/team" component={Team} />
-      <Route exact path="/invites/accept" component={AcceptInvite} />
+      <Route exact path="/invites/accept/:inviteId" component={AcceptInvite} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/showlink" component={ShowLink} />
       <Route exact path="/share" component={ShareSecret} />
