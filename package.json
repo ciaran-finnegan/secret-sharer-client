@@ -5,10 +5,10 @@
   "dependencies": {
     "@sentry/browser": "^5.22.3",
     "@stripe/stripe-js": "^1.10.0",
-    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/jest-dom": "^5.1.0",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "aws-amplify": "^3.0.23",
+    "aws-amplify": "^4.2.8",
     "crypto-js": "^4.0.0",
     "query-string": "^6.13.7",
     "react": "^16.13.1",
@@ -18,7 +18,7 @@
     "react-markdown": "^4.3.1",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.3",
+    "react-scripts": "4.0.0",
     "react-stripe-elements": "^6.1.2",
     "react-web-share-api": "0.0.2",
     "zxcvbn": "^4.4.2"
